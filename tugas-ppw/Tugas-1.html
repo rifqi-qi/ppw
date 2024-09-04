@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas-1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Welcome to your Jupyter Book" href="../intro.html" />
+    <link rel="prev" title="Hello !! I’m Rifqi" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -174,7 +174,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to your Jupyter Book
+                    Hello !! I’m Rifqi
                 </a>
             </li>
         </ul>
@@ -410,41 +410,46 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tugas-1-crawling-berita">
 <h1>Tugas 1 : Crawling Berita<a class="headerlink" href="#tugas-1-crawling-berita" title="Link to this heading">#</a></h1>
-<p><strong>Pengertian Crawling</strong></p>
-<p>Crawling adalah proses otomatisasi yang dilakukan oleh program komputer untuk menjelajahi dan mengumpulkan data dari halaman-halaman web di internet. Proses ini sering kali dilakukan oleh bot yang dikenal sebagai web crawlers atau spiders. Web crawlers ini akan menelusuri (crawl) berbagai situs web, mengakses halaman-halaman yang ada, dan mengunduh atau mengekstraksi informasi yang dibutuhkan untuk kemudian disimpan atau diindeks dalam database.</p>
-<p><strong>Fungsi Crawling</strong></p>
+<p><strong>Apa itu crawling ?</strong></p>
+<p>Perayapan data, atau data crawling adalah sebuah proses yang menggali jauh ke dalam world wide web atau target tertentu untuk mengambil data. Perayapan data juga didefinisikan sebagai proses otomatis untuk mengumpulkan dan mengindeks data dari berbagai sumber.</p>
+<p>Aktivitas ini dilakukan oleh bot atau software yang disebut dengan crawler. Data yang diambil dari hasil crawling ini pada umumnya akan dianalisis, dijadikan bahan pengembangan sistem, atau bahkan dijadikan data penelitian tertentu.</p>
+<p>Proses pengambilan data dari proses perayapan ini diawali dengan crawler yang mulai memasuki target yang telah ditentukan. Setelah itu, crawler akan mengambil data-data penting yang dibutuhkan.</p>
+<p>Pada umumnya, data-data yang diambil dari proses ini berupa spesifikasi produk, harga, kategori, dan lain-lain.</p>
+<p><strong>Fungsi Data Crawling</strong></p>
 <ol class="arabic simple">
-<li><p>Mengindeks Halaman Web:</p></li>
+<li><p>Data Statistik</p></li>
 </ol>
-<ul class="simple">
-<li><p>Crawling adalah langkah pertama dalam proses pengindeksan halaman web oleh mesin pencari. Web crawler akan mengunjungi halaman-halaman web, membaca kontennya, dan menyimpannya ke dalam indeks mesin pencari. Ini memungkinkan mesin pencari untuk menemukan dan menampilkan halaman-halaman tersebut dalam hasil pencarian.</p></li>
-</ul>
+<p>Fungsi data crawling yang pertama adalah untuk kebutuhan data statistik. Pada dasarnya, proses perayapan data memang berfungsi untuk mengumpulkan data-data tertentu, termasuk informasi statistik.</p>
+<p>Data statistik yang diperoleh ini nantinya akan digunakan sebagai bahan analisis. Data statistik yang pada umumnya diambil melalui proses crawling adalah data analisis pasar, analisis calon konsumen, dan lain-lain.</p>
 <ol class="arabic simple" start="2">
-<li><p>Pengumpulan Data:</p></li>
+<li><p>Membandingkan Detail Sebuah Produk</p></li>
 </ol>
+<p>Ketika Anda mencari sebuah produk di internet, kemudian berniat untuk membandingkan detail produk tersebut seperti spesifikasi, harga, serta kategorinya, di sinilah perayapan data berperan.</p>
+<p>Dengan bantuan perayapan data, Anda bisa menemukan produk di mesin pencari, seiring dengan preferensi lainnya yang terkait dengan produk tersebut.</p>
+<p><strong>Source</strong></p>
+<p>Pada proses crawling ini sumber data diambil dari  <a class="reference external" href="https://health.detik.com">https://health.detik.com</a>, Detik Health adalah salah satu sub-kanal dari situs berita <a class="reference external" href="http://Detik.com">Detik.com</a> yang khusus membahas topik kesehatan. Detik Health bertujuan untuk menyediakan informasi yang bermanfaat bagi pembaca yang ingin menjaga kesehatan atau mencari solusi atas masalah kesehatan mereka. Data yang diambil diantaranya :</p>
 <ul class="simple">
-<li><p>Crawling memungkinkan pengumpulan data dari berbagai situs web untuk keperluan tertentu, seperti analisis bisnis, riset pasar, atau pengembangan model kecerdasan buatan. Dengan crawling, data dari berbagai sumber bisa dikumpulkan secara otomatis tanpa harus melakukannya secara manual.</p></li>
+<li><p>Judul</p></li>
+<li><p>Isi berita</p></li>
+<li><p>Tanggal</p></li>
+<li><p>Kategori Berita</p></li>
 </ul>
-<ol class="arabic simple" start="3">
-<li><p>Pemantauan Perubahan Konten:</p></li>
-</ol>
-<ul class="simple">
-<li><p>Dengan crawling, perubahan atau pembaruan pada suatu situs web dapat dipantau secara berkala. Ini berguna untuk aplikasi yang memerlukan informasi terbaru, seperti agregator berita, alat pemantau harga, atau layanan notifikasi.</p></li>
-</ul>
-<ol class="arabic simple" start="4">
-<li><p>SEO (Search Engine Optimization):</p></li>
-</ol>
-<ul class="simple">
-<li><p>Bagi pengelola situs web, memahami bagaimana proses crawling bekerja dapat membantu dalam optimasi mesin pencari (SEO). Dengan memastikan bahwa halaman-halaman web mereka mudah di-crawl dan diindeks, mereka bisa meningkatkan kemungkinan situs web mereka muncul di hasil pencarian mesin pencari.</p></li>
-</ul>
+<p>pada tugas crawling berita kali ini hanya mengambil data sampel berita sebanyak 10 artikel</p>
+<p><strong>Proses Crawling</strong></p>
+<p>Dalam proses crawling ini saya menggunakan beberapa library dan diantara library yang penting di import adalah <em>BeautifulSoup</em> yang berfungsi sebagai library crawler</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">time</span>
-
-<span class="c1"># Fungsi untuk mengambil data dari halaman web Detik.com</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi untuk mengambil data dari halaman web Detik.com</span>
 <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">kategori</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -476,9 +481,11 @@ document.write(`
         <span class="n">content_element</span> <span class="o">=</span> <span class="n">article_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;detail__body-text&quot;</span><span class="p">)</span>
         <span class="n">content</span> <span class="o">=</span> <span class="n">content_element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">content_element</span> <span class="k">else</span> <span class="s2">&quot;Content Not Found&quot;</span>
 
+        <span class="c1"># Menambahkan data ke dalam list</span>
         <span class="n">judul</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
         <span class="n">tanggal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
         <span class="n">isi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+        <span class="n">kategori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kategori</span><span class="p">)</span>
 
         <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 1 detik antara permintaan artikel</span>
@@ -491,6 +498,7 @@ document.write(`
 <span class="n">judul</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">tanggal</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">isi</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">kategori_list</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="c1"># Melakukan iterasi untuk setiap url dan kategori</span>
 <span class="k">for</span> <span class="n">base_url</span><span class="p">,</span> <span class="n">category</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">base_urls</span><span class="p">,</span> <span class="n">categories</span><span class="p">):</span>
@@ -505,8 +513,9 @@ document.write(`
 <span class="c1"># Membuat dataframe dari list data</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">&quot;judul&quot;</span><span class="p">:</span> <span class="n">judul</span><span class="p">,</span>
+    <span class="s2">&quot;isi&quot;</span><span class="p">:</span> <span class="n">isi</span><span class="p">,</span>
     <span class="s2">&quot;tanggal&quot;</span><span class="p">:</span> <span class="n">tanggal</span><span class="p">,</span>
-    <span class="s2">&quot;isi&quot;</span><span class="p">:</span> <span class="n">isi</span>
+    <span class="s2">&quot;kategori&quot;</span><span class="p">:</span> <span class="n">kategori_list</span>
 <span class="p">})</span>
 
 <span class="c1"># Menyimpan dataframe ke file CSV</span>
@@ -515,50 +524,34 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Waspadai Penyakit Menular Seksual Gonore, Ini Penyebab dan Gejalanya
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Segini Batas Aman Makan Ceker Agar Tak Picu Kolesterol Tinggi
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warga China Dihantui Penyakit Ganas, Banyak yang Kena Kanker di Usia 20-an
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pemicu Kelahiran Jepang Ngedrop, Termasuk Warga Pilih Menjomblo sampai Tua
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mengalami Gejala Seperti Ini di Kaki? Hati-hati, Bisa Jadi Tanda Kolesterol Tinggi
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Menkes Geram Kasus Perundungan PPDS Undip Ada Unsur Pelecehan Seksual
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nasib Pasien Mpox di DR Kongo, Kekurangan Obat hingga Makanan di RS
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Apakah Obat Statin Cepat Turunkan Kadar Kolesterol? Dokter Bilang Gini
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dokter Tegaskan AMDK Galon Polikarbonat Tak Terbukti Picu Kanker
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sesal IDI soal Viral Dokter Dilarang Pakai Hijab di RS Medistra
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Demi Kesehatan Mental, Jepang Bujuk Warganya Biar Mau Kerja 4 Hari Seminggu
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 Cara Menurunkan Kolesterol Secara Alami, Salah Satunya Kurangi Makan Ini
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Apakah Ceker Ayam Mengandung Kolesterol Tinggi? Begini Faktanya
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ketahui Cara Penularan Mpox dan Pencegahannya dengan Tepat
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eks Direktur WHO Ungkap Alasan Mpox Banyak Terjadi pada Anak-anak
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>15 Negara Terbanyak Konsumsi Mi Instan di Dunia, Indonesia Nomor Berapa?
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sama-sama Berstatus PHEIC, Mungkinkah Mpox Jadi Pandemi Seperti COVID-19?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gawat! Kimchi Terancam &#39;Lenyap&#39; di Korsel Imbas Krisis Iklim
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-9704369cf597&gt;</span> in <span class="ni">&lt;cell line: 55&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> 
-<span class="g g-Whitespace">     </span><span class="mi">60</span>         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">61</span>         <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span> 
-
-<span class="nn">&lt;ipython-input-1-9704369cf597&gt;</span> in <span class="ni">get_data</span><span class="nt">(url, kategori)</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span> 
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">43</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 1 detik antara permintaan artikel</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> 
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="c1"># Membuat list url dan kategori yang akan di-crawl</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Leher-Pundak Kaku Pertanda Kolesterol Tinggi? Dokter Gizi Bilang Gini
 </pre></div>
 </div>
 </div>
@@ -572,7 +565,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1105a7c6-ef89-448f-a89e-660d2f8a915c" class="colab-df-container">
+  <div id="df-f1e265c2-70c3-440e-8ad0-66e89bbab81e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -592,86 +585,97 @@ document.write(`
     <tr style="text-align: right;">
       <th></th>
       <th>judul</th>
-      <th>tanggal</th>
       <th>isi</th>
+      <th>tanggal</th>
+      <th>kategori</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Merinding! Penampakan Cacing Pita di Kaki Pasi...</td>
-      <td>Senin, 02 Sep 2024 14:02 WIB</td>
-      <td>Jakarta - Seorang dokter di unit gawat darurat...</td>
+      <td>Segini Batas Aman Makan Ceker Agar Tak Picu Ko...</td>
+      <td>Jakarta - Ceker ayam kerap dikaitkan dengan ko...</td>
+      <td>Rabu, 04 Sep 2024 11:01 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Kondisi Terkini Istri Ridwan Kamil Pasca Posit...</td>
-      <td>Senin, 02 Sep 2024 13:30 WIB</td>
-      <td>Jakarta - Istri bakal calon gubernur Jakarta R...</td>
+      <td>Pemicu Kelahiran Jepang Ngedrop, Termasuk Warg...</td>
+      <td>Jakarta -\n        \n        Penurunan angka k...</td>
+      <td>Rabu, 04 Sep 2024 10:29 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6 Rekomendasi Makanan Tinggi Serat untuk Menur...</td>
-      <td>Senin, 02 Sep 2024 13:02 WIB</td>
-      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tJenis Maka...</td>
+      <td>Menkes Geram Kasus Perundungan PPDS Undip Ada ...</td>
+      <td>Jakarta - Menteri Kesehatan RI Budi Gunadi Sad...</td>
+      <td>Rabu, 04 Sep 2024 10:11 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Epidemiolog Nilai Pelabelan Bahaya BPA di Galo...</td>
-      <td>Senin, 02 Sep 2024 12:23 WIB</td>
-      <td>Jakarta - Epidemiolog Dicky Budiman menyoroti ...</td>
+      <td>Apakah Obat Statin Cepat Turunkan Kadar Kolest...</td>
+      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tCara Menur...</td>
+      <td>Rabu, 04 Sep 2024 08:30 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Ini yang Terjadi pada Tubuh Jika Kolesterol Ti...</td>
-      <td>Senin, 02 Sep 2024 12:02 WIB</td>
-      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\t1. Penyaki...</td>
+      <td>Sesal IDI soal Viral Dokter Dilarang Pakai Hij...</td>
+      <td>Jakarta - Laporan dugaan aksi SARA di RS Medis...</td>
+      <td>Rabu, 04 Sep 2024 08:00 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Pria di India Telan Pisau Kecil hingga Gunting...</td>
-      <td>Senin, 02 Sep 2024 11:34 WIB</td>
-      <td>Jakarta - Di sebuah rumah sakit di Motihari, B...</td>
+      <td>5 Cara Menurunkan Kolesterol Secara Alami, Sal...</td>
+      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tCara Menur...</td>
+      <td>Rabu, 04 Sep 2024 07:00 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Tak Ada Vaksinasi Massal untuk Mpox, Pakar Jel...</td>
-      <td>Senin, 02 Sep 2024 10:57 WIB</td>
-      <td>Jakarta -\n        \n        Kementerian Keseh...</td>
+      <td>Ketahui Cara Penularan Mpox dan Pencegahannya ...</td>
+      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tApa Itu Mp...</td>
+      <td>Rabu, 04 Sep 2024 06:00 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Klarifikasi RS Medistra usai Heboh Larangan Do...</td>
-      <td>Senin, 02 Sep 2024 10:03 WIB</td>
-      <td>Jakarta - Viral di media sosial RS Medistra di...</td>
+      <td>15 Negara Terbanyak Konsumsi Mi Instan di Duni...</td>
+      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tBerapa Bat...</td>
+      <td>Rabu, 04 Sep 2024 05:00 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>7 Makanan Penurun Kolesterol, Alpukat hingga K...</td>
-      <td>Senin, 02 Sep 2024 09:30 WIB</td>
-      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tMakanan Pe...</td>
+      <td>Gawat! Kimchi Terancam 'Lenyap' di Korsel Imba...</td>
+      <td>Jakarta -\n        \n        Kimchi, makanan p...</td>
+      <td>Selasa, 03 Sep 2024 21:12 WIB</td>
+      <td>Kesehatan</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Kenapa Penamaan Virus Mpox Pakai Istilah 'Clad...</td>
-      <td>Senin, 02 Sep 2024 09:01 WIB</td>
-      <td>Jakarta - Sedikitnya ada 2 jenis Monkeypox Vir...</td>
+      <td>Leher-Pundak Kaku Pertanda Kolesterol Tinggi? ...</td>
+      <td>Jakarta - Kolesterol tinggi dapat berbahaya un...</td>
+      <td>Selasa, 03 Sep 2024 19:00 WIB</td>
+      <td>Kesehatan</td>
     </tr>
   </tbody>
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1105a7c6-ef89-448f-a89e-660d2f8a915c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f1e265c2-70c3-440e-8ad0-66e89bbab81e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -715,12 +719,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1105a7c6-ef89-448f-a89e-660d2f8a915c button.colab-df-convert');
+        document.querySelector('#df-f1e265c2-70c3-440e-8ad0-66e89bbab81e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1105a7c6-ef89-448f-a89e-660d2f8a915c');
+        const element = document.querySelector('#df-f1e265c2-70c3-440e-8ad0-66e89bbab81e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -738,193 +742,10 @@ document.write(`
       }
     </script>
   </div>
-
-
-<div id="df-4cee97f9-bd37-4bc2-a120-d0e4fa9f2d53">
-  <button class="colab-df-quickchart" onclick="quickchart('df-4cee97f9-bd37-4bc2-a120-d0e4fa9f2d53')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-4cee97f9-bd37-4bc2-a120-d0e4fa9f2d53 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
-
-  <div id="id_c8c2bf52-664f-42e1-93df-ca1a8de7d367">
-    <style>
-      .colab-df-generate {
-        background-color: #E8F0FE;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        fill: #1967D2;
-        height: 32px;
-        padding: 0 0 0 0;
-        width: 32px;
-      }
-
-      .colab-df-generate:hover {
-        background-color: #E2EBFA;
-        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-        fill: #174EA6;
-      }
-
-      [theme=dark] .colab-df-generate {
-        background-color: #3B4455;
-        fill: #D2E3FC;
-      }
-
-      [theme=dark] .colab-df-generate:hover {
-        background-color: #434B5C;
-        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-        fill: #FFFFFF;
-      }
-    </style>
-    <button class="colab-df-generate" onclick="generateWithVariable('df')"
-            title="Generate code using this dataframe."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
-  </svg>
-    </button>
-    <script>
-      (() => {
-      const buttonEl =
-        document.querySelector('#id_c8c2bf52-664f-42e1-93df-ca1a8de7d367 button.colab-df-generate');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      buttonEl.onclick = () => {
-        google.colab.notebook.generateWithVariable('df');
-      }
-      })();
-    </script>
-  </div>
-
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 </section>
 
@@ -964,7 +785,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Welcome to your Jupyter Book</p>
+        <p class="prev-next-title">Hello !! I’m Rifqi</p>
       </div>
     </a>
 </div>

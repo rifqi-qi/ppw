@@ -1,11 +1,8 @@
-# Welcome to your Jupyter Book
+# Hello !! I'm Rifqi
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+This is the website of Ainur Rifqi 210411100236. This website is used as documentation of assignments or projects from the class A Web Search and Mining course.
 
-Check out the content pages bundled with this sample book to see more.
+Check out the Web Search and Mining project below
 
 ```{tableofcontents}
 ```
