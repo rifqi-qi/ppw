@@ -60,6 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas-1';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tugas 2 : Preprocessing &amp; TfIdf" href="Tugas-2.html" />
     <link rel="prev" title="Hello !! I’m Rifqi" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,6 +181,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 1 : Crawling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas-2.html">Tugas 2 : Preprocessing  &amp; TfIdf</a></li>
 </ul>
 
     </div>
@@ -447,14 +449,48 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Membuat fungsi filter konten
+Berfungsi untuk Mem-filter dari elemen-elemen HTML pada berita yang tidak diinginkan , Contoh kasus seperti iklan, daftar isi, gambar , link sisipan, dll</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi untuk membersihkan konten dari elemen-elemen yang tidak diinginkan</span>
+<span class="k">def</span> <span class="nf">clean_content</span><span class="p">(</span><span class="n">content_element</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">content_element</span><span class="p">:</span>
+        <span class="c1"># Hapus elemen yang berisi daftar isi</span>
+        <span class="k">for</span> <span class="n">daftar_isi</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;collapsible&quot;</span><span class="p">]:</span>
+            <span class="n">unwanted</span> <span class="o">=</span> <span class="n">content_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">daftar_isi</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">unwanted</span><span class="p">:</span>
+                <span class="n">unwanted</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
 
-<span class="c1"># Fungsi untuk mengambil data dari halaman web Detik.com</span>
+        <span class="c1"># Hapus elemen yang berisi tag</span>
+        <span class="k">for</span> <span class="n">tag_class</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;aevp&quot;</span><span class="p">,</span> <span class="s2">&quot;detail__body-tag mgt-16&quot;</span><span class="p">]:</span>
+            <span class="n">unwanted</span> <span class="o">=</span> <span class="n">content_element</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="n">tag_class</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">el</span> <span class="ow">in</span> <span class="n">unwanted</span><span class="p">:</span>
+                <span class="n">el</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+
+        <span class="c1"># Hapus elemen yang berisi link sisipan</span>
+        <span class="n">link_sisip</span> <span class="o">=</span> <span class="n">content_element</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;linksisip&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="n">link_sisip</span><span class="p">:</span>
+            <span class="n">table</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+
+        <span class="c1"># Hapus elemen paragraf dan span dengan class &#39;para_caption&#39;</span>
+        <span class="n">unwanted_paragraphs</span> <span class="o">=</span> <span class="n">content_element</span><span class="o">.</span><span class="n">find_all</span><span class="p">([</span><span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;span&quot;</span><span class="p">],</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;para_caption&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">para</span> <span class="ow">in</span> <span class="n">unwanted_paragraphs</span><span class="p">:</span>
+            <span class="n">para</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
+
+        <span class="c1"># Kembalikan teks yang tersisa</span>
+        <span class="k">return</span> <span class="n">content_element</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="s2">&quot;Content Not Found&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Membuat fungsi untuk melakukan crawling data pada situs web <a class="reference external" href="http://Detik.com">Detik.com</a>.
+Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan kategori berita yang terdapat di halaman tersebut.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi untuk mengambil data dari halaman web Detik.com</span>
 <span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">kategori</span><span class="p">,</span> <span class="n">min_articles_per_category</span><span class="p">):</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -486,22 +522,24 @@ document.write(`
         <span class="n">content_element</span> <span class="o">=</span> <span class="n">article_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;detail__body-text&quot;</span><span class="p">)</span>
         <span class="n">content</span> <span class="o">=</span> <span class="n">content_element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">content_element</span> <span class="k">else</span> <span class="s2">&quot;Content Not Found&quot;</span>
 
+        <span class="c1"># Bersihkan konten menggunakan fungsi clean_content</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">clean_content</span><span class="p">(</span><span class="n">content_element</span><span class="p">)</span>
+
         <span class="n">judul</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
         <span class="n">tanggal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
         <span class="n">isi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
         <span class="n">kategori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kategori</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 1 detik antara permintaan artikel</span>
 
 <span class="c1"># Membuat list url dan kategori yang akan di-crawl</span>
-<span class="n">base_urls</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="s2">&quot;https://health.detik.com/berita-detikhealth/indeks&quot;</span><span class="p">,</span>
+<span class="n">base_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://health.detik.com/berita-detikhealth/indeks&quot;</span><span class="p">,</span>
              <span class="s2">&quot;https://sport.detik.com/indeks&quot;</span><span class="p">,</span>
 <span class="p">]</span>
-<span class="n">categories</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s2">&quot;Olahraga&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Pariwisata&quot;</span><span class="p">,</span>
+<span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Kesehatan&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;Olahraga&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 
 <span class="c1"># Inisialisasi list untuk menyimpan data</span>
@@ -527,9 +565,6 @@ document.write(`
 
 <span class="c1"># Menyimpan dataframe ke file csv</span>
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data_berita_detik.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan dataframe</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -558,30 +593,21 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kemendikbudristek Turun Tangan Urus Bullying PPDS Undip, Bentuk Tim Pencari Fakta
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Terbukti Lewat Studi, Doyan Traveling Ternyata Bisa Bikin Panjang Umur!
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 Kelompok Orang yang Tidak Disarankan Minum Kopi
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Daftar Patogen yang Masuk Radar Kemenkes, Punya Potensi Jadi Pandemi Baru
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-2-4705bbe95590&gt;</span> in <span class="ni">&lt;cell line: 66&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="k">while</span> <span class="nb">len</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kategori_list</span> <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">category</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">min_articles_per_category</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">70</span>         <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">min_articles_per_category</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
-<span class="g g-Whitespace">     </span><span class="mi">72</span>         <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="nn">&lt;ipython-input-3-cc92a19dce6f&gt;</span> in <span class="ni">&lt;cell line: 63&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">65</span>     <span class="k">while</span> <span class="nb">len</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kategori_list</span> <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">category</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">min_articles_per_category</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="ne">---&gt; </span><span class="mi">67</span>         <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">min_articles_per_category</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">68</span>         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>         <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="nn">&lt;ipython-input-2-4705bbe95590&gt;</span> in <span class="ni">get_data</span><span class="nt">(url, kategori, min_articles_per_category)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>         <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>             <span class="n">link</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">24</span>             <span class="n">article_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>             <span class="n">article_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>         <span class="k">except</span> <span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="nn">&lt;ipython-input-3-cc92a19dce6f&gt;</span> in <span class="ni">get_data</span><span class="nt">(url, kategori, min_articles_per_category)</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>             <span class="n">link</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">19</span>             <span class="n">article_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span>             <span class="n">article_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="k">except</span> <span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
@@ -688,110 +714,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fungsi untuk mengambil data dari halaman web Detik.com</span>
-<span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">kategori</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-    <span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span>
-
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
-    <span class="n">articles</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;article&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;list-content__item&quot;</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="n">article</span> <span class="ow">in</span> <span class="n">articles</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Hentikan jika sudah 10 berita</span>
-            <span class="k">return</span>
-
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">link</span> <span class="o">=</span> <span class="n">article</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span>
-            <span class="n">article_response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">)</span>
-            <span class="n">article_response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-        <span class="k">except</span> <span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request for article failed: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-            <span class="k">continue</span>
-
-        <span class="n">article_soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">article_response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>
-        <span class="n">title_element</span> <span class="o">=</span> <span class="n">article_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;h1&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;detail__title&quot;</span><span class="p">)</span>
-        <span class="n">title</span> <span class="o">=</span> <span class="n">title_element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">title_element</span> <span class="k">else</span> <span class="s2">&quot;Title Not Found&quot;</span>
-        <span class="n">date_element</span> <span class="o">=</span> <span class="n">article_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;detail__date&quot;</span><span class="p">)</span>
-        <span class="n">date</span> <span class="o">=</span> <span class="n">date_element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">date_element</span> <span class="k">else</span> <span class="s2">&quot;Date Not Found&quot;</span>
-        <span class="n">content_element</span> <span class="o">=</span> <span class="n">article_soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;detail__body-text&quot;</span><span class="p">)</span>
-        <span class="n">content</span> <span class="o">=</span> <span class="n">content_element</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">if</span> <span class="n">content_element</span> <span class="k">else</span> <span class="s2">&quot;Content Not Found&quot;</span>
-
-        <span class="c1"># Menambahkan data ke dalam list</span>
-        <span class="n">judul</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-        <span class="n">tanggal</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
-        <span class="n">isi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
-        <span class="n">kategori_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kategori</span><span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 1 detik antara permintaan artikel</span>
-
-<span class="c1"># Membuat list url dan kategori yang akan di-crawl</span>
-<span class="n">base_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://health.detik.com/berita-detikhealth/indeks&quot;</span><span class="p">,</span>
-             <span class="s2">&quot;https://sport.detik.com/indeks&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Kesehatan&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;Olahraga&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="c1"># Inisialisasi list untuk menyimpan data</span>
-<span class="n">judul</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">tanggal</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">isi</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">kategori_list</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># Melakukan iterasi untuk setiap url dan kategori</span>
-<span class="k">for</span> <span class="n">base_url</span><span class="p">,</span> <span class="n">category</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">base_urls</span><span class="p">,</span> <span class="n">categories</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">page</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>  <span class="c1"># Looping untuk beralih halaman</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>  <span class="c1"># Hentikan jika sudah 10 berita</span>
-            <span class="k">break</span>
-
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
-
-<span class="c1"># Membuat dataframe dari list data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;judul&quot;</span><span class="p">:</span> <span class="n">judul</span><span class="p">,</span>
-    <span class="s2">&quot;isi&quot;</span><span class="p">:</span> <span class="n">isi</span><span class="p">,</span>
-    <span class="s2">&quot;tanggal&quot;</span><span class="p">:</span> <span class="n">tanggal</span><span class="p">,</span>
-    <span class="s2">&quot;kategori&quot;</span><span class="p">:</span> <span class="n">kategori_list</span>
-<span class="p">})</span>
-
-<span class="c1"># Menyimpan dataframe ke file CSV</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Crawl-berita.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Apakah Obat Statin Cepat Turunkan Kadar Kolesterol? Dokter Bilang Gini
-Sesal IDI soal Viral Dokter Dilarang Pakai Hijab di RS Medistra
-5 Cara Menurunkan Kolesterol Secara Alami, Salah Satunya Kurangi Makan Ini
-Ketahui Cara Penularan Mpox dan Pencegahannya dengan Tepat
-15 Negara Terbanyak Konsumsi Mi Instan di Dunia, Indonesia Nomor Berapa?
-Gawat! Kimchi Terancam &#39;Lenyap&#39; di Korsel Imbas Krisis Iklim
-Leher-Pundak Kaku Pertanda Kolesterol Tinggi? Dokter Gizi Bilang Gini
-Pemerintah Jepang Dikritik gegara Minta Wanita Pindah ke Desa usai Nikah
-10 Manfaat Rebusan Sereh untuk Kesehatan, Amankah Diminum Tiap Hari?
-Parahnya Kondisi Mpox di DR Kongo, Pasien Numpuk di RS Tapi Tak Bisa Diobati
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;Crawl-berita.csv&quot;</span><span class="p">)</span>
-<span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data_berita_detik.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c823dbfd-af1d-48b8-8bf4-47839f70cead" class="colab-df-container">
+  <div id="df-8e269851-9a1e-4546-946e-dbdca3056b55" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -811,80 +741,80 @@ Parahnya Kondisi Mpox di DR Kongo, Pasien Numpuk di RS Tapi Tak Bisa Diobati
     <tr style="text-align: right;">
       <th></th>
       <th>judul</th>
-      <th>isi</th>
       <th>tanggal</th>
+      <th>isi</th>
       <th>kategori</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Apakah Obat Statin Cepat Turunkan Kadar Kolest...</td>
-      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tCara Menur...</td>
-      <td>Rabu, 04 Sep 2024 08:30 WIB</td>
+      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
+      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
+      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Sesal IDI soal Viral Dokter Dilarang Pakai Hij...</td>
-      <td>Jakarta - Laporan dugaan aksi SARA di RS Medis...</td>
-      <td>Rabu, 04 Sep 2024 08:00 WIB</td>
+      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
+      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
+      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>5 Cara Menurunkan Kolesterol Secara Alami, Sal...</td>
-      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tCara Menur...</td>
-      <td>Rabu, 04 Sep 2024 07:00 WIB</td>
+      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
+      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
+      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Ketahui Cara Penularan Mpox dan Pencegahannya ...</td>
-      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tApa Itu Mp...</td>
-      <td>Rabu, 04 Sep 2024 06:00 WIB</td>
+      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
+      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
+      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>15 Negara Terbanyak Konsumsi Mi Instan di Duni...</td>
-      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tBerapa Bat...</td>
-      <td>Rabu, 04 Sep 2024 05:00 WIB</td>
+      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
+      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
+      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Gawat! Kimchi Terancam 'Lenyap' di Korsel Imba...</td>
-      <td>Jakarta -\n        \n        Kimchi, makanan p...</td>
-      <td>Selasa, 03 Sep 2024 21:12 WIB</td>
+      <td>Waduh! Peneliti di China Temukan Virus Baru Ak...</td>
+      <td>Sabtu, 07 Sep 2024 12:00 WIB</td>
+      <td>Jakarta - Ilmuwan menemukan virus baru di Chin...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Leher-Pundak Kaku Pertanda Kolesterol Tinggi? ...</td>
-      <td>Jakarta - Kolesterol tinggi dapat berbahaya un...</td>
-      <td>Selasa, 03 Sep 2024 19:00 WIB</td>
+      <td>Banjir Keringat saat Olahraga Tanda Tubuh Baka...</td>
+      <td>Sabtu, 07 Sep 2024 11:00 WIB</td>
+      <td>Jakarta - Banyaknya keringat yang keluar masih...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Pemerintah Jepang Dikritik gegara Minta Wanita...</td>
-      <td>Jakarta - Pemerintah Jepang sebelumnya meminta...</td>
-      <td>Selasa, 03 Sep 2024 18:00 WIB</td>
+      <td>Kemendikbudristek Turun Tangan Urus Bullying P...</td>
+      <td>Sabtu, 07 Sep 2024 09:45 WIB</td>
+      <td>Jakarta - Kementerian Pendidikan, Kebudayaan, ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>10 Manfaat Rebusan Sereh untuk Kesehatan, Aman...</td>
-      <td>Daftar Isi\n\n\n\n\r\n\t\t\t\t\t\t\tManfaat Re...</td>
-      <td>Selasa, 03 Sep 2024 16:30 WIB</td>
+      <td>Terbukti Lewat Studi, Doyan Traveling Ternyata...</td>
+      <td>Sabtu, 07 Sep 2024 09:01 WIB</td>
+      <td>Jakarta - Peneliti dari Edith Cowan University...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Parahnya Kondisi Mpox di DR Kongo, Pasien Nump...</td>
-      <td>Jakarta - Para pasien Mpox yang ada RD Kongo w...</td>
-      <td>Selasa, 03 Sep 2024 16:01 WIB</td>
+      <td>9 Kelompok Orang yang Tidak Disarankan Minum Kopi</td>
+      <td>Sabtu, 07 Sep 2024 07:00 WIB</td>
+      <td>Jakarta - Kopi menjadi pilihan minuman untuk m...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -893,7 +823,7 @@ Parahnya Kondisi Mpox di DR Kongo, Pasien Numpuk di RS Tapi Tak Bisa Diobati
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c823dbfd-af1d-48b8-8bf4-47839f70cead')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8e269851-9a1e-4546-946e-dbdca3056b55')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -945,12 +875,12 @@ Parahnya Kondisi Mpox di DR Kongo, Pasien Numpuk di RS Tapi Tak Bisa Diobati
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c823dbfd-af1d-48b8-8bf4-47839f70cead button.colab-df-convert');
+        document.querySelector('#df-8e269851-9a1e-4546-946e-dbdca3056b55 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c823dbfd-af1d-48b8-8bf4-47839f70cead');
+        const element = document.querySelector('#df-8e269851-9a1e-4546-946e-dbdca3056b55');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -970,8 +900,8 @@ Parahnya Kondisi Mpox di DR Kongo, Pasien Numpuk di RS Tapi Tak Bisa Diobati
   </div>
 
 
-<div id="df-3b0cf19b-f0c2-40cf-a616-87232d235b79">
-  <button class="colab-df-quickchart" onclick="quickchart('df-3b0cf19b-f0c2-40cf-a616-87232d235b79')"
+<div id="df-7a701412-c34c-4083-9023-32f419adf638">
+  <button class="colab-df-quickchart" onclick="quickchart('df-7a701412-c34c-4083-9023-32f419adf638')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1090,67 +1020,12 @@ Parahnya Kondisi Mpox di DR Kongo, Pasien Numpuk di RS Tapi Tak Bisa Diobati
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-3b0cf19b-f0c2-40cf-a616-87232d235b79 button');
+        document.querySelector('#df-7a701412-c34c-4083-9023-32f419adf638 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
-
-  <div id="id_7160b016-dafa-42d1-8ff3-ab8df4791eec">
-    <style>
-      .colab-df-generate {
-        background-color: #E8F0FE;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        fill: #1967D2;
-        height: 32px;
-        padding: 0 0 0 0;
-        width: 32px;
-      }
-
-      .colab-df-generate:hover {
-        background-color: #E2EBFA;
-        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-        fill: #174EA6;
-      }
-
-      [theme=dark] .colab-df-generate {
-        background-color: #3B4455;
-        fill: #D2E3FC;
-      }
-
-      [theme=dark] .colab-df-generate:hover {
-        background-color: #434B5C;
-        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-        fill: #FFFFFF;
-      }
-    </style>
-    <button class="colab-df-generate" onclick="generateWithVariable('df')"
-            title="Generate code using this dataframe."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
-  </svg>
-    </button>
-    <script>
-      (() => {
-      const buttonEl =
-        document.querySelector('#id_7160b016-dafa-42d1-8ff3-ab8df4791eec button.colab-df-generate');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      buttonEl.onclick = () => {
-        google.colab.notebook.generateWithVariable('df');
-      }
-      })();
-    </script>
-  </div>
 
     </div>
   </div>
@@ -1196,6 +1071,15 @@ Parahnya Kondisi Mpox di DR Kongo, Pasien Numpuk di RS Tapi Tak Bisa Diobati
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Hello !! I’m Rifqi</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Tugas-2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tugas 2 : Preprocessing  &amp; TfIdf</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
