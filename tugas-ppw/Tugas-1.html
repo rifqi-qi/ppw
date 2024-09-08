@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tugas 1 : Crawling Berita &#8212; My sample book</title>
+    <title>Tugas 1 : Crawling Berita &#8212; Rifqi&#39;s Book</title>
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../_static/foto.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../_static/foto.png" class="logo__image only-light" alt="Rifqi's Book - Home"/>
+    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="Rifqi's Book - Home"/>`);</script>
   
   
 </a></div>
@@ -532,7 +532,7 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">judul</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 1 detik antara permintaan artikel</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Membuat list url dan kategori yang akan di-crawl</span>
 <span class="n">base_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://health.detik.com/berita-detikhealth/indeks&quot;</span><span class="p">,</span>
@@ -557,7 +557,7 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
     <span class="k">while</span> <span class="nb">len</span><span class="p">([</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">kategori_list</span> <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="n">category</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">min_articles_per_category</span><span class="p">:</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">&quot;</span>
         <span class="n">get_data</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">min_articles_per_category</span><span class="p">)</span>
-        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Menambahkan jeda waktu 2 detik antara permintaan halaman</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">page</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="c1"># Membuat dataframe dari list data</span>
@@ -569,6 +569,21 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10 Obat Batu Empedu Alami Tanpa Operasi, Wajib Dibarengi Konsultasi Dokter
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nasib Tragis Karyawan Tewas Gagal Organ usai Kerja 104 Hari Tanpa Libur
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Apakah Tisu Basah Aman untuk Membersihkan Wajah? Simak Cara yang Benar!
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7 Manfaat Kopi Tanpa Gula untuk Kesehatan, Cocok Diminum di Pagi Hari
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Perut Masih Buncit Meski Rajin Olahraga, Inikah Penyebabnya?
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jangan Sembarangan! Waspadai Pemicu Cedera saat Lari yang Sering Dialami Pemula
 </pre></div>
 </div>
@@ -584,21 +599,6 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rajin Sit-up Saja Nggak Bikin Lemak di Perut Hilang, Ini yang Kerap Terlupakan
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Waduh! Peneliti di China Temukan Virus Baru Akibat Kutu, Efeknya Bisa ke Otak
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Banjir Keringat saat Olahraga Tanda Tubuh Bakar Lemak? Begini Faktanya
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kemendikbudristek Turun Tangan Urus Bullying PPDS Undip, Bentuk Tim Pencari Fakta
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Terbukti Lewat Studi, Doyan Traveling Ternyata Bisa Bikin Panjang Umur!
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9 Kelompok Orang yang Tidak Disarankan Minum Kopi
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -610,7 +610,7 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-90866d16-5d51-42a2-9b77-816cf5ce8ecf" class="colab-df-container">
+  <div id="df-8f661a2d-10b2-4afc-a5f8-2f8f76a5a2c3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -638,72 +638,72 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
   <tbody>
     <tr>
       <th>0</th>
+      <td>10 Obat Batu Empedu Alami Tanpa Operasi, Wajib...</td>
+      <td>Minggu, 08 Sep 2024 10:00 WIB</td>
+      <td>Jakarta - Penyakit batu empedu sering kali tid...</td>
+      <td>Kesehatan</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Nasib Tragis Karyawan Tewas Gagal Organ usai K...</td>
+      <td>Minggu, 08 Sep 2024 09:11 WIB</td>
+      <td>Jakarta - Budaya kerja berlebihan di China kem...</td>
+      <td>Kesehatan</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Apakah Tisu Basah Aman untuk Membersihkan Waja...</td>
+      <td>Minggu, 08 Sep 2024 08:23 WIB</td>
+      <td>Jakarta - Tisu basah sering digunakan untuk me...</td>
+      <td>Kesehatan</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7 Manfaat Kopi Tanpa Gula untuk Kesehatan, Coc...</td>
+      <td>Minggu, 08 Sep 2024 07:37 WIB</td>
+      <td>Jakarta - Dari sekian banyak varian kopi, kopi...</td>
+      <td>Kesehatan</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Perut Masih Buncit Meski Rajin Olahraga, Inika...</td>
+      <td>Minggu, 08 Sep 2024 06:00 WIB</td>
+      <td>Jakarta - Salah satu masalah yang tak jarang d...</td>
+      <td>Kesehatan</td>
+    </tr>
+    <tr>
+      <th>5</th>
       <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
       <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
       <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>6</th>
       <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
       <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
       <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>7</th>
       <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
       <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
       <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>8</th>
       <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
       <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
       <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>9</th>
       <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
       <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
       <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
-      <td>Kesehatan</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Waduh! Peneliti di China Temukan Virus Baru Ak...</td>
-      <td>Sabtu, 07 Sep 2024 12:00 WIB</td>
-      <td>Jakarta - Ilmuwan menemukan virus baru di Chin...</td>
-      <td>Kesehatan</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Banjir Keringat saat Olahraga Tanda Tubuh Baka...</td>
-      <td>Sabtu, 07 Sep 2024 11:00 WIB</td>
-      <td>Jakarta - Banyaknya keringat yang keluar masih...</td>
-      <td>Kesehatan</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Kemendikbudristek Turun Tangan Urus Bullying P...</td>
-      <td>Sabtu, 07 Sep 2024 09:45 WIB</td>
-      <td>Jakarta - Kementerian Pendidikan, Kebudayaan, ...</td>
-      <td>Kesehatan</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Terbukti Lewat Studi, Doyan Traveling Ternyata...</td>
-      <td>Sabtu, 07 Sep 2024 09:01 WIB</td>
-      <td>Jakarta - Peneliti dari Edith Cowan University...</td>
-      <td>Kesehatan</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>9 Kelompok Orang yang Tidak Disarankan Minum Kopi</td>
-      <td>Sabtu, 07 Sep 2024 07:00 WIB</td>
-      <td>Jakarta - Kopi menjadi pilihan minuman untuk m...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -712,7 +712,7 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-90866d16-5d51-42a2-9b77-816cf5ce8ecf')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8f661a2d-10b2-4afc-a5f8-2f8f76a5a2c3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -764,12 +764,12 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
 
     <script>
       const buttonEl =
-        document.querySelector('#df-90866d16-5d51-42a2-9b77-816cf5ce8ecf button.colab-df-convert');
+        document.querySelector('#df-8f661a2d-10b2-4afc-a5f8-2f8f76a5a2c3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-90866d16-5d51-42a2-9b77-816cf5ce8ecf');
+        const element = document.querySelector('#df-8f661a2d-10b2-4afc-a5f8-2f8f76a5a2c3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -858,7 +858,7 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Rifqi
 </p>
 
   </div>

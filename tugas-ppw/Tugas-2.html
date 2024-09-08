@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tugas 2 : Preprocessing &amp; TfIdf &#8212; My sample book</title>
+    <title>Tugas 2 : Preprocessing &amp; TfIdf &#8212; Rifqi&#39;s Book</title>
   
   
   
@@ -152,8 +152,8 @@
       
     
     
-    <img src="../_static/foto.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="../_static/foto.png" class="logo__image only-light" alt="Rifqi's Book - Home"/>
+    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="Rifqi's Book - Home"/>`);</script>
   
   
 </a></div>
@@ -438,7 +438,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7cdbf467-1088-4c73-a662-4edfd3b8afc3" class="colab-df-container">
+  <div id="df-67e8c297-a289-45fd-9817-6d24b3d9cd41" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -466,37 +466,37 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>10 Obat Batu Empedu Alami Tanpa Operasi, Wajib...</td>
+      <td>Minggu, 08 Sep 2024 10:00 WIB</td>
+      <td>Jakarta - Penyakit batu empedu sering kali tid...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Nasib Tragis Karyawan Tewas Gagal Organ usai K...</td>
+      <td>Minggu, 08 Sep 2024 09:11 WIB</td>
+      <td>Jakarta - Budaya kerja berlebihan di China kem...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Apakah Tisu Basah Aman untuk Membersihkan Waja...</td>
+      <td>Minggu, 08 Sep 2024 08:23 WIB</td>
+      <td>Jakarta - Tisu basah sering digunakan untuk me...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>7 Manfaat Kopi Tanpa Gula untuk Kesehatan, Coc...</td>
+      <td>Minggu, 08 Sep 2024 07:37 WIB</td>
+      <td>Jakarta - Dari sekian banyak varian kopi, kopi...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>Perut Masih Buncit Meski Rajin Olahraga, Inika...</td>
+      <td>Minggu, 08 Sep 2024 06:00 WIB</td>
+      <td>Jakarta - Salah satu masalah yang tak jarang d...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -505,7 +505,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7cdbf467-1088-4c73-a662-4edfd3b8afc3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-67e8c297-a289-45fd-9817-6d24b3d9cd41')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -557,12 +557,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7cdbf467-1088-4c73-a662-4edfd3b8afc3 button.colab-df-convert');
+        document.querySelector('#df-67e8c297-a289-45fd-9817-6d24b3d9cd41 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7cdbf467-1088-4c73-a662-4edfd3b8afc3');
+        const element = document.querySelector('#df-67e8c297-a289-45fd-9817-6d24b3d9cd41');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -593,14 +593,17 @@ document.write(`
 <span class="kn">import</span> <span class="nn">string</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 
+<span class="c1"># Fungsi ini bertujuan untuk menghapus URL dari teks.</span>
 <span class="k">def</span> <span class="nf">remove_url</span><span class="p">(</span><span class="n">ulasan</span><span class="p">):</span>
   <span class="n">url</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;https?://\S+|www\.S+&#39;</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">url</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ulasan</span><span class="p">)</span>
 
+<span class="c1"># Fungsi ini bertujuan untuk menghapus tag HTML dari teks.</span>
 <span class="k">def</span> <span class="nf">remove_html</span><span class="p">(</span><span class="n">ulasan</span><span class="p">):</span>
   <span class="n">html</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;.#?&gt;&#39;</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ulasan</span><span class="p">)</span>
 
+<span class="c1"># Fungsi ini bertujuan untuk menghapus emoji dari teks.</span>
 <span class="k">def</span> <span class="nf">remove_emoji</span><span class="p">(</span><span class="n">ulasan</span><span class="p">):</span>
   <span class="n">emoji_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;[&quot;</span>
       <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\U0001F600</span><span class="s2">-</span><span class="se">\U0001F64F</span><span class="s2">&quot;</span>
@@ -609,10 +612,13 @@ document.write(`
       <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\U0001F1E0</span><span class="s2">-</span><span class="se">\U0001F1FF</span><span class="s2">&quot;&quot;]+&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">UNICODE</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">emoji_pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ulasan</span><span class="p">)</span>
 
+<span class="c1"># Fungsi ini bertujuan untuk menghapus angka dari teks.</span>
 <span class="k">def</span> <span class="nf">remove_numbers</span><span class="p">(</span><span class="n">ulasan</span><span class="p">):</span>
   <span class="n">ulasan</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ulasan</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">ulasan</span>
 
+
+<span class="c1"># Fungsi ini bertujuan untuk menghapus simbol dari teks, menyisakan hanya huruf, angka, dan spasi.</span>
 <span class="k">def</span> <span class="nf">remove_symbols</span><span class="p">(</span><span class="n">ulasan</span><span class="p">):</span>
   <span class="n">ulasan</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[^a-zA-Z0-9\s]&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ulasan</span><span class="p">)</span>
   <span class="k">return</span> <span class="n">ulasan</span>
@@ -629,7 +635,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-9d3c1572-4a11-4f8b-b16c-d649102f7dc9" class="colab-df-container">
+  <div id="df-d924f01f-8c9c-4470-b0e4-c33241b617b9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -658,43 +664,43 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>10 Obat Batu Empedu Alami Tanpa Operasi, Wajib...</td>
+      <td>Minggu, 08 Sep 2024 10:00 WIB</td>
+      <td>Jakarta - Penyakit batu empedu sering kali tid...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Olahraga lari dalam beberapa waktu te...</td>
+      <td>Jakarta  Penyakit batu empedu sering kali tida...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Nasib Tragis Karyawan Tewas Gagal Organ usai K...</td>
+      <td>Minggu, 08 Sep 2024 09:11 WIB</td>
+      <td>Jakarta - Budaya kerja berlebihan di China kem...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Adanya teknologi earphone nirkabel at...</td>
+      <td>Jakarta  Budaya kerja berlebihan di China kemb...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Apakah Tisu Basah Aman untuk Membersihkan Waja...</td>
+      <td>Minggu, 08 Sep 2024 08:23 WIB</td>
+      <td>Jakarta - Tisu basah sering digunakan untuk me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tren penggunaan earphone nirkabel ata...</td>
+      <td>Jakarta  Tisu basah sering digunakan untuk mem...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>7 Manfaat Kopi Tanpa Gula untuk Kesehatan, Coc...</td>
+      <td>Minggu, 08 Sep 2024 07:37 WIB</td>
+      <td>Jakarta - Dari sekian banyak varian kopi, kopi...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Hidup sehat dengan umur yang panjang ...</td>
+      <td>Jakarta  Dari sekian banyak varian kopi kopi p...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>Perut Masih Buncit Meski Rajin Olahraga, Inika...</td>
+      <td>Minggu, 08 Sep 2024 06:00 WIB</td>
+      <td>Jakarta - Salah satu masalah yang tak jarang d...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Spesialis kedokteran olahraga dr Andh...</td>
+      <td>Jakarta  Salah satu masalah yang tak jarang di...</td>
     </tr>
   </tbody>
 </table>
@@ -702,7 +708,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9d3c1572-4a11-4f8b-b16c-d649102f7dc9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d924f01f-8c9c-4470-b0e4-c33241b617b9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -754,12 +760,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9d3c1572-4a11-4f8b-b16c-d649102f7dc9 button.colab-df-convert');
+        document.querySelector('#df-d924f01f-8c9c-4470-b0e4-c33241b617b9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9d3c1572-4a11-4f8b-b16c-d649102f7dc9');
+        const element = document.querySelector('#df-d924f01f-8c9c-4470-b0e4-c33241b617b9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -801,7 +807,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e911800e-8b5b-49b5-b69b-23a9063f4e32" class="colab-df-container">
+  <div id="df-d5f46ae6-37b6-4675-a142-ca0ccabbfa3d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -831,48 +837,48 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>10 Obat Batu Empedu Alami Tanpa Operasi, Wajib...</td>
+      <td>Minggu, 08 Sep 2024 10:00 WIB</td>
+      <td>Jakarta - Penyakit batu empedu sering kali tid...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Olahraga lari dalam beberapa waktu te...</td>
-      <td>jakarta  olahraga lari dalam beberapa waktu te...</td>
+      <td>Jakarta  Penyakit batu empedu sering kali tida...</td>
+      <td>jakarta  penyakit batu empedu sering kali tida...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Nasib Tragis Karyawan Tewas Gagal Organ usai K...</td>
+      <td>Minggu, 08 Sep 2024 09:11 WIB</td>
+      <td>Jakarta - Budaya kerja berlebihan di China kem...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Adanya teknologi earphone nirkabel at...</td>
-      <td>jakarta  adanya teknologi earphone nirkabel at...</td>
+      <td>Jakarta  Budaya kerja berlebihan di China kemb...</td>
+      <td>jakarta  budaya kerja berlebihan di china kemb...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Apakah Tisu Basah Aman untuk Membersihkan Waja...</td>
+      <td>Minggu, 08 Sep 2024 08:23 WIB</td>
+      <td>Jakarta - Tisu basah sering digunakan untuk me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tren penggunaan earphone nirkabel ata...</td>
-      <td>jakarta  tren penggunaan earphone nirkabel ata...</td>
+      <td>Jakarta  Tisu basah sering digunakan untuk mem...</td>
+      <td>jakarta  tisu basah sering digunakan untuk mem...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>7 Manfaat Kopi Tanpa Gula untuk Kesehatan, Coc...</td>
+      <td>Minggu, 08 Sep 2024 07:37 WIB</td>
+      <td>Jakarta - Dari sekian banyak varian kopi, kopi...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Hidup sehat dengan umur yang panjang ...</td>
-      <td>jakarta  hidup sehat dengan umur yang panjang ...</td>
+      <td>Jakarta  Dari sekian banyak varian kopi kopi p...</td>
+      <td>jakarta  dari sekian banyak varian kopi kopi p...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>Perut Masih Buncit Meski Rajin Olahraga, Inika...</td>
+      <td>Minggu, 08 Sep 2024 06:00 WIB</td>
+      <td>Jakarta - Salah satu masalah yang tak jarang d...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Spesialis kedokteran olahraga dr Andh...</td>
-      <td>jakarta  spesialis kedokteran olahraga dr andh...</td>
+      <td>Jakarta  Salah satu masalah yang tak jarang di...</td>
+      <td>jakarta  salah satu masalah yang tak jarang di...</td>
     </tr>
   </tbody>
 </table>
@@ -880,7 +886,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-e911800e-8b5b-49b5-b69b-23a9063f4e32')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d5f46ae6-37b6-4675-a142-ca0ccabbfa3d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -932,12 +938,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-e911800e-8b5b-49b5-b69b-23a9063f4e32 button.colab-df-convert');
+        document.querySelector('#df-d5f46ae6-37b6-4675-a142-ca0ccabbfa3d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-e911800e-8b5b-49b5-b69b-23a9063f4e32');
+        const element = document.querySelector('#df-d5f46ae6-37b6-4675-a142-ca0ccabbfa3d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -976,7 +982,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0900e14b-0e55-4360-83f3-35d39619a8f0" class="colab-df-container">
+  <div id="df-bb2389df-5c50-4a84-8050-1e559d84dd3f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1007,53 +1013,53 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>10 Obat Batu Empedu Alami Tanpa Operasi, Wajib...</td>
+      <td>Minggu, 08 Sep 2024 10:00 WIB</td>
+      <td>Jakarta - Penyakit batu empedu sering kali tid...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Olahraga lari dalam beberapa waktu te...</td>
-      <td>jakarta  olahraga lari dalam beberapa waktu te...</td>
-      <td>[jakarta, olahraga, lari, dalam, beberapa, wak...</td>
+      <td>Jakarta  Penyakit batu empedu sering kali tida...</td>
+      <td>jakarta  penyakit batu empedu sering kali tida...</td>
+      <td>[jakarta, penyakit, batu, empedu, sering, kali...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Nasib Tragis Karyawan Tewas Gagal Organ usai K...</td>
+      <td>Minggu, 08 Sep 2024 09:11 WIB</td>
+      <td>Jakarta - Budaya kerja berlebihan di China kem...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Adanya teknologi earphone nirkabel at...</td>
-      <td>jakarta  adanya teknologi earphone nirkabel at...</td>
-      <td>[jakarta, adanya, teknologi, earphone, nirkabe...</td>
+      <td>Jakarta  Budaya kerja berlebihan di China kemb...</td>
+      <td>jakarta  budaya kerja berlebihan di china kemb...</td>
+      <td>[jakarta, budaya, kerja, berlebihan, di, china...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Apakah Tisu Basah Aman untuk Membersihkan Waja...</td>
+      <td>Minggu, 08 Sep 2024 08:23 WIB</td>
+      <td>Jakarta - Tisu basah sering digunakan untuk me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tren penggunaan earphone nirkabel ata...</td>
-      <td>jakarta  tren penggunaan earphone nirkabel ata...</td>
-      <td>[jakarta, tren, penggunaan, earphone, nirkabel...</td>
+      <td>Jakarta  Tisu basah sering digunakan untuk mem...</td>
+      <td>jakarta  tisu basah sering digunakan untuk mem...</td>
+      <td>[jakarta, tisu, basah, sering, digunakan, untu...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>7 Manfaat Kopi Tanpa Gula untuk Kesehatan, Coc...</td>
+      <td>Minggu, 08 Sep 2024 07:37 WIB</td>
+      <td>Jakarta - Dari sekian banyak varian kopi, kopi...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Hidup sehat dengan umur yang panjang ...</td>
-      <td>jakarta  hidup sehat dengan umur yang panjang ...</td>
-      <td>[jakarta, hidup, sehat, dengan, umur, yang, pa...</td>
+      <td>Jakarta  Dari sekian banyak varian kopi kopi p...</td>
+      <td>jakarta  dari sekian banyak varian kopi kopi p...</td>
+      <td>[jakarta, dari, sekian, banyak, varian, kopi, ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>Perut Masih Buncit Meski Rajin Olahraga, Inika...</td>
+      <td>Minggu, 08 Sep 2024 06:00 WIB</td>
+      <td>Jakarta - Salah satu masalah yang tak jarang d...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Spesialis kedokteran olahraga dr Andh...</td>
-      <td>jakarta  spesialis kedokteran olahraga dr andh...</td>
-      <td>[jakarta, spesialis, kedokteran, olahraga, dr,...</td>
+      <td>Jakarta  Salah satu masalah yang tak jarang di...</td>
+      <td>jakarta  salah satu masalah yang tak jarang di...</td>
+      <td>[jakarta, salah, satu, masalah, yang, tak, jar...</td>
     </tr>
   </tbody>
 </table>
@@ -1061,7 +1067,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-0900e14b-0e55-4360-83f3-35d39619a8f0')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-bb2389df-5c50-4a84-8050-1e559d84dd3f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1113,12 +1119,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-0900e14b-0e55-4360-83f3-35d39619a8f0 button.colab-df-convert');
+        document.querySelector('#df-bb2389df-5c50-4a84-8050-1e559d84dd3f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-0900e14b-0e55-4360-83f3-35d39619a8f0');
+        const element = document.querySelector('#df-bb2389df-5c50-4a84-8050-1e559d84dd3f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1153,7 +1159,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
-[nltk_data]   Unzipping corpora/stopwords.zip.
+[nltk_data]   Package stopwords is already up-to-date!
 </pre></div>
 </div>
 </div>
@@ -1171,7 +1177,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-fc0c4147-87e9-48cd-a419-b1dacc66b60b" class="colab-df-container">
+  <div id="df-b688c1a4-cc9f-4880-a560-53b20bfb0ba9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1203,58 +1209,58 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jangan Sembarangan! Waspadai Pemicu Cedera saa...</td>
-      <td>Sabtu, 07 Sep 2024 19:00 WIB</td>
-      <td>Jakarta - Olahraga lari dalam beberapa waktu t...</td>
+      <td>10 Obat Batu Empedu Alami Tanpa Operasi, Wajib...</td>
+      <td>Minggu, 08 Sep 2024 10:00 WIB</td>
+      <td>Jakarta - Penyakit batu empedu sering kali tid...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Olahraga lari dalam beberapa waktu te...</td>
-      <td>jakarta  olahraga lari dalam beberapa waktu te...</td>
-      <td>[jakarta, olahraga, lari, dalam, beberapa, wak...</td>
-      <td>jakarta olahraga lari tren mudah berlari salah...</td>
+      <td>Jakarta  Penyakit batu empedu sering kali tida...</td>
+      <td>jakarta  penyakit batu empedu sering kali tida...</td>
+      <td>[jakarta, penyakit, batu, empedu, sering, kali...</td>
+      <td>jakarta penyakit batu empedu kali terdeteksi g...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Keseringan Pakai TWS? Waspada Gangguan Pendeng...</td>
-      <td>Sabtu, 07 Sep 2024 18:00 WIB</td>
-      <td>Jakarta - Adanya teknologi earphone nirkabel a...</td>
+      <td>Nasib Tragis Karyawan Tewas Gagal Organ usai K...</td>
+      <td>Minggu, 08 Sep 2024 09:11 WIB</td>
+      <td>Jakarta - Budaya kerja berlebihan di China kem...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Adanya teknologi earphone nirkabel at...</td>
-      <td>jakarta  adanya teknologi earphone nirkabel at...</td>
-      <td>[jakarta, adanya, teknologi, earphone, nirkabe...</td>
-      <td>jakarta teknologi earphone nirkabel true wirel...</td>
+      <td>Jakarta  Budaya kerja berlebihan di China kemb...</td>
+      <td>jakarta  budaya kerja berlebihan di china kemb...</td>
+      <td>[jakarta, budaya, kerja, berlebihan, di, china...</td>
+      <td>jakarta budaya kerja china sorotan pria berusi...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jogging Pakai TWS Aman Nggak Sih? Ini Plus-Min...</td>
-      <td>Sabtu, 07 Sep 2024 17:00 WIB</td>
-      <td>Jakarta - Tren penggunaan earphone nirkabel at...</td>
+      <td>Apakah Tisu Basah Aman untuk Membersihkan Waja...</td>
+      <td>Minggu, 08 Sep 2024 08:23 WIB</td>
+      <td>Jakarta - Tisu basah sering digunakan untuk me...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tren penggunaan earphone nirkabel ata...</td>
-      <td>jakarta  tren penggunaan earphone nirkabel ata...</td>
-      <td>[jakarta, tren, penggunaan, earphone, nirkabel...</td>
-      <td>jakarta tren penggunaan earphone nirkabel true...</td>
+      <td>Jakarta  Tisu basah sering digunakan untuk mem...</td>
+      <td>jakarta  tisu basah sering digunakan untuk mem...</td>
+      <td>[jakarta, tisu, basah, sering, digunakan, untu...</td>
+      <td>jakarta tisu basah membersihkan make up tisu b...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Kebiasaan Simpel yang Bisa Bikin Panjang Umu...</td>
-      <td>Sabtu, 07 Sep 2024 14:00 WIB</td>
-      <td>Jakarta - Hidup sehat dengan umur yang panjang...</td>
+      <td>7 Manfaat Kopi Tanpa Gula untuk Kesehatan, Coc...</td>
+      <td>Minggu, 08 Sep 2024 07:37 WIB</td>
+      <td>Jakarta - Dari sekian banyak varian kopi, kopi...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Hidup sehat dengan umur yang panjang ...</td>
-      <td>jakarta  hidup sehat dengan umur yang panjang ...</td>
-      <td>[jakarta, hidup, sehat, dengan, umur, yang, pa...</td>
-      <td>jakarta hidup sehat umur impian orang dibutuhk...</td>
+      <td>Jakarta  Dari sekian banyak varian kopi kopi p...</td>
+      <td>jakarta  dari sekian banyak varian kopi kopi p...</td>
+      <td>[jakarta, dari, sekian, banyak, varian, kopi, ...</td>
+      <td>jakarta sekian varian kopi kopi pahit kopi gul...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Rajin Sit-up Saja Nggak Bikin Lemak di Perut H...</td>
-      <td>Sabtu, 07 Sep 2024 13:00 WIB</td>
-      <td>Jakarta - Spesialis kedokteran olahraga dr And...</td>
+      <td>Perut Masih Buncit Meski Rajin Olahraga, Inika...</td>
+      <td>Minggu, 08 Sep 2024 06:00 WIB</td>
+      <td>Jakarta - Salah satu masalah yang tak jarang d...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Spesialis kedokteran olahraga dr Andh...</td>
-      <td>jakarta  spesialis kedokteran olahraga dr andh...</td>
-      <td>[jakarta, spesialis, kedokteran, olahraga, dr,...</td>
-      <td>jakarta spesialis kedokteran olahraga dr andhi...</td>
+      <td>Jakarta  Salah satu masalah yang tak jarang di...</td>
+      <td>jakarta  salah satu masalah yang tak jarang di...</td>
+      <td>[jakarta, salah, satu, masalah, yang, tak, jar...</td>
+      <td>jakarta salah jarang dialami menjalani program...</td>
     </tr>
   </tbody>
 </table>
@@ -1262,7 +1268,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-fc0c4147-87e9-48cd-a419-b1dacc66b60b')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b688c1a4-cc9f-4880-a560-53b20bfb0ba9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1314,12 +1320,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-fc0c4147-87e9-48cd-a419-b1dacc66b60b button.colab-df-convert');
+        document.querySelector('#df-b688c1a4-cc9f-4880-a560-53b20bfb0ba9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-fc0c4147-87e9-48cd-a419-b1dacc66b60b');
+        const element = document.querySelector('#df-b688c1a4-cc9f-4880-a560-53b20bfb0ba9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1352,6 +1358,7 @@ document.write(`
 <p><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong></p>
 <hr class="docutils" />
 <p>TF-IDF adalah metode statistik yang digunakan untuk mengevaluasi pentingnya suatu kata dalam sebuah dokumen relatif terhadap koleksi dokumen lainnya. TF-IDF sering digunakan dalam tugas seperti penggalian teks, penambangan informasi, dan pemodelan pembelajaran mesin berbasis teks.</p>
+<p>Term Frequency mengukur jumlah kemunculan suatu kata dalam dokumen tertentu, dan semakin sering kata tersebut muncul dalam dokumen tersebut, semakin tinggi nilai Term Frequency-nya. Inverse Document Frequency menghitung berapa banyak dokumen yang mengandung kata tersebut relatif terhadap seluruh dokumen dalam dataset, memberikan nilai yang lebih tinggi jika kata tersebut relatif jarang muncul dalam seluruh dataset</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1365,10 +1372,10 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 
-<span class="c1"># Menginisialisasi TfidfVectorizer tanpa max_features dan stop_words</span>
+<span class="c1"># Menginisialisasi TfidfVectorizer</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
 
-<span class="c1"># Menghitung TF-IDF untuk kolom &#39;isi&#39; dari dataframe</span>
+<span class="c1"># Menghitung TF-IDF</span>
 <span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;stopword_removal&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1384,7 +1391,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-bb4e3cf3-f654-446b-8d3d-9afa7e88b537" class="colab-df-container">
+  <div id="df-55b5574e-c442-465f-bc90-80d005b12bac" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1404,23 +1411,23 @@ document.write(`
     <tr style="text-align: right;">
       <th></th>
       <th>aa</th>
+      <th>abaaba</th>
       <th>abadi</th>
+      <th>abao</th>
       <th>abdillah</th>
       <th>abdul</th>
       <th>abidin</th>
       <th>absen</th>
       <th>ac</th>
       <th>academic</th>
-      <th>academy</th>
-      <th>acara</th>
       <th>...</th>
-      <th>zcs</th>
-      <th>zebaidah</th>
-      <th>zenno</th>
       <th>zennoveren</th>
       <th>zhe</th>
+      <th>zhejiang</th>
+      <th>zhoushan</th>
       <th>zi</th>
       <th>zika</th>
+      <th>zilazik</th>
       <th>zokor</th>
       <th>zumba</th>
       <th>zurich</th>
@@ -1435,19 +1442,19 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1456,22 +1463,22 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.483638</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.107475</td>
+      <td>0.053738</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1483,19 +1490,19 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1507,19 +1514,19 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1531,19 +1538,19 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1555,19 +1562,19 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.053919</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1579,19 +1586,19 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.064508</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1600,22 +1607,22 @@ document.write(`
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.130847</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1627,19 +1634,19 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
@@ -1651,30 +1658,30 @@ document.write(`
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>10 rows × 4637 columns</p>
+<p>10 rows × 4744 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-bb4e3cf3-f654-446b-8d3d-9afa7e88b537')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-55b5574e-c442-465f-bc90-80d005b12bac')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1726,12 +1733,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-bb4e3cf3-f654-446b-8d3d-9afa7e88b537 button.colab-df-convert');
+        document.querySelector('#df-55b5574e-c442-465f-bc90-80d005b12bac button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-bb4e3cf3-f654-446b-8d3d-9afa7e88b537');
+        const element = document.querySelector('#df-55b5574e-c442-465f-bc90-80d005b12bac');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1811,7 +1818,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book Community
+By Rifqi
 </p>
 
   </div>
