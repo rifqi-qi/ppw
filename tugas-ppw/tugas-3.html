@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; Rifqi&#39;s Book</title>
+    <title>Tugas 3 : Klasifikasi Berita Dengan Moetode Logistic Regression &#8212; Rifqi&#39;s Book</title>
   
   
   
@@ -385,9 +385,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -398,19 +396,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Tugas 3 : Klasifikasi Berita Dengan Moetode Logistic Regression</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -420,7 +410,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-3-klasifikasi-berita-dengan-moetode-logistic-regression">
+<h1>Tugas 3 : Klasifikasi Berita Dengan Moetode Logistic Regression<a class="headerlink" href="#tugas-3-klasifikasi-berita-dengan-moetode-logistic-regression" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
@@ -444,7 +436,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-9eb5813d-b2f3-4537-a65f-a687f0f924f3" class="colab-df-container">
+  <div id="df-0d9f5b92-dd7a-45eb-bacf-911198c41ed5" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -476,58 +468,58 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Peneliti Temukan Infeksi COVID-19 Bikin Otak M...</td>
-      <td>Rabu, 25 Sep 2024 20:01 WIB</td>
-      <td>Jakarta - Sebuah penelitian terbaru mengungkap...</td>
+      <td>Waspadai 7 Tanda Tubuh Kekurangan Vitamin B12,...</td>
+      <td>Rabu, 02 Okt 2024 20:08 WIB</td>
+      <td>Jakarta - Vitamin B12 adalah nutrisi penting y...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebuah penelitian terbaru mengungkap ...</td>
-      <td>jakarta  sebuah penelitian terbaru mengungkap ...</td>
-      <td>['jakarta', 'sebuah', 'penelitian', 'terbaru',...</td>
-      <td>jakarta penelitian terbaru mengungkap efek inf...</td>
+      <td>Jakarta  Vitamin B adalah nutrisi penting yang...</td>
+      <td>jakarta  vitamin b adalah nutrisi penting yang...</td>
+      <td>['jakarta', 'vitamin', 'b', 'adalah', 'nutrisi...</td>
+      <td>jakarta vitamin b nutrisi dibutuhkan tubuh mem...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Bukan Jutaan, Sebanyak Ini Telur Nyamuk Berwol...</td>
-      <td>Rabu, 25 Sep 2024 19:31 WIB</td>
-      <td>- Tren kasus demam berdarah dengue (DBD) di DK...</td>
+      <td>Bentuk Tubuh Seperti Ini Disebut Lebih Berisik...</td>
+      <td>Rabu, 02 Okt 2024 19:00 WIB</td>
+      <td>Jakarta - Sudah sejak lama peneliti mengukur r...</td>
       <td>Kesehatan</td>
-      <td>Tren kasus demam berdarah dengue DBD di DKI J...</td>
-      <td>tren kasus demam berdarah dengue dbd di dki j...</td>
-      <td>['tren', 'kasus', 'demam', 'berdarah', 'dengue...</td>
-      <td>tren demam berdarah dengue dbd dki jakarta rel...</td>
+      <td>Jakarta  Sudah sejak lama peneliti mengukur ri...</td>
+      <td>jakarta  sudah sejak lama peneliti mengukur ri...</td>
+      <td>['jakarta', 'sudah', 'sejak', 'lama', 'penelit...</td>
+      <td>jakarta peneliti mengukur risiko penyakit kron...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Cara Minum Air Kelapa untuk Menurunkan Berat B...</td>
-      <td>Rabu, 25 Sep 2024 18:31 WIB</td>
-      <td>Jakarta - Air kelapa memiliki banyak sekali ma...</td>
+      <td>Apa yang Terjadi Jika Kadar Gula Darah Tinggi?...</td>
+      <td>Rabu, 02 Okt 2024 18:00 WIB</td>
+      <td>Jakarta - Gula darah yang tinggi atau hipergli...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Air kelapa memiliki banyak sekali man...</td>
-      <td>jakarta  air kelapa memiliki banyak sekali man...</td>
-      <td>['jakarta', 'air', 'kelapa', 'memiliki', 'bany...</td>
-      <td>jakarta air kelapa memiliki manfaat manfaat ke...</td>
+      <td>Jakarta  Gula darah yang tinggi atau hiperglik...</td>
+      <td>jakarta  gula darah yang tinggi atau hiperglik...</td>
+      <td>['jakarta', 'gula', 'darah', 'yang', 'tinggi',...</td>
+      <td>jakarta gula darah hiperglikemia kadar glukosa...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>5 Makanan yang Sebaiknya Nggak Dikonsumsi Mala...</td>
-      <td>Rabu, 25 Sep 2024 18:03 WIB</td>
-      <td>Jakarta - Mengonsumsi makanan sehat dan bergiz...</td>
+      <td>Wajib Perhatikan, Ini Tanda Pekerja Stres dan ...</td>
+      <td>Rabu, 02 Okt 2024 16:31 WIB</td>
+      <td>Jakarta - Setiap pekerjaan pasti memiliki beba...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Mengonsumsi makanan sehat dan bergizi...</td>
-      <td>jakarta  mengonsumsi makanan sehat dan bergizi...</td>
-      <td>['jakarta', 'mengonsumsi', 'makanan', 'sehat',...</td>
-      <td>jakarta mengonsumsi makanan sehat bergizi bent...</td>
+      <td>Jakarta  Setiap pekerjaan pasti memiliki beban...</td>
+      <td>jakarta  setiap pekerjaan pasti memiliki beban...</td>
+      <td>['jakarta', 'setiap', 'pekerjaan', 'pasti', 'm...</td>
+      <td>jakarta pekerjaan memiliki beban berbedabeda k...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Mudah Dibuat, Ini 4 Minuman Simpel yang Bisa B...</td>
-      <td>Rabu, 25 Sep 2024 17:03 WIB</td>
-      <td>Jakarta - Kolesterol merupakan senyawa lemak y...</td>
+      <td>Menyoal Sindrom Kematian Mendadak, Ini Penyeba...</td>
+      <td>Rabu, 02 Okt 2024 16:03 WIB</td>
+      <td>Jakarta - Sindrom kematian mendadak adalah ist...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kolesterol merupakan senyawa lemak ya...</td>
-      <td>jakarta  kolesterol merupakan senyawa lemak ya...</td>
-      <td>['jakarta', 'kolesterol', 'merupakan', 'senyaw...</td>
-      <td>jakarta kolesterol senyawa lemak dihasilkan tu...</td>
+      <td>Jakarta  Sindrom kematian mendadak adalah isti...</td>
+      <td>jakarta  sindrom kematian mendadak adalah isti...</td>
+      <td>['jakarta', 'sindrom', 'kematian', 'mendadak',...</td>
+      <td>jakarta sindrom kematian mendadak istilah meng...</td>
     </tr>
   </tbody>
 </table>
@@ -535,7 +527,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9eb5813d-b2f3-4537-a65f-a687f0f924f3')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0d9f5b92-dd7a-45eb-bacf-911198c41ed5')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -587,12 +579,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9eb5813d-b2f3-4537-a65f-a687f0f924f3 button.colab-df-convert');
+        document.querySelector('#df-0d9f5b92-dd7a-45eb-bacf-911198c41ed5 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9eb5813d-b2f3-4537-a65f-a687f0f924f3');
+        const element = document.querySelector('#df-0d9f5b92-dd7a-45eb-bacf-911198c41ed5');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -667,7 +659,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-db5031b6-9071-4b92-b010-769f4d8e8272" class="colab-df-container">
+  <div id="df-077d0c50-4f28-4733-97a5-29e11c2bbf04" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -686,48 +678,48 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>aa</th>
-      <th>abis</th>
-      <th>ablasi</th>
+      <th>aan</th>
+      <th>abad</th>
+      <th>abaikan</th>
+      <th>abc</th>
+      <th>abdul</th>
+      <th>abidin</th>
+      <th>abimanyu</th>
+      <th>abirezky</th>
       <th>abnormal</th>
       <th>absen</th>
-      <th>abuabu</th>
-      <th>academy</th>
-      <th>acara</th>
-      <th>ace</th>
-      <th>aci</th>
       <th>...</th>
-      <th>yzrmdiyakini</th>
-      <th>zaidihendra</th>
-      <th>zar</th>
+      <th>zannibah</th>
+      <th>zannubah</th>
+      <th>zarco</th>
       <th>zat</th>
       <th>zatzat</th>
-      <th>zayan</th>
-      <th>zero</th>
-      <th>zestril</th>
-      <th>zhou</th>
-      <th>zona</th>
+      <th>ziolkowska</th>
+      <th>zivan</th>
+      <th>zonta</th>
+      <th>zulfa</th>
+      <th>zulkarnain</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.038742</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -737,6 +729,7 @@ document.write(`
     <tr>
       <th>1</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -745,13 +738,12 @@ document.write(`
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -761,6 +753,7 @@ document.write(`
     <tr>
       <th>2</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -769,13 +762,12 @@ document.write(`
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -785,6 +777,7 @@ document.write(`
     <tr>
       <th>3</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -793,13 +786,12 @@ document.write(`
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -809,6 +801,7 @@ document.write(`
     <tr>
       <th>4</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -817,13 +810,12 @@ document.write(`
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -833,6 +825,7 @@ document.write(`
     <tr>
       <th>5</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -841,13 +834,12 @@ document.write(`
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -857,6 +849,7 @@ document.write(`
     <tr>
       <th>6</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -865,13 +858,12 @@ document.write(`
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.060604</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -881,21 +873,21 @@ document.write(`
     <tr>
       <th>7</th>
       <td>0.0</td>
+      <td>0.08354</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.038701</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -905,6 +897,7 @@ document.write(`
     <tr>
       <th>8</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -913,13 +906,12 @@ document.write(`
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -929,6 +921,7 @@ document.write(`
     <tr>
       <th>9</th>
       <td>0.0</td>
+      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -937,13 +930,12 @@ document.write(`
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -952,12 +944,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>10 rows × 4342 columns</p>
+<p>10 rows × 4710 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-db5031b6-9071-4b92-b010-769f4d8e8272')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-077d0c50-4f28-4733-97a5-29e11c2bbf04')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1009,12 +1001,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-db5031b6-9071-4b92-b010-769f4d8e8272 button.colab-df-convert');
+        document.querySelector('#df-077d0c50-4f28-4733-97a5-29e11c2bbf04 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-db5031b6-9071-4b92-b010-769f4d8e8272');
+        const element = document.querySelector('#df-077d0c50-4f28-4733-97a5-29e11c2bbf04');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1056,8 +1048,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of X_train: (80, 4342)
-Shape of X_test: (20, 4342)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of X_train: (80, 4710)
+Shape of X_test: (20, 4710)
 </pre></div>
 </div>
 </div>
@@ -1106,22 +1098,22 @@ Shape of X_test: (20, 4342)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 100.00%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 80.00%
 Confusion Matrix:
-[[12  0]
- [ 0  8]]
+[[8 4]
+ [0 8]]
 
 Classification Report:
               precision    recall  f1-score   support
 
-   Kesehatan       1.00      1.00      1.00        12
-    Olahraga       1.00      1.00      1.00         8
+   Kesehatan       1.00      0.67      0.80        12
+    Olahraga       0.67      1.00      0.80         8
 
-    accuracy                           1.00        20
-   macro avg       1.00      1.00      1.00        20
-weighted avg       1.00      1.00      1.00        20
+    accuracy                           0.80        20
+   macro avg       0.83      0.83      0.80        20
+weighted avg       0.87      0.80      0.80        20
 
-Cross-validation accuracy: 96.25%
+Cross-validation accuracy: 81.25%
 </pre></div>
 </div>
 </div>
@@ -1196,6 +1188,7 @@ Prediksi untuk teks 2: Kesehatan
 </div>
 </div>
 </div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1233,21 +1226,6 @@ Prediksi untuk teks 2: Kesehatan
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-  </nav></div>
-
-</div></div>
               
             
           </div>
