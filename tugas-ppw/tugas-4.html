@@ -182,7 +182,9 @@
         <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Tugas-1.html">Tugas 1 : Crawling Berita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-2.html">Tugas 2 : Preprocessing  &amp; TfIdf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Moetode Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-4v2.html">Tugas 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-5.html">Tugas 5 : keyword extraction</a></li>
 </ul>
 
     </div>
@@ -451,7 +453,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-bdf39a0b-cf75-4120-beee-80bd06e67cf6" class="colab-df-container">
+  <div id="df-3aeeeab6-680d-4168-91ef-08406a5e1ef1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -483,58 +485,58 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gaduh Poster 'Berobat ke Malaysia Aja', Kemenk...</td>
-      <td>Kamis, 10 Okt 2024 10:06 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...</td>
+      <td>Rabu, 16 Okt 2024 15:03 WIB</td>
+      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI Kemenkes ang...</td>
-      <td>jakarta  kementerian kesehatan ri kemenkes ang...</td>
-      <td>['jakarta', 'kementerian', 'kesehatan', 'ri', ...</td>
-      <td>jakarta kementerian kesehatan ri kemenkes angk...</td>
+      <td>Jakarta  Seorang pria bernama Evan Plotkin di ...</td>
+      <td>jakarta  seorang pria bernama evan plotkin di ...</td>
+      <td>['jakarta', 'seorang', 'pria', 'bernama', 'eva...</td>
+      <td>jakarta pria bernama evan plotkin connecticut ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Poster 'Berobat ke Malaysia Aja' Dekat K...</td>
-      <td>Kamis, 10 Okt 2024 09:42 WIB</td>
-      <td>Jakarta - Baru-baru ini publik dihebohkan deng...</td>
+      <td>XLIFE Hadirkan Jasa Terapis Pijat Profesional ...</td>
+      <td>Rabu, 16 Okt 2024 14:32 WIB</td>
+      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Barubaru ini publik dihebohkan dengan...</td>
-      <td>jakarta  barubaru ini publik dihebohkan dengan...</td>
-      <td>['jakarta', 'barubaru', 'ini', 'publik', 'dihe...</td>
-      <td>jakarta barubaru publik dihebohkan unggahan po...</td>
+      <td>Jakarta  Manfaat dari terapi pijat selain rela...</td>
+      <td>jakarta  manfaat dari terapi pijat selain rela...</td>
+      <td>['jakarta', 'manfaat', 'dari', 'terapi', 'pija...</td>
+      <td>jakarta manfaat terapi pijat relaksasi menghil...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...</td>
-      <td>Kamis, 10 Okt 2024 09:33 WIB</td>
-      <td>Jakarta - Kanker paru terjadi akibat pembelaha...</td>
+      <td>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...</td>
+      <td>Rabu, 16 Okt 2024 14:31 WIB</td>
+      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kanker paru terjadi akibat pembelahan...</td>
-      <td>jakarta  kanker paru terjadi akibat pembelahan...</td>
-      <td>['jakarta', 'kanker', 'paru', 'terjadi', 'akib...</td>
-      <td>jakarta kanker paru akibat pembelahan sel terk...</td>
+      <td>Jakarta  Mantan Perdana Menteri Malaysia Tun D...</td>
+      <td>jakarta  mantan perdana menteri malaysia tun d...</td>
+      <td>['jakarta', 'mantan', 'perdana', 'menteri', 'm...</td>
+      <td>jakarta mantan perdana menteri malaysia tun dr...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kondisi Terkini Raja Salman usai Jalani Perawa...</td>
-      <td>Kamis, 10 Okt 2024 09:01 WIB</td>
-      <td>Jakarta - Raja Arab Saudi, Salman bin Abdulazi...</td>
+      <td>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...</td>
+      <td>Rabu, 16 Okt 2024 14:01 WIB</td>
+      <td>Jakarta - Miliarder Amerika Serikat, Bryan Joh...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Raja Arab Saudi Salman bin Abdulaziz ...</td>
-      <td>jakarta  raja arab saudi salman bin abdulaziz ...</td>
-      <td>['jakarta', 'raja', 'arab', 'saudi', 'salman',...</td>
-      <td>jakarta raja arab saudi salman bin abdulaziz d...</td>
+      <td>Jakarta  Miliarder Amerika Serikat Bryan Johns...</td>
+      <td>jakarta  miliarder amerika serikat bryan johns...</td>
+      <td>['jakarta', 'miliarder', 'amerika', 'serikat',...</td>
+      <td>jakarta miliarder amerika serikat bryan johnso...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cerita Dokter Temukan Anak Alami Anemia gegara...</td>
-      <td>Kamis, 10 Okt 2024 08:31 WIB</td>
-      <td>Jakarta - Viral sebuah template Instagram stor...</td>
+      <td>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...</td>
+      <td>Rabu, 16 Okt 2024 13:30 WIB</td>
+      <td>Jakarta - Dirjen Kefarmasian dan Alat Kesehata...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral sebuah template Instagram stori...</td>
-      <td>jakarta  viral sebuah template instagram stori...</td>
-      <td>['jakarta', 'viral', 'sebuah', 'template', 'in...</td>
-      <td>jakarta viral template instagram stories beris...</td>
+      <td>Jakarta  Dirjen Kefarmasian dan Alat Kesehatan...</td>
+      <td>jakarta  dirjen kefarmasian dan alat kesehatan...</td>
+      <td>['jakarta', 'dirjen', 'kefarmasian', 'dan', 'a...</td>
+      <td>jakarta dirjen kefarmasian alat kesehatan keme...</td>
     </tr>
   </tbody>
 </table>
@@ -542,7 +544,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-bdf39a0b-cf75-4120-beee-80bd06e67cf6')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3aeeeab6-680d-4168-91ef-08406a5e1ef1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -594,12 +596,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-bdf39a0b-cf75-4120-beee-80bd06e67cf6 button.colab-df-convert');
+        document.querySelector('#df-3aeeeab6-680d-4168-91ef-08406a5e1ef1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-bdf39a0b-cf75-4120-beee-80bd06e67cf6');
+        const element = document.querySelector('#df-3aeeeab6-680d-4168-91ef-08406a5e1ef1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -645,95 +647,95 @@ document.write(`
 
 DataFrame setelah Label Encoding:
                                                 judul  \
-0   Gaduh Poster &#39;Berobat ke Malaysia Aja&#39;, Kemenk...   
-1   Viral Poster &#39;Berobat ke Malaysia Aja&#39; Dekat K...   
-2   Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...   
-3   Kondisi Terkini Raja Salman usai Jalani Perawa...   
-4   Cerita Dokter Temukan Anak Alami Anemia gegara...   
+0   Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...   
+1   XLIFE Hadirkan Jasa Terapis Pijat Profesional ...   
+2   Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...   
+3   Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...   
+4   Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...   
 ..                                                ...   
-95  Link Live Streaming MotoGP Jepang 2024, Start ...   
-96  MotoGP Jepang: Marc Marquez Tetap Tenang Terle...   
-97  Jadwal MotoGP Jepang Hari Ini: Adu Balap di Mo...   
-98  Ide PON dengan 2 Tuan Rumah Bisa Terus Dikemba...   
-99  Video Bagnaia Juara Sprint Race MotoGP Jepang,...   
+95  Le Minerale Jadi Official Mineral Water Jakart...   
+96          One Pride MMA Kembali Hadir di Yogyakarta   
+97            Kudus Gelar 76 Indonesian Downhill 2024   
+98  Arctic Open 2024: Rinov/Pitha Tersisih di Pere...   
+99  Arctic Open 2024: Fajar/Rian dan Rehan/Lisa Ta...   
 
-                                          tanggal  \
-0                    Kamis, 10 Okt 2024 10:06 WIB   
-1                    Kamis, 10 Okt 2024 09:42 WIB   
-2                    Kamis, 10 Okt 2024 09:33 WIB   
-3                    Kamis, 10 Okt 2024 09:01 WIB   
-4                    Kamis, 10 Okt 2024 08:31 WIB   
-..                                            ...   
-95                  Minggu, 06 Okt 2024 09:20 WIB   
-96                  Minggu, 06 Okt 2024 08:20 WIB   
-97                  Minggu, 06 Okt 2024 06:45 WIB   
-98                  Minggu, 06 Okt 2024 00:30 WIB   
-99  45,605 Views  |  Sabtu, 05 Okt 2024 18:30 WIB   
+                         tanggal  \
+0    Rabu, 16 Okt 2024 15:03 WIB   
+1    Rabu, 16 Okt 2024 14:32 WIB   
+2    Rabu, 16 Okt 2024 14:31 WIB   
+3    Rabu, 16 Okt 2024 14:01 WIB   
+4    Rabu, 16 Okt 2024 13:30 WIB   
+..                           ...   
+95  Sabtu, 12 Okt 2024 10:34 WIB   
+96  Sabtu, 12 Okt 2024 05:20 WIB   
+97  Sabtu, 12 Okt 2024 04:15 WIB   
+98  Jumat, 11 Okt 2024 22:04 WIB   
+99  Jumat, 11 Okt 2024 20:21 WIB   
 
                                                   isi   kategori  \
-0   Jakarta - Kementerian Kesehatan RI (Kemenkes) ...  Kesehatan   
-1   Jakarta - Baru-baru ini publik dihebohkan deng...  Kesehatan   
-2   Jakarta - Kanker paru terjadi akibat pembelaha...  Kesehatan   
-3   Jakarta - Raja Arab Saudi, Salman bin Abdulazi...  Kesehatan   
-4   Jakarta - Viral sebuah template Instagram stor...  Kesehatan   
+0   Jakarta - Seorang pria bernama Evan Plotkin di...  Kesehatan   
+1   Jakarta - Manfaat dari terapi pijat selain rel...  Kesehatan   
+2   Jakarta - Mantan Perdana Menteri Malaysia Tun ...  Kesehatan   
+3   Jakarta - Miliarder Amerika Serikat, Bryan Joh...  Kesehatan   
+4   Jakarta - Dirjen Kefarmasian dan Alat Kesehata...  Kesehatan   
 ..                                                ...        ...   
-95  Jakarta - Link live streaming MotoGP Jepang 20...   Olahraga   
-96  Jakarta - Rider Gresini Racing , Marc Marquez ...   Olahraga   
-97  Motegi - MotoGP Jepang 2024 digeber tepat pada...   Olahraga   
-98  Jakarta - Pekan Olahraga Nasional (PON) XXI di...   Olahraga   
-99  Francesco Bagnaia menjadi pemenang Sprint Race...   Olahraga   
+95  Jakarta - Jakarta Running Festival (JRF) 2024,...   Olahraga   
+96  Jakarta - Yogyakarta akan kembali diramaikan o...   Olahraga   
+97  Jakarta - Ajang balap sepeda 76 Indonesian Dow...   Olahraga   
+98  Jakarta - Langkah Rinov Rivaldy / Pitha Haning...   Olahraga   
+99  Vantaa - Fajar Alfian/Muhammad Rian Ardianto g...   Olahraga   
 
                                             cleansing  \
-0   Jakarta  Kementerian Kesehatan RI Kemenkes ang...   
-1   Jakarta  Barubaru ini publik dihebohkan dengan...   
-2   Jakarta  Kanker paru terjadi akibat pembelahan...   
-3   Jakarta  Raja Arab Saudi Salman bin Abdulaziz ...   
-4   Jakarta  Viral sebuah template Instagram stori...   
+0   Jakarta  Seorang pria bernama Evan Plotkin di ...   
+1   Jakarta  Manfaat dari terapi pijat selain rela...   
+2   Jakarta  Mantan Perdana Menteri Malaysia Tun D...   
+3   Jakarta  Miliarder Amerika Serikat Bryan Johns...   
+4   Jakarta  Dirjen Kefarmasian dan Alat Kesehatan...   
 ..                                                ...   
-95  Jakarta  Link live streaming MotoGP Jepang  bi...   
-96  Jakarta  Rider Gresini Racing  Marc Marquez  h...   
-97  Motegi  MotoGP Jepang  digeber tepat pada hari...   
-98  Jakarta  Pekan Olahraga Nasional PON XXI di Ac...   
-99  Francesco Bagnaia menjadi pemenang Sprint Race...   
+95  Jakarta  Jakarta Running Festival JRF  ajang m...   
+96  Jakarta  Yogyakarta akan kembali diramaikan ol...   
+97  Jakarta  Ajang balap sepeda  Indonesian Downhi...   
+98  Jakarta  Langkah Rinov Rivaldy  Pitha Haningty...   
+99  Vantaa  Fajar AlfianMuhammad Rian Ardianto gag...   
 
                                          case_folding  \
-0   jakarta  kementerian kesehatan ri kemenkes ang...   
-1   jakarta  barubaru ini publik dihebohkan dengan...   
-2   jakarta  kanker paru terjadi akibat pembelahan...   
-3   jakarta  raja arab saudi salman bin abdulaziz ...   
-4   jakarta  viral sebuah template instagram stori...   
+0   jakarta  seorang pria bernama evan plotkin di ...   
+1   jakarta  manfaat dari terapi pijat selain rela...   
+2   jakarta  mantan perdana menteri malaysia tun d...   
+3   jakarta  miliarder amerika serikat bryan johns...   
+4   jakarta  dirjen kefarmasian dan alat kesehatan...   
 ..                                                ...   
-95  jakarta  link live streaming motogp jepang  bi...   
-96  jakarta  rider gresini racing  marc marquez  h...   
-97  motegi  motogp jepang  digeber tepat pada hari...   
-98  jakarta  pekan olahraga nasional pon xxi di ac...   
-99  francesco bagnaia menjadi pemenang sprint race...   
+95  jakarta  jakarta running festival jrf  ajang m...   
+96  jakarta  yogyakarta akan kembali diramaikan ol...   
+97  jakarta  ajang balap sepeda  indonesian downhi...   
+98  jakarta  langkah rinov rivaldy  pitha haningty...   
+99  vantaa  fajar alfianmuhammad rian ardianto gag...   
 
                                              tokenize  \
-0   [&#39;jakarta&#39;, &#39;kementerian&#39;, &#39;kesehatan&#39;, &#39;ri&#39;, ...   
-1   [&#39;jakarta&#39;, &#39;barubaru&#39;, &#39;ini&#39;, &#39;publik&#39;, &#39;dihe...   
-2   [&#39;jakarta&#39;, &#39;kanker&#39;, &#39;paru&#39;, &#39;terjadi&#39;, &#39;akib...   
-3   [&#39;jakarta&#39;, &#39;raja&#39;, &#39;arab&#39;, &#39;saudi&#39;, &#39;salman&#39;,...   
-4   [&#39;jakarta&#39;, &#39;viral&#39;, &#39;sebuah&#39;, &#39;template&#39;, &#39;in...   
+0   [&#39;jakarta&#39;, &#39;seorang&#39;, &#39;pria&#39;, &#39;bernama&#39;, &#39;eva...   
+1   [&#39;jakarta&#39;, &#39;manfaat&#39;, &#39;dari&#39;, &#39;terapi&#39;, &#39;pija...   
+2   [&#39;jakarta&#39;, &#39;mantan&#39;, &#39;perdana&#39;, &#39;menteri&#39;, &#39;m...   
+3   [&#39;jakarta&#39;, &#39;miliarder&#39;, &#39;amerika&#39;, &#39;serikat&#39;,...   
+4   [&#39;jakarta&#39;, &#39;dirjen&#39;, &#39;kefarmasian&#39;, &#39;dan&#39;, &#39;a...   
 ..                                                ...   
-95  [&#39;jakarta&#39;, &#39;link&#39;, &#39;live&#39;, &#39;streaming&#39;, &#39;moto...   
-96  [&#39;jakarta&#39;, &#39;rider&#39;, &#39;gresini&#39;, &#39;racing&#39;, &#39;mar...   
-97  [&#39;motegi&#39;, &#39;motogp&#39;, &#39;jepang&#39;, &#39;digeber&#39;, &#39;tep...   
-98  [&#39;jakarta&#39;, &#39;pekan&#39;, &#39;olahraga&#39;, &#39;nasional&#39;, &#39;...   
-99  [&#39;francesco&#39;, &#39;bagnaia&#39;, &#39;menjadi&#39;, &#39;pemenang&#39;...   
+95  [&#39;jakarta&#39;, &#39;jakarta&#39;, &#39;running&#39;, &#39;festival&#39;, ...   
+96  [&#39;jakarta&#39;, &#39;yogyakarta&#39;, &#39;akan&#39;, &#39;kembali&#39;, &#39;...   
+97  [&#39;jakarta&#39;, &#39;ajang&#39;, &#39;balap&#39;, &#39;sepeda&#39;, &#39;indon...   
+98  [&#39;jakarta&#39;, &#39;langkah&#39;, &#39;rinov&#39;, &#39;rivaldy&#39;, &#39;pi...   
+99  [&#39;vantaa&#39;, &#39;fajar&#39;, &#39;alfianmuhammad&#39;, &#39;rian&#39;, ...   
 
                                      stopword_removal  kategori_encoded  
-0   jakarta kementerian kesehatan ri kemenkes angk...                 0  
-1   jakarta barubaru publik dihebohkan unggahan po...                 0  
-2   jakarta kanker paru akibat pembelahan sel terk...                 0  
-3   jakarta raja arab saudi salman bin abdulaziz d...                 0  
-4   jakarta viral template instagram stories beris...                 0  
+0   jakarta pria bernama evan plotkin connecticut ...                 0  
+1   jakarta manfaat terapi pijat relaksasi menghil...                 0  
+2   jakarta mantan perdana menteri malaysia tun dr...                 0  
+3   jakarta miliarder amerika serikat bryan johnso...                 0  
+4   jakarta dirjen kefarmasian alat kesehatan keme...                 0  
 ..                                                ...               ...  
-95  jakarta link live streaming motogp jepang info...                 1  
-96  jakarta rider gresini racing marc marquez puas...                 1  
-97  motegi motogp jepang digeber jadwal balapan se...                 1  
-98  jakarta pekan olahraga nasional pon xxi acehsu...                 1  
-99  francesco bagnaia pemenang sprint race motogp ...                 1  
+95  jakarta jakarta running festival jrf ajang mar...                 1  
+96  jakarta yogyakarta diramaikan gelaran olahraga...                 1  
+97  jakarta ajang balap sepeda indonesian downhill...                 1  
+98  jakarta langkah rinov rivaldy pitha haningtyas...                 1  
+99  vantaa fajar alfianmuhammad rian ardianto gaga...                 1  
 
 [100 rows x 9 columns]
 </pre></div>
@@ -771,17 +773,17 @@ DataFrame setelah Label Encoding:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     jakarta kementerian kesehatan ri kemenkes angk...
-1     jakarta barubaru publik dihebohkan unggahan po...
-2     jakarta kanker paru akibat pembelahan sel terk...
-3     jakarta raja arab saudi salman bin abdulaziz d...
-4     jakarta viral template instagram stories beris...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     jakarta pria bernama evan plotkin connecticut ...
+1     jakarta manfaat terapi pijat relaksasi menghil...
+2     jakarta mantan perdana menteri malaysia tun dr...
+3     jakarta miliarder amerika serikat bryan johnso...
+4     jakarta dirjen kefarmasian alat kesehatan keme...
                             ...                        
-95    jakarta link live streaming motogp jepang info...
-96    jakarta rider gresini racing marc marquez puas...
-97    motegi motogp jepang digeber jadwal balapan se...
-98    jakarta pekan olahraga nasional pon xxi acehsu...
-99    francesco bagnaia pemenang sprint race motogp ...
+95    jakarta jakarta running festival jrf ajang mar...
+96    jakarta yogyakarta diramaikan gelaran olahraga...
+97    jakarta ajang balap sepeda indonesian downhill...
+98    jakarta langkah rinov rivaldy pitha haningtyas...
+99    vantaa fajar alfianmuhammad rian ardianto gaga...
 Name: stopword_removal, Length: 100, dtype: object
 0     0
 1     0
@@ -830,7 +832,7 @@ Jumlah data uji: 20
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8fb67a28-06dc-4187-9098-68e21efa7066" class="colab-df-container">
+  <div id="df-01f68b34-1f2c-4a2d-a0e9-54bf2dfffde1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -849,26 +851,26 @@ Jumlah data uji: 20
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>aarhus</th>
       <th>abadi</th>
-      <th>abdulaziz</th>
-      <th>abidin</th>
+      <th>abc</th>
+      <th>abdul</th>
       <th>abnormal</th>
-      <th>about</th>
-      <th>abraham</th>
-      <th>ac</th>
-      <th>academic</th>
-      <th>acak</th>
+      <th>aboy</th>
+      <th>absen</th>
+      <th>acar</th>
+      <th>acara</th>
+      <th>aceh</th>
+      <th>acehsumut</th>
       <th>...</th>
       <th>zaenal</th>
+      <th>zaitun</th>
       <th>zaki</th>
       <th>zarco</th>
       <th>zat</th>
-      <th>zhana</th>
-      <th>zhang</th>
-      <th>ziko</th>
-      <th>zinc</th>
-      <th>zizan</th>
+      <th>zerlinda</th>
+      <th>zhehuang</th>
+      <th>zhen</th>
+      <th>zi</th>
       <th>zu</th>
     </tr>
   </thead>
@@ -876,8 +878,8 @@ Jumlah data uji: 20
     <tr>
       <th>0</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -887,21 +889,21 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.123913</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.066403</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -911,21 +913,21 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.164521</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>0.0</td>
+      <td>0.026832</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -935,21 +937,21 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -959,21 +961,21 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -983,14 +985,14 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
@@ -1020,8 +1022,8 @@ Jumlah data uji: 20
     <tr>
       <th>75</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.06154</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1031,21 +1033,21 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>76</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1055,21 +1057,21 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>77</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1079,21 +1081,21 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>78</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1103,21 +1105,21 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>79</th>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1127,24 +1129,24 @@ Jumlah data uji: 20
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.042826</td>
       <td>0.0</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
     </tr>
   </tbody>
 </table>
-<p>80 rows × 3861 columns</p>
+<p>80 rows × 4075 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8fb67a28-06dc-4187-9098-68e21efa7066')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-01f68b34-1f2c-4a2d-a0e9-54bf2dfffde1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1196,12 +1198,12 @@ Jumlah data uji: 20
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8fb67a28-06dc-4187-9098-68e21efa7066 button.colab-df-convert');
+        document.querySelector('#df-01f68b34-1f2c-4a2d-a0e9-54bf2dfffde1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8fb67a28-06dc-4187-9098-68e21efa7066');
+        const element = document.querySelector('#df-01f68b34-1f2c-4a2d-a0e9-54bf2dfffde1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1236,7 +1238,7 @@ Jumlah data uji: 20
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-17edeefd-0911-43f9-bbf4-38e5c8eb7565" class="colab-df-container">
+  <div id="df-272a1fd4-c6a6-4aad-901f-fb494c77fd9f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1255,26 +1257,26 @@ Jumlah data uji: 20
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>aarhus</th>
       <th>abadi</th>
-      <th>abdulaziz</th>
-      <th>abidin</th>
+      <th>abc</th>
+      <th>abdul</th>
       <th>abnormal</th>
-      <th>about</th>
-      <th>abraham</th>
-      <th>ac</th>
-      <th>academic</th>
-      <th>acak</th>
+      <th>aboy</th>
+      <th>absen</th>
+      <th>acar</th>
+      <th>acara</th>
+      <th>aceh</th>
+      <th>acehsumut</th>
       <th>...</th>
       <th>zaenal</th>
+      <th>zaitun</th>
       <th>zaki</th>
       <th>zarco</th>
       <th>zat</th>
-      <th>zhana</th>
-      <th>zhang</th>
-      <th>ziko</th>
-      <th>zinc</th>
-      <th>zizan</th>
+      <th>zerlinda</th>
+      <th>zhehuang</th>
+      <th>zhen</th>
+      <th>zi</th>
       <th>zu</th>
     </tr>
   </thead>
@@ -1545,12 +1547,12 @@ Jumlah data uji: 20
     </tr>
   </tbody>
 </table>
-<p>80 rows × 3861 columns</p>
+<p>80 rows × 4075 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-17edeefd-0911-43f9-bbf4-38e5c8eb7565')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-272a1fd4-c6a6-4aad-901f-fb494c77fd9f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1602,12 +1604,12 @@ Jumlah data uji: 20
 
     <script>
       const buttonEl =
-        document.querySelector('#df-17edeefd-0911-43f9-bbf4-38e5c8eb7565 button.colab-df-convert');
+        document.querySelector('#df-272a1fd4-c6a6-4aad-901f-fb494c77fd9f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-17edeefd-0911-43f9-bbf4-38e5c8eb7565');
+        const element = document.querySelector('#df-272a1fd4-c6a6-4aad-901f-fb494c77fd9f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1663,20 +1665,20 @@ Jumlah data uji: 20
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>            Node  Degree Centrality
-0         aarhus                0.0
-2535       ombak                0.0
-2567       pakar                0.0
-2568       pakde                0.0
-2569       paket                0.0
-...          ...                ...
-1291   institusi                0.0
-1292    institut                0.0
-1293   institute                0.0
-1294  institutes                0.0
-3860          zu                0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Node  Degree Centrality
+2597        not           0.000491
+596     content           0.000491
+1099      found           0.000491
+1361         iq           0.000245
+500       bryan           0.000245
+...         ...                ...
+1366    iskemik           0.000000
+1367     island           0.000000
+1368  isoflavon           0.000000
+1369       ispa           0.000000
+4074         zu           0.000000
 
-[3861 rows x 2 columns]
+[4075 rows x 2 columns]
 </pre></div>
 </div>
 </div>
@@ -1695,31 +1697,18 @@ Jumlah data uji: 20
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame setelah menghapus fitur di bawah top 10:
-    aarhus  ombak  pakar  pakde  paket  paliatif  palinskiwade  panas  \
-0        0      0      0      0      0         0             0      0   
-1        0      0      0      0      0         0             0      0   
-2        0      0      0      0      0         0             0      0   
-3        0      0      0      0      0         0             0      0   
-4        0      0      0      0      0         0             0      0   
-..     ...    ...    ...    ...    ...       ...           ...    ...   
-75       0      0      0      0      0         0             0      0   
-76       0      0      0      0      0         0             0      0   
-77       0      0      0      0      0         0             0      0   
-78       0      0      0      0      0         0             0      0   
-79       0      0      0      0      0         0             0      0   
-
-    pandangannya  pandemi  
-0              0        0  
-1              0        0  
-2              0        0  
-3              0        0  
-4              0        0  
-..           ...      ...  
-75             0        0  
-76             0        0  
-77             0        0  
-78             0        0  
-79             0        0  
+    not  content  found  iq  bryan  plasma  tes  partner  paruparu  pas
+0     0        0      0   0      0       0    0        0         0    0
+1     0        0      0   0      0       0    0        0         0    0
+2     0        0      0   1      0       0    1        0         0    0
+3     0        0      0   0      0       0    0        0         0    0
+4     0        0      0   0      0       0    0        0         0    0
+..  ...      ...    ...  ..    ...     ...  ...      ...       ...  ...
+75    0        0      0   0      1       1    0        0         0    0
+76    0        0      0   0      0       0    0        0         0    0
+77    0        0      0   0      0       0    0        0         0    0
+78    0        0      0   0      0       0    0        0         0    0
+79    0        0      0   0      0       0    0        0         0    0
 
 [80 rows x 10 columns]
 </pre></div>
@@ -1764,7 +1753,7 @@ Jumlah data uji: 20
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b923d427810c815ebfd4136af1881e2a3b70e958d64a3464a522efef1e9b5af4.png" src="../_images/b923d427810c815ebfd4136af1881e2a3b70e958d64a3464a522efef1e9b5af4.png" />
+<img alt="../_images/37802fe85f4832b11cc6c9a975e4112f26240c4bbd792273bce2bbe6d5c4ebd9.png" src="../_images/37802fe85f4832b11cc6c9a975e4112f26240c4bbd792273bce2bbe6d5c4ebd9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1789,29 +1778,17 @@ Jumlah data uji: 20
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Node  Degree Centrality  Closeness Centrality  \
-0        aarhus                0.0                   0.0   
-1         ombak                0.0                   0.0   
-2         pakar                0.0                   0.0   
-3         pakde                0.0                   0.0   
-4         paket                0.0                   0.0   
-5      paliatif                0.0                   0.0   
-6  palinskiwade                0.0                   0.0   
-7         panas                0.0                   0.0   
-8  pandangannya                0.0                   0.0   
-9       pandemi                0.0                   0.0   
-
-   Betweenness Centrality  
-0                     0.0  
-1                     0.0  
-2                     0.0  
-3                     0.0  
-4                     0.0  
-5                     0.0  
-6                     0.0  
-7                     0.0  
-8                     0.0  
-9                     0.0  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       Node  Degree Centrality  Closeness Centrality  Betweenness Centrality
+0       not           0.000491              0.222222                     0.0
+1   content           0.000491              0.222222                     0.0
+2     found           0.000491              0.222222                     0.0
+3        iq           0.000245              0.111111                     0.0
+4     bryan           0.000245              0.111111                     0.0
+5    plasma           0.000245              0.111111                     0.0
+6       tes           0.000245              0.111111                     0.0
+7   partner           0.000000              0.000000                     0.0
+8  paruparu           0.000000              0.000000                     0.0
+9       pas           0.000000              0.000000                     0.0
 </pre></div>
 </div>
 </div>
@@ -2063,7 +2040,7 @@ Betweenness Centrality:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/abe402c1f6ea0e3d5c73fc4cb113bd1fd69d0a0e918571f58aa0c1ab468866e8.png" src="../_images/abe402c1f6ea0e3d5c73fc4cb113bd1fd69d0a0e918571f58aa0c1ab468866e8.png" />
+<img alt="../_images/f617cdfa8bb31a596c36257454d2471b1d2ae2ae7462483f2092ad0e7e227d1a.png" src="../_images/f617cdfa8bb31a596c36257454d2471b1d2ae2ae7462483f2092ad0e7e227d1a.png" />
 </div>
 </div>
 </section>

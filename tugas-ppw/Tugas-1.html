@@ -182,7 +182,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 1 : Crawling Berita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-2.html">Tugas 2 : Preprocessing  &amp; TfIdf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Moetode Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-4v2.html">Tugas 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-5.html">Tugas 5 : keyword extraction</a></li>
 </ul>
 
     </div>
@@ -570,34 +572,34 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gaduh Poster &#39;Berobat ke Malaysia Aja&#39;, Kemenkes RI Angkat Bicara
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kasus Kanker gegara Bedak Tabur
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Viral Poster &#39;Berobat ke Malaysia Aja&#39; Dekat Kemenkes RI, Emang Iya Lebih Murah?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>XLIFE Hadirkan Jasa Terapis Pijat Profesional ke Tempat Anda
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Waspadai Gejala Kanker Paru, Dokter Ungkap Bisa Mirip Keluhan Seperti Flu
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sakit Apa?
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kondisi Terkini Raja Salman usai Jalani Perawatan Radang Paru-paru
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma Darahnya Biar Awet Muda
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cerita Dokter Temukan Anak Alami Anemia gegara Sering Diberi Teh oleh Neneknya
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah Jauh dari Singapura-Thailand
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>BPJS Kesehatan Putus Kerja Sama 2 RS di Tegal Imbas Dugaan Fraud
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Segarnya Kualitas Le Minerale Bantu Pelari Indorunners Finish Full Maraton
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ternyata Ini Pemicu Kanker Paru di Usia Muda Meski Tak Merokok
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 Alasan Sulit Berhenti Makan Manis Kata Ahli Gizi, Kamu Merasakannya?
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rwanda Dapat 700 Dosis Vaksin Marburg dari AS, Kelompok Ini Jadi Prioritas
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rahasia Panjang Umur Dokter 101 Tahun, Ini yang Dilakukan Semasa Muda
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fakta-fakta di Balik Viral Imbauan Tak Beri Teh pada Anak, Beneran Berbahaya?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cerita di Balik Viral Pasutri Berobat Bareng ke RS Jiwa Bandung
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6 Gejala Kanker Usus Besar yang Bisa Dialami Anak Muda, Termasuk Kram Perut
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Heboh Kasus Kanker gegara Bedak Tabur, J&amp;J Diminta Bayar Rp 233 Miliar ke Korban
 </pre></div>
 </div>
 </div>
@@ -611,7 +613,7 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7f8897da-fe99-498e-bc29-19d75ff914c0" class="colab-df-container">
+  <div id="df-c7a7713c-d2c2-4d17-b103-c301e9db2a92" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -639,72 +641,72 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gaduh Poster 'Berobat ke Malaysia Aja', Kemenk...</td>
-      <td>Kamis, 10 Okt 2024 10:06 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...</td>
+      <td>Rabu, 16 Okt 2024 15:03 WIB</td>
+      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Poster 'Berobat ke Malaysia Aja' Dekat K...</td>
-      <td>Kamis, 10 Okt 2024 09:42 WIB</td>
-      <td>Jakarta - Baru-baru ini publik dihebohkan deng...</td>
+      <td>XLIFE Hadirkan Jasa Terapis Pijat Profesional ...</td>
+      <td>Rabu, 16 Okt 2024 14:32 WIB</td>
+      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...</td>
-      <td>Kamis, 10 Okt 2024 09:33 WIB</td>
-      <td>Jakarta - Kanker paru terjadi akibat pembelaha...</td>
+      <td>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...</td>
+      <td>Rabu, 16 Okt 2024 14:31 WIB</td>
+      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kondisi Terkini Raja Salman usai Jalani Perawa...</td>
-      <td>Kamis, 10 Okt 2024 09:01 WIB</td>
-      <td>Jakarta - Raja Arab Saudi, Salman bin Abdulazi...</td>
+      <td>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...</td>
+      <td>Rabu, 16 Okt 2024 14:01 WIB</td>
+      <td>Jakarta - Miliarder Amerika Serikat, Bryan Joh...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cerita Dokter Temukan Anak Alami Anemia gegara...</td>
-      <td>Kamis, 10 Okt 2024 08:31 WIB</td>
-      <td>Jakarta - Viral sebuah template Instagram stor...</td>
+      <td>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...</td>
+      <td>Rabu, 16 Okt 2024 13:30 WIB</td>
+      <td>Jakarta - Dirjen Kefarmasian dan Alat Kesehata...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>BPJS Kesehatan Putus Kerja Sama 2 RS di Tegal ...</td>
-      <td>Kamis, 10 Okt 2024 08:03 WIB</td>
-      <td>Jakarta - BPJS Kesehatan memutus kerja sama de...</td>
+      <td>Segarnya Kualitas Le Minerale Bantu Pelari Ind...</td>
+      <td>Rabu, 16 Okt 2024 12:34 WIB</td>
+      <td>Jakarta - Puluhan pelari dari komunitas Indoru...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Ternyata Ini Pemicu Kanker Paru di Usia Muda M...</td>
-      <td>Kamis, 10 Okt 2024 07:31 WIB</td>
-      <td>Jakarta - Pada dasarnya, kebiasaan merokok mer...</td>
+      <td>4 Alasan Sulit Berhenti Makan Manis Kata Ahli ...</td>
+      <td>Rabu, 16 Okt 2024 12:31 WIB</td>
+      <td>Jakarta - Sejatinya, manusia butuh gula (gluko...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Rwanda Dapat 700 Dosis Vaksin Marburg dari AS,...</td>
-      <td>Kamis, 10 Okt 2024 07:00 WIB</td>
-      <td>Jakarta - Pemerintah Rwanda telah mendapatkan ...</td>
+      <td>Rahasia Panjang Umur Dokter 101 Tahun, Ini yan...</td>
+      <td>Rabu, 16 Okt 2024 12:00 WIB</td>
+      <td>Jakarta - Seorang mantan dokter bernama Willia...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>Fakta-fakta di Balik Viral Imbauan Tak Beri Te...</td>
-      <td>Kamis, 10 Okt 2024 06:02 WIB</td>
-      <td>Jakarta - Viral di media sosial Instagram sebu...</td>
+      <td>Cerita di Balik Viral Pasutri Berobat Bareng k...</td>
+      <td>Rabu, 16 Okt 2024 11:00 WIB</td>
+      <td>Jakarta - Tidak sedikit orang yang menganggap ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>6 Gejala Kanker Usus Besar yang Bisa Dialami A...</td>
-      <td>Kamis, 10 Okt 2024 05:00 WIB</td>
-      <td>Jakarta - Kanker usus besar atau kolorektal bi...</td>
+      <td>Heboh Kasus Kanker gegara Bedak Tabur, J&amp;J Dim...</td>
+      <td>Rabu, 16 Okt 2024 10:01 WIB</td>
+      <td>Jakarta - Johnson &amp; Johnson (J&amp;J) diminta memb...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -713,7 +715,7 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7f8897da-fe99-498e-bc29-19d75ff914c0')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c7a7713c-d2c2-4d17-b103-c301e9db2a92')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -765,12 +767,12 @@ Fungsi ini mengambil data berupa judul berita, tanggal publikasi, isi berita dan
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7f8897da-fe99-498e-bc29-19d75ff914c0 button.colab-df-convert');
+        document.querySelector('#df-c7a7713c-d2c2-4d17-b103-c301e9db2a92 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7f8897da-fe99-498e-bc29-19d75ff914c0');
+        const element = document.querySelector('#df-c7a7713c-d2c2-4d17-b103-c301e9db2a92');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});

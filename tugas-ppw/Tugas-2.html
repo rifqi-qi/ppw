@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas-2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tugas 3 : Klasifikasi Berita Dengan Moetode Logistic Regression" href="Tugas-3.html" />
+    <link rel="next" title="Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression" href="Tugas-3.html" />
     <link rel="prev" title="Tugas 1 : Crawling Berita" href="Tugas-1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -182,7 +182,9 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Tugas-1.html">Tugas 1 : Crawling Berita</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 2 : Preprocessing  &amp; TfIdf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Moetode Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-4v2.html">Tugas 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-5.html">Tugas 5 : keyword extraction</a></li>
 </ul>
 
     </div>
@@ -440,7 +442,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e353cea0-82ea-403e-970b-deabb72f5023" class="colab-df-container">
+  <div id="df-c9673a85-3af7-48a1-88b4-deee881edffb" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -468,37 +470,37 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gaduh Poster 'Berobat ke Malaysia Aja', Kemenk...</td>
-      <td>Kamis, 10 Okt 2024 10:06 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...</td>
+      <td>Rabu, 16 Okt 2024 15:03 WIB</td>
+      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Poster 'Berobat ke Malaysia Aja' Dekat K...</td>
-      <td>Kamis, 10 Okt 2024 09:42 WIB</td>
-      <td>Jakarta - Baru-baru ini publik dihebohkan deng...</td>
+      <td>XLIFE Hadirkan Jasa Terapis Pijat Profesional ...</td>
+      <td>Rabu, 16 Okt 2024 14:32 WIB</td>
+      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...</td>
-      <td>Kamis, 10 Okt 2024 09:33 WIB</td>
-      <td>Jakarta - Kanker paru terjadi akibat pembelaha...</td>
+      <td>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...</td>
+      <td>Rabu, 16 Okt 2024 14:31 WIB</td>
+      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kondisi Terkini Raja Salman usai Jalani Perawa...</td>
-      <td>Kamis, 10 Okt 2024 09:01 WIB</td>
-      <td>Jakarta - Raja Arab Saudi, Salman bin Abdulazi...</td>
+      <td>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...</td>
+      <td>Rabu, 16 Okt 2024 14:01 WIB</td>
+      <td>Jakarta - Miliarder Amerika Serikat, Bryan Joh...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cerita Dokter Temukan Anak Alami Anemia gegara...</td>
-      <td>Kamis, 10 Okt 2024 08:31 WIB</td>
-      <td>Jakarta - Viral sebuah template Instagram stor...</td>
+      <td>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...</td>
+      <td>Rabu, 16 Okt 2024 13:30 WIB</td>
+      <td>Jakarta - Dirjen Kefarmasian dan Alat Kesehata...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -507,7 +509,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-e353cea0-82ea-403e-970b-deabb72f5023')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c9673a85-3af7-48a1-88b4-deee881edffb')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -559,12 +561,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-e353cea0-82ea-403e-970b-deabb72f5023 button.colab-df-convert');
+        document.querySelector('#df-c9673a85-3af7-48a1-88b4-deee881edffb button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-e353cea0-82ea-403e-970b-deabb72f5023');
+        const element = document.querySelector('#df-c9673a85-3af7-48a1-88b4-deee881edffb');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -637,7 +639,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4cf375e4-9dbf-4485-b179-288c1ec41b58" class="colab-df-container">
+  <div id="df-f2e34624-7209-4fd4-b2e5-0c81930b6d37" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -666,43 +668,43 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gaduh Poster 'Berobat ke Malaysia Aja', Kemenk...</td>
-      <td>Kamis, 10 Okt 2024 10:06 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...</td>
+      <td>Rabu, 16 Okt 2024 15:03 WIB</td>
+      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI Kemenkes ang...</td>
+      <td>Jakarta  Seorang pria bernama Evan Plotkin di ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Poster 'Berobat ke Malaysia Aja' Dekat K...</td>
-      <td>Kamis, 10 Okt 2024 09:42 WIB</td>
-      <td>Jakarta - Baru-baru ini publik dihebohkan deng...</td>
+      <td>XLIFE Hadirkan Jasa Terapis Pijat Profesional ...</td>
+      <td>Rabu, 16 Okt 2024 14:32 WIB</td>
+      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Barubaru ini publik dihebohkan dengan...</td>
+      <td>Jakarta  Manfaat dari terapi pijat selain rela...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...</td>
-      <td>Kamis, 10 Okt 2024 09:33 WIB</td>
-      <td>Jakarta - Kanker paru terjadi akibat pembelaha...</td>
+      <td>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...</td>
+      <td>Rabu, 16 Okt 2024 14:31 WIB</td>
+      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kanker paru terjadi akibat pembelahan...</td>
+      <td>Jakarta  Mantan Perdana Menteri Malaysia Tun D...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kondisi Terkini Raja Salman usai Jalani Perawa...</td>
-      <td>Kamis, 10 Okt 2024 09:01 WIB</td>
-      <td>Jakarta - Raja Arab Saudi, Salman bin Abdulazi...</td>
+      <td>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...</td>
+      <td>Rabu, 16 Okt 2024 14:01 WIB</td>
+      <td>Jakarta - Miliarder Amerika Serikat, Bryan Joh...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Raja Arab Saudi Salman bin Abdulaziz ...</td>
+      <td>Jakarta  Miliarder Amerika Serikat Bryan Johns...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cerita Dokter Temukan Anak Alami Anemia gegara...</td>
-      <td>Kamis, 10 Okt 2024 08:31 WIB</td>
-      <td>Jakarta - Viral sebuah template Instagram stor...</td>
+      <td>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...</td>
+      <td>Rabu, 16 Okt 2024 13:30 WIB</td>
+      <td>Jakarta - Dirjen Kefarmasian dan Alat Kesehata...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral sebuah template Instagram stori...</td>
+      <td>Jakarta  Dirjen Kefarmasian dan Alat Kesehatan...</td>
     </tr>
   </tbody>
 </table>
@@ -710,7 +712,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4cf375e4-9dbf-4485-b179-288c1ec41b58')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f2e34624-7209-4fd4-b2e5-0c81930b6d37')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -762,12 +764,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4cf375e4-9dbf-4485-b179-288c1ec41b58 button.colab-df-convert');
+        document.querySelector('#df-f2e34624-7209-4fd4-b2e5-0c81930b6d37 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4cf375e4-9dbf-4485-b179-288c1ec41b58');
+        const element = document.querySelector('#df-f2e34624-7209-4fd4-b2e5-0c81930b6d37');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -809,7 +811,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d586b657-7185-400c-aba5-b654deacb1c4" class="colab-df-container">
+  <div id="df-78be3da1-135b-46da-a255-06e80852c595" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -839,48 +841,48 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gaduh Poster 'Berobat ke Malaysia Aja', Kemenk...</td>
-      <td>Kamis, 10 Okt 2024 10:06 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...</td>
+      <td>Rabu, 16 Okt 2024 15:03 WIB</td>
+      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI Kemenkes ang...</td>
-      <td>jakarta  kementerian kesehatan ri kemenkes ang...</td>
+      <td>Jakarta  Seorang pria bernama Evan Plotkin di ...</td>
+      <td>jakarta  seorang pria bernama evan plotkin di ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Poster 'Berobat ke Malaysia Aja' Dekat K...</td>
-      <td>Kamis, 10 Okt 2024 09:42 WIB</td>
-      <td>Jakarta - Baru-baru ini publik dihebohkan deng...</td>
+      <td>XLIFE Hadirkan Jasa Terapis Pijat Profesional ...</td>
+      <td>Rabu, 16 Okt 2024 14:32 WIB</td>
+      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Barubaru ini publik dihebohkan dengan...</td>
-      <td>jakarta  barubaru ini publik dihebohkan dengan...</td>
+      <td>Jakarta  Manfaat dari terapi pijat selain rela...</td>
+      <td>jakarta  manfaat dari terapi pijat selain rela...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...</td>
-      <td>Kamis, 10 Okt 2024 09:33 WIB</td>
-      <td>Jakarta - Kanker paru terjadi akibat pembelaha...</td>
+      <td>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...</td>
+      <td>Rabu, 16 Okt 2024 14:31 WIB</td>
+      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kanker paru terjadi akibat pembelahan...</td>
-      <td>jakarta  kanker paru terjadi akibat pembelahan...</td>
+      <td>Jakarta  Mantan Perdana Menteri Malaysia Tun D...</td>
+      <td>jakarta  mantan perdana menteri malaysia tun d...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kondisi Terkini Raja Salman usai Jalani Perawa...</td>
-      <td>Kamis, 10 Okt 2024 09:01 WIB</td>
-      <td>Jakarta - Raja Arab Saudi, Salman bin Abdulazi...</td>
+      <td>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...</td>
+      <td>Rabu, 16 Okt 2024 14:01 WIB</td>
+      <td>Jakarta - Miliarder Amerika Serikat, Bryan Joh...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Raja Arab Saudi Salman bin Abdulaziz ...</td>
-      <td>jakarta  raja arab saudi salman bin abdulaziz ...</td>
+      <td>Jakarta  Miliarder Amerika Serikat Bryan Johns...</td>
+      <td>jakarta  miliarder amerika serikat bryan johns...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cerita Dokter Temukan Anak Alami Anemia gegara...</td>
-      <td>Kamis, 10 Okt 2024 08:31 WIB</td>
-      <td>Jakarta - Viral sebuah template Instagram stor...</td>
+      <td>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...</td>
+      <td>Rabu, 16 Okt 2024 13:30 WIB</td>
+      <td>Jakarta - Dirjen Kefarmasian dan Alat Kesehata...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral sebuah template Instagram stori...</td>
-      <td>jakarta  viral sebuah template instagram stori...</td>
+      <td>Jakarta  Dirjen Kefarmasian dan Alat Kesehatan...</td>
+      <td>jakarta  dirjen kefarmasian dan alat kesehatan...</td>
     </tr>
   </tbody>
 </table>
@@ -888,7 +890,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d586b657-7185-400c-aba5-b654deacb1c4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-78be3da1-135b-46da-a255-06e80852c595')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -940,12 +942,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d586b657-7185-400c-aba5-b654deacb1c4 button.colab-df-convert');
+        document.querySelector('#df-78be3da1-135b-46da-a255-06e80852c595 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d586b657-7185-400c-aba5-b654deacb1c4');
+        const element = document.querySelector('#df-78be3da1-135b-46da-a255-06e80852c595');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -984,7 +986,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5751c553-8385-4fe7-90e1-4b8b1a940fec" class="colab-df-container">
+  <div id="df-249b7824-3d7d-4b72-a21f-7e41c91ef2a0" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1015,53 +1017,53 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gaduh Poster 'Berobat ke Malaysia Aja', Kemenk...</td>
-      <td>Kamis, 10 Okt 2024 10:06 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...</td>
+      <td>Rabu, 16 Okt 2024 15:03 WIB</td>
+      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI Kemenkes ang...</td>
-      <td>jakarta  kementerian kesehatan ri kemenkes ang...</td>
-      <td>[jakarta, kementerian, kesehatan, ri, kemenkes...</td>
+      <td>Jakarta  Seorang pria bernama Evan Plotkin di ...</td>
+      <td>jakarta  seorang pria bernama evan plotkin di ...</td>
+      <td>[jakarta, seorang, pria, bernama, evan, plotki...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Poster 'Berobat ke Malaysia Aja' Dekat K...</td>
-      <td>Kamis, 10 Okt 2024 09:42 WIB</td>
-      <td>Jakarta - Baru-baru ini publik dihebohkan deng...</td>
+      <td>XLIFE Hadirkan Jasa Terapis Pijat Profesional ...</td>
+      <td>Rabu, 16 Okt 2024 14:32 WIB</td>
+      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Barubaru ini publik dihebohkan dengan...</td>
-      <td>jakarta  barubaru ini publik dihebohkan dengan...</td>
-      <td>[jakarta, barubaru, ini, publik, dihebohkan, d...</td>
+      <td>Jakarta  Manfaat dari terapi pijat selain rela...</td>
+      <td>jakarta  manfaat dari terapi pijat selain rela...</td>
+      <td>[jakarta, manfaat, dari, terapi, pijat, selain...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...</td>
-      <td>Kamis, 10 Okt 2024 09:33 WIB</td>
-      <td>Jakarta - Kanker paru terjadi akibat pembelaha...</td>
+      <td>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...</td>
+      <td>Rabu, 16 Okt 2024 14:31 WIB</td>
+      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kanker paru terjadi akibat pembelahan...</td>
-      <td>jakarta  kanker paru terjadi akibat pembelahan...</td>
-      <td>[jakarta, kanker, paru, terjadi, akibat, pembe...</td>
+      <td>Jakarta  Mantan Perdana Menteri Malaysia Tun D...</td>
+      <td>jakarta  mantan perdana menteri malaysia tun d...</td>
+      <td>[jakarta, mantan, perdana, menteri, malaysia, ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kondisi Terkini Raja Salman usai Jalani Perawa...</td>
-      <td>Kamis, 10 Okt 2024 09:01 WIB</td>
-      <td>Jakarta - Raja Arab Saudi, Salman bin Abdulazi...</td>
+      <td>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...</td>
+      <td>Rabu, 16 Okt 2024 14:01 WIB</td>
+      <td>Jakarta - Miliarder Amerika Serikat, Bryan Joh...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Raja Arab Saudi Salman bin Abdulaziz ...</td>
-      <td>jakarta  raja arab saudi salman bin abdulaziz ...</td>
-      <td>[jakarta, raja, arab, saudi, salman, bin, abdu...</td>
+      <td>Jakarta  Miliarder Amerika Serikat Bryan Johns...</td>
+      <td>jakarta  miliarder amerika serikat bryan johns...</td>
+      <td>[jakarta, miliarder, amerika, serikat, bryan, ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cerita Dokter Temukan Anak Alami Anemia gegara...</td>
-      <td>Kamis, 10 Okt 2024 08:31 WIB</td>
-      <td>Jakarta - Viral sebuah template Instagram stor...</td>
+      <td>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...</td>
+      <td>Rabu, 16 Okt 2024 13:30 WIB</td>
+      <td>Jakarta - Dirjen Kefarmasian dan Alat Kesehata...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral sebuah template Instagram stori...</td>
-      <td>jakarta  viral sebuah template instagram stori...</td>
-      <td>[jakarta, viral, sebuah, template, instagram, ...</td>
+      <td>Jakarta  Dirjen Kefarmasian dan Alat Kesehatan...</td>
+      <td>jakarta  dirjen kefarmasian dan alat kesehatan...</td>
+      <td>[jakarta, dirjen, kefarmasian, dan, alat, kese...</td>
     </tr>
   </tbody>
 </table>
@@ -1069,7 +1071,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5751c553-8385-4fe7-90e1-4b8b1a940fec')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-249b7824-3d7d-4b72-a21f-7e41c91ef2a0')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1121,12 +1123,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5751c553-8385-4fe7-90e1-4b8b1a940fec button.colab-df-convert');
+        document.querySelector('#df-249b7824-3d7d-4b72-a21f-7e41c91ef2a0 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5751c553-8385-4fe7-90e1-4b8b1a940fec');
+        const element = document.querySelector('#df-249b7824-3d7d-4b72-a21f-7e41c91ef2a0');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1179,7 +1181,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-670b1c15-8bde-4468-9304-c476b9e22c98" class="colab-df-container">
+  <div id="df-f003bf92-b884-4260-93a5-60f6a7fd6408" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1211,58 +1213,58 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gaduh Poster 'Berobat ke Malaysia Aja', Kemenk...</td>
-      <td>Kamis, 10 Okt 2024 10:06 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...</td>
+      <td>Rabu, 16 Okt 2024 15:03 WIB</td>
+      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI Kemenkes ang...</td>
-      <td>jakarta  kementerian kesehatan ri kemenkes ang...</td>
-      <td>[jakarta, kementerian, kesehatan, ri, kemenkes...</td>
-      <td>jakarta kementerian kesehatan ri kemenkes angk...</td>
+      <td>Jakarta  Seorang pria bernama Evan Plotkin di ...</td>
+      <td>jakarta  seorang pria bernama evan plotkin di ...</td>
+      <td>[jakarta, seorang, pria, bernama, evan, plotki...</td>
+      <td>jakarta pria bernama evan plotkin connecticut ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Poster 'Berobat ke Malaysia Aja' Dekat K...</td>
-      <td>Kamis, 10 Okt 2024 09:42 WIB</td>
-      <td>Jakarta - Baru-baru ini publik dihebohkan deng...</td>
+      <td>XLIFE Hadirkan Jasa Terapis Pijat Profesional ...</td>
+      <td>Rabu, 16 Okt 2024 14:32 WIB</td>
+      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Barubaru ini publik dihebohkan dengan...</td>
-      <td>jakarta  barubaru ini publik dihebohkan dengan...</td>
-      <td>[jakarta, barubaru, ini, publik, dihebohkan, d...</td>
-      <td>jakarta barubaru publik dihebohkan unggahan po...</td>
+      <td>Jakarta  Manfaat dari terapi pijat selain rela...</td>
+      <td>jakarta  manfaat dari terapi pijat selain rela...</td>
+      <td>[jakarta, manfaat, dari, terapi, pijat, selain...</td>
+      <td>jakarta manfaat terapi pijat relaksasi menghil...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...</td>
-      <td>Kamis, 10 Okt 2024 09:33 WIB</td>
-      <td>Jakarta - Kanker paru terjadi akibat pembelaha...</td>
+      <td>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...</td>
+      <td>Rabu, 16 Okt 2024 14:31 WIB</td>
+      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kanker paru terjadi akibat pembelahan...</td>
-      <td>jakarta  kanker paru terjadi akibat pembelahan...</td>
-      <td>[jakarta, kanker, paru, terjadi, akibat, pembe...</td>
-      <td>jakarta kanker paru akibat pembelahan sel terk...</td>
+      <td>Jakarta  Mantan Perdana Menteri Malaysia Tun D...</td>
+      <td>jakarta  mantan perdana menteri malaysia tun d...</td>
+      <td>[jakarta, mantan, perdana, menteri, malaysia, ...</td>
+      <td>jakarta mantan perdana menteri malaysia tun dr...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kondisi Terkini Raja Salman usai Jalani Perawa...</td>
-      <td>Kamis, 10 Okt 2024 09:01 WIB</td>
-      <td>Jakarta - Raja Arab Saudi, Salman bin Abdulazi...</td>
+      <td>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...</td>
+      <td>Rabu, 16 Okt 2024 14:01 WIB</td>
+      <td>Jakarta - Miliarder Amerika Serikat, Bryan Joh...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Raja Arab Saudi Salman bin Abdulaziz ...</td>
-      <td>jakarta  raja arab saudi salman bin abdulaziz ...</td>
-      <td>[jakarta, raja, arab, saudi, salman, bin, abdu...</td>
-      <td>jakarta raja arab saudi salman bin abdulaziz d...</td>
+      <td>Jakarta  Miliarder Amerika Serikat Bryan Johns...</td>
+      <td>jakarta  miliarder amerika serikat bryan johns...</td>
+      <td>[jakarta, miliarder, amerika, serikat, bryan, ...</td>
+      <td>jakarta miliarder amerika serikat bryan johnso...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cerita Dokter Temukan Anak Alami Anemia gegara...</td>
-      <td>Kamis, 10 Okt 2024 08:31 WIB</td>
-      <td>Jakarta - Viral sebuah template Instagram stor...</td>
+      <td>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...</td>
+      <td>Rabu, 16 Okt 2024 13:30 WIB</td>
+      <td>Jakarta - Dirjen Kefarmasian dan Alat Kesehata...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral sebuah template Instagram stori...</td>
-      <td>jakarta  viral sebuah template instagram stori...</td>
-      <td>[jakarta, viral, sebuah, template, instagram, ...</td>
-      <td>jakarta viral template instagram stories beris...</td>
+      <td>Jakarta  Dirjen Kefarmasian dan Alat Kesehatan...</td>
+      <td>jakarta  dirjen kefarmasian dan alat kesehatan...</td>
+      <td>[jakarta, dirjen, kefarmasian, dan, alat, kese...</td>
+      <td>jakarta dirjen kefarmasian alat kesehatan keme...</td>
     </tr>
   </tbody>
 </table>
@@ -1270,7 +1272,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-670b1c15-8bde-4468-9304-c476b9e22c98')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f003bf92-b884-4260-93a5-60f6a7fd6408')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1322,12 +1324,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-670b1c15-8bde-4468-9304-c476b9e22c98 button.colab-df-convert');
+        document.querySelector('#df-f003bf92-b884-4260-93a5-60f6a7fd6408 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-670b1c15-8bde-4468-9304-c476b9e22c98');
+        const element = document.querySelector('#df-f003bf92-b884-4260-93a5-60f6a7fd6408');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1393,7 +1395,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a8aae1a7-ebab-4947-8cd7-b111d254e8c5" class="colab-df-container">
+  <div id="df-8708d429-0a8b-40b8-bbce-26b3789869e9" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1412,26 +1414,26 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>aarhus</th>
       <th>abadi</th>
-      <th>abdulaziz</th>
-      <th>abidin</th>
+      <th>abc</th>
+      <th>abdalla</th>
+      <th>abdul</th>
       <th>abnormal</th>
-      <th>about</th>
-      <th>abraham</th>
-      <th>ac</th>
-      <th>academic</th>
-      <th>acak</th>
+      <th>aboy</th>
+      <th>absen</th>
+      <th>acar</th>
+      <th>acara</th>
+      <th>aceh</th>
       <th>...</th>
       <th>zaenal</th>
+      <th>zaitun</th>
       <th>zaki</th>
       <th>zarco</th>
       <th>zat</th>
-      <th>zhana</th>
-      <th>zhang</th>
-      <th>ziko</th>
-      <th>zinc</th>
-      <th>zizan</th>
+      <th>zerlinda</th>
+      <th>zhehuang</th>
+      <th>zhen</th>
+      <th>zi</th>
       <th>zu</th>
     </tr>
   </thead>
@@ -1440,20 +1442,20 @@ document.write(`
       <th>0</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1464,20 +1466,20 @@ document.write(`
       <th>1</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1488,20 +1490,20 @@ document.write(`
       <th>2</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1512,20 +1514,20 @@ document.write(`
       <th>3</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.062107</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1536,20 +1538,20 @@ document.write(`
       <th>4</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.050702</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.070416</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1560,20 +1562,20 @@ document.write(`
       <th>5</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.066649</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0.133297</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1584,20 +1586,20 @@ document.write(`
       <th>6</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1608,20 +1610,20 @@ document.write(`
       <th>7</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
       <td>0.0</td>
+      <td>0.0</td>
+      <td>0.042154</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1632,20 +1634,20 @@ document.write(`
       <th>8</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.387220</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1656,20 +1658,20 @@ document.write(`
       <th>9</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.043889</td>
-      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1678,12 +1680,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>10 rows × 4337 columns</p>
+<p>10 rows × 4572 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a8aae1a7-ebab-4947-8cd7-b111d254e8c5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8708d429-0a8b-40b8-bbce-26b3789869e9')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1735,12 +1737,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a8aae1a7-ebab-4947-8cd7-b111d254e8c5 button.colab-df-convert');
+        document.querySelector('#df-8708d429-0a8b-40b8-bbce-26b3789869e9 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a8aae1a7-ebab-4947-8cd7-b111d254e8c5');
+        const element = document.querySelector('#df-8708d429-0a8b-40b8-bbce-26b3789869e9');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1809,7 +1811,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tugas 3 : Klasifikasi Berita Dengan Moetode Logistic Regression</p>
+        <p class="prev-next-title">Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
