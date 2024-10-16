@@ -60,7 +60,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/tugas-5';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Tugas 4" href="tugas-4v2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -123,6 +122,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -178,12 +179,12 @@
                 </a>
             </li>
         </ul>
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Tugas-1.html">Tugas 1 : Crawling Berita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-2.html">Tugas 2 : Preprocessing  &amp; TfIdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas-4v2.html">Tugas 4</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 5 : keyword extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-5v2.html">Tugas 5 : Keyword Extraction</a></li>
 </ul>
 
     </div>
@@ -416,7 +417,7 @@ document.write(`
 <h1>Tugas 5 : keyword extraction<a class="headerlink" href="#tugas-5-keyword-extraction" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
 <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -429,11 +430,11 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
-<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">Sastrawi</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>Sastrawi
 <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
 <span class="kn">from</span> <span class="nn">Sastrawi.Stemmer.StemmerFactory</span> <span class="kn">import</span> <span class="n">StemmerFactory</span>
@@ -458,7 +459,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/My Drive/ppw/report/tugas-ppw/hasil_prepros.csv&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -467,7 +468,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-564cb30e-9628-4958-b4e1-546bbb8e341e" class="colab-df-container">
+  <div id="df-2a6120e6-98d8-4504-8e44-1c3a5bff9536" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -499,74 +500,74 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gaduh Poster 'Berobat ke Malaysia Aja', Kemenk...</td>
-      <td>Kamis, 10 Okt 2024 10:06 WIB</td>
-      <td>Jakarta - Kementerian Kesehatan RI (Kemenkes) ...</td>
+      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
+      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
+      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kementerian Kesehatan RI Kemenkes ang...</td>
-      <td>jakarta  kementerian kesehatan ri kemenkes ang...</td>
-      <td>['jakarta', 'kementerian', 'kesehatan', 'ri', ...</td>
-      <td>jakarta kementerian kesehatan ri kemenkes angk...</td>
+      <td>Jakarta  Sifilis atau penyakit raja singa term...</td>
+      <td>jakarta  sifilis atau penyakit raja singa term...</td>
+      <td>['jakarta', 'sifilis', 'atau', 'penyakit', 'ra...</td>
+      <td>jakarta sifilis penyakit raja singa infeksi me...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Viral Poster 'Berobat ke Malaysia Aja' Dekat K...</td>
-      <td>Kamis, 10 Okt 2024 09:42 WIB</td>
-      <td>Jakarta - Baru-baru ini publik dihebohkan deng...</td>
+      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
+      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
+      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Barubaru ini publik dihebohkan dengan...</td>
-      <td>jakarta  barubaru ini publik dihebohkan dengan...</td>
-      <td>['jakarta', 'barubaru', 'ini', 'publik', 'dihe...</td>
-      <td>jakarta barubaru publik dihebohkan unggahan po...</td>
+      <td>Jakarta  Sebagian orang pasti sudah mengenal i...</td>
+      <td>jakarta  sebagian orang pasti sudah mengenal i...</td>
+      <td>['jakarta', 'sebagian', 'orang', 'pasti', 'sud...</td>
+      <td>jakarta orang mengenal istilah puncak seksual ...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Waspadai Gejala Kanker Paru, Dokter Ungkap Bis...</td>
-      <td>Kamis, 10 Okt 2024 09:33 WIB</td>
-      <td>Jakarta - Kanker paru terjadi akibat pembelaha...</td>
+      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
+      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
+      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Kanker paru terjadi akibat pembelahan...</td>
-      <td>jakarta  kanker paru terjadi akibat pembelahan...</td>
-      <td>['jakarta', 'kanker', 'paru', 'terjadi', 'akib...</td>
-      <td>jakarta kanker paru akibat pembelahan sel terk...</td>
+      <td>Jakarta  Setiap orang mungkin pernah mengalami...</td>
+      <td>jakarta  setiap orang mungkin pernah mengalami...</td>
+      <td>['jakarta', 'setiap', 'orang', 'mungkin', 'per...</td>
+      <td>jakarta orang mengalami sariawan luka mulut me...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kondisi Terkini Raja Salman usai Jalani Perawa...</td>
-      <td>Kamis, 10 Okt 2024 09:01 WIB</td>
-      <td>Jakarta - Raja Arab Saudi, Salman bin Abdulazi...</td>
+      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
+      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
+      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Raja Arab Saudi Salman bin Abdulaziz ...</td>
-      <td>jakarta  raja arab saudi salman bin abdulaziz ...</td>
-      <td>['jakarta', 'raja', 'arab', 'saudi', 'salman',...</td>
-      <td>jakarta raja arab saudi salman bin abdulaziz d...</td>
+      <td>Jakarta  Air rebusan serai dikenal sebagai sal...</td>
+      <td>jakarta  air rebusan serai dikenal sebagai sal...</td>
+      <td>['jakarta', 'air', 'rebusan', 'serai', 'dikena...</td>
+      <td>jakarta air rebusan serai dikenal salah ramuan...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cerita Dokter Temukan Anak Alami Anemia gegara...</td>
-      <td>Kamis, 10 Okt 2024 08:31 WIB</td>
-      <td>Jakarta - Viral sebuah template Instagram stor...</td>
+      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
+      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
+      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral sebuah template Instagram stori...</td>
-      <td>jakarta  viral sebuah template instagram stori...</td>
-      <td>['jakarta', 'viral', 'sebuah', 'template', 'in...</td>
-      <td>jakarta viral template instagram stories beris...</td>
+      <td>Jakarta  Viral momen member NewJeans Hanni ber...</td>
+      <td>jakarta  viral momen member newjeans hanni ber...</td>
+      <td>['jakarta', 'viral', 'momen', 'member', 'newje...</td>
+      <td>jakarta viral momen member newjeans hanni berb...</td>
     </tr>
   </tbody>
 </table>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-564cb30e-9628-4958-b4e1-546bbb8e341e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2a6120e6-98d8-4504-8e44-1c3a5bff9536')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -610,12 +611,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-564cb30e-9628-4958-b4e1-546bbb8e341e button.colab-df-convert');
+        document.querySelector('#df-2a6120e6-98d8-4504-8e44-1c3a5bff9536 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-564cb30e-9628-4958-b4e1-546bbb8e341e');
+        const element = document.querySelector('#df-2a6120e6-98d8-4504-8e44-1c3a5bff9536');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -633,143 +634,15 @@ document.write(`
       }
     </script>
   </div>
-
-
-<div id="df-7a826fbf-eec4-4124-80f3-f8ee4595af15">
-  <button class="colab-df-quickchart" onclick="quickchart('df-7a826fbf-eec4-4124-80f3-f8ee4595af15')"
-            title="Suggest charts"
-            style="display:none;">
-
-<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-     width="24px">
-    <g>
-        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-    </g>
-</svg>
-  </button>
-
-<style>
-  .colab-df-quickchart {
-      --bg-color: #E8F0FE;
-      --fill-color: #1967D2;
-      --hover-bg-color: #E2EBFA;
-      --hover-fill-color: #174EA6;
-      --disabled-fill-color: #AAA;
-      --disabled-bg-color: #DDD;
-  }
-
-  [theme=dark] .colab-df-quickchart {
-      --bg-color: #3B4455;
-      --fill-color: #D2E3FC;
-      --hover-bg-color: #434B5C;
-      --hover-fill-color: #FFFFFF;
-      --disabled-bg-color: #3B4455;
-      --disabled-fill-color: #666;
-  }
-
-  .colab-df-quickchart {
-    background-color: var(--bg-color);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    fill: var(--fill-color);
-    height: 32px;
-    padding: 0;
-    width: 32px;
-  }
-
-  .colab-df-quickchart:hover {
-    background-color: var(--hover-bg-color);
-    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    fill: var(--button-hover-fill-color);
-  }
-
-  .colab-df-quickchart-complete:disabled,
-  .colab-df-quickchart-complete:disabled:hover {
-    background-color: var(--disabled-bg-color);
-    fill: var(--disabled-fill-color);
-    box-shadow: none;
-  }
-
-  .colab-df-spinner {
-    border: 2px solid var(--fill-color);
-    border-color: transparent;
-    border-bottom-color: var(--fill-color);
-    animation:
-      spin 1s steps(1) infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-      border-left-color: var(--fill-color);
-    }
-    20% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    30% {
-      border-color: transparent;
-      border-left-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-      border-right-color: var(--fill-color);
-    }
-    40% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-top-color: var(--fill-color);
-    }
-    60% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-    }
-    80% {
-      border-color: transparent;
-      border-right-color: var(--fill-color);
-      border-bottom-color: var(--fill-color);
-    }
-    90% {
-      border-color: transparent;
-      border-bottom-color: var(--fill-color);
-    }
-  }
-</style>
-
-  <script>
-    async function quickchart(key) {
-      const quickchartButtonEl =
-        document.querySelector('#' + key + ' button');
-      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
-      quickchartButtonEl.classList.add('colab-df-spinner');
-      try {
-        const charts = await google.colab.kernel.invokeFunction(
-            'suggestCharts', [key], {});
-      } catch (error) {
-        console.error('Error during call to suggestCharts:', error);
-      }
-      quickchartButtonEl.classList.remove('colab-df-spinner');
-      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
-    }
-    (() => {
-      let quickchartButtonEl =
-        document.querySelector('#df-7a826fbf-eec4-4124-80f3-f8ee4595af15 button');
-      quickchartButtonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-    })();
-  </script>
-</div>
-
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengambil satu sample berita</span>
-<span class="n">sample_berita</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stopword_removal&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengambil satu sample berita</span>
+<span class="n">sample_berita</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;case_folding&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
 
 <span class="n">sample_berita_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">sample_berita</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sample_berita_list</span><span class="p">)</span>
@@ -777,14 +650,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;jakarta viral template instagram stories berisi imbauan teh anak mengganggu proses penyerapan zat besi anak berisiko mengalami anemia fungsi zat besi membantu perkembangan otak kecerdasan kognitif konsentrasi iq berguna meningkatkan imunitas kekebalan tubuh sumber energi otot keterampilan motorik mencegah stunting tulis foto resep dokter ramai dibagikan spesialis anak dr jati kusuma wardhani spa kali membagikan konten menemukan anemia defisiensi besi dokter berpraktik semarang jawa pemberian teh anak salah pemicunya kasusnya pemberian teh anak mbahmbah ibuibu muda terkait info dr jati dihubungi detikcom rabu ditemukan anemia defisiensi besi cenderung sulit orang tua dr jati seringkali anemia defisiensi besi terdeteksi memiliki gejala khas kondisi ditemukan acak pemeriksaan lab anak sakit dirawat dokter imbauannya teh anak menyusui hamil wanita usia subur diharapkan membatasi konsumsi teh temuan anemia defisiensi besi anak konten unggah dr jati menceritakan salah pasiennya mengalami anemia hasil pemeriksaan lab profil darah pasien berusia mengarah anemia defisiensi besi anak memiliki kadar hemoglobin hb rendah gdl gdl orang tua pemeriksaan darah lab anak nampak aktif ceria pucat pemeriksaan lab anak dirawat akibat penyakit bronkopneumonia anemia defisiensi besi kekurangan mikronutrien besi malnutrisi bergejala bergejala kadar hb anjlok dr jati unggahan tiktoknya dikutip detikcom izin bersangkutan ditelusuri dr jati menemukan pasien teh neneknya berdasarkan penuturan nenek pasien suka teh kali ditemukan perkotaan mohon mbah bude pakde om tante menghindari pemberian teh anak ya jajan apapun izin mama papanya avksuc&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;jakarta  viral momen member newjeans hanni berbicara tentang perundungan di tempat kerjanya pengakuan itu bahkan membuat dia menitikkan air mata saat dipersidangan pada  oktober komite lingkungan hidup dan ketenagakerjaan majelis nasional korea selatan mengadakan audit parlemen yang menargetkan dewan ekonomi sosial dan ketenagakerjaan di bawah kantor kepresidenan dan organisasi afiliasi kementerian ketenagakerjaan dan ketenagakerjaan hanni dipanggil sebagai referensi dan kim jooyoung ceo ador dan chief human resources officer chro hybe dipanggil sebagai saksi sidang tersebut berfokus pada perundungan dan pelecehan di tempat kerja terhadap idol kpop menjadikan hanni sebagai idola kpop pertama yang menghadiri audit parlemen diberitakan all kpop  kasus perundungan itu diceritakan hanni newjeans saat mengadakan siaran langsung bersama personelnya pada  september gadis berusia  tahun itu menceritakan bagaimana manajer dari grup kpop jebolan hybe lain yang telah memerintahkan personel mereka untuk mengabaikan hanni ketika mereka bertemu di dekat ruang rias gedung hybe saya tidak mengerti mengapa hal ini harus terjadi pada saya namun masalah ini bukan kejadian satu kali jika saya tidak melapor hal ini akan diabaikan begitu saja dan siapa pun bisa menghadapi hal seperti ini saya melapor karena saya tidak ingin orang lain mengalami hal ini kata dia hanni juga membagikan contoh lain untuk mendukung klaimnya bahwa dirinya pernah dibully di hybe ia menyatakan tak pernah mendapatkan respons yang baik dari petinggi hybe selama dia menjadi member newjeans ada getaran tertentu rasa tidak hormat yang saya rasakan di dalam perusahaan ia menambahkan bahwa insiden tersebut membuatnya menyadari bahwa ini bukan hanya perasaan sejujurnya saya yakin bahwa perusahaan membenci kami knakna&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 
 <span class="c1"># Inisialisasi TfidfVectorizer tanpa batasan jumlah fitur</span>
@@ -802,7 +675,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1e8317eb-ec8d-446a-93d5-381e14f4923e" class="colab-df-container">
+  <div id="df-1de7538d-ac4f-4151-8e8c-c82f18143502" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -821,70 +694,70 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>acak</th>
-      <th>akibat</th>
-      <th>aktif</th>
-      <th>anak</th>
-      <th>anemia</th>
-      <th>anjlok</th>
-      <th>apapun</th>
-      <th>avksuc</th>
-      <th>berdasarkan</th>
-      <th>bergejala</th>
+      <th>ada</th>
+      <th>ador</th>
+      <th>afiliasi</th>
+      <th>air</th>
+      <th>akan</th>
+      <th>all</th>
+      <th>audit</th>
+      <th>bagaimana</th>
+      <th>bahkan</th>
+      <th>bahwa</th>
       <th>...</th>
-      <th>tubuh</th>
-      <th>tulis</th>
-      <th>unggah</th>
-      <th>unggahan</th>
-      <th>usia</th>
+      <th>tentang</th>
+      <th>terhadap</th>
+      <th>terjadi</th>
+      <th>tersebut</th>
+      <th>tertentu</th>
+      <th>tidak</th>
+      <th>untuk</th>
       <th>viral</th>
-      <th>wanita</th>
-      <th>wardhani</th>
-      <th>ya</th>
-      <th>zat</th>
+      <th>yakin</th>
+      <th>yang</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.449404</td>
-      <td>0.299602</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.074901</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.080257</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.160514</td>
       <td>...</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.03745</td>
-      <td>0.074901</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.080257</td>
+      <td>0.040129</td>
+      <td>0.160514</td>
+      <td>0.080257</td>
+      <td>0.040129</td>
+      <td>0.040129</td>
+      <td>0.200643</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 146 columns</p>
+<p>1 rows × 171 columns</p>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-1e8317eb-ec8d-446a-93d5-381e14f4923e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1de7538d-ac4f-4151-8e8c-c82f18143502')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -928,12 +801,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-1e8317eb-ec8d-446a-93d5-381e14f4923e button.colab-df-convert');
+        document.querySelector('#df-1de7538d-ac4f-4151-8e8c-c82f18143502 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-1e8317eb-ec8d-446a-93d5-381e14f4923e');
+        const element = document.querySelector('#df-1de7538d-ac4f-4151-8e8c-c82f18143502');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -951,16 +824,424 @@ document.write(`
       }
     </script>
   </div>
-
-
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubah nilai TF-IDF di bawah 0.5 menjadi 0, dan di atas atau sama dengan 0.5 menjadi 1</span>
-<span class="n">df_tfidf_1berita</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">0.03</span> <span class="k">else</span> <span class="mi">0</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cosine_sim</span> <span class="o">=</span> <span class="n">cosine_similarity</span><span class="p">(</span><span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># Mengonversi hasil cosine similarity menjadi DataFrame</span>
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+<span class="n">df_cosine_sim</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cosine_sim</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">feature_names</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan hasil cosine similarity antar kata</span>
+<span class="n">df_cosine_sim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-7c248d97-b3bc-42c8-a618-605e0ba780af" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ada</th>
+      <th>ador</th>
+      <th>afiliasi</th>
+      <th>air</th>
+      <th>akan</th>
+      <th>all</th>
+      <th>audit</th>
+      <th>bagaimana</th>
+      <th>bahkan</th>
+      <th>bahwa</th>
+      <th>...</th>
+      <th>tentang</th>
+      <th>terhadap</th>
+      <th>terjadi</th>
+      <th>tersebut</th>
+      <th>tertentu</th>
+      <th>tidak</th>
+      <th>untuk</th>
+      <th>viral</th>
+      <th>yakin</th>
+      <th>yang</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ada</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>ador</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>afiliasi</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>air</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>akan</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>tidak</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>untuk</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>viral</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>yakin</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>yang</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>171 rows × 171 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7c248d97-b3bc-42c8-a618-605e0ba780af')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-7c248d97-b3bc-42c8-a618-605e0ba780af button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-7c248d97-b3bc-42c8-a618-605e0ba780af');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ubah nilai TF-IDF di bawah 0.5 menjadi 0, dan di atas atau sama dengan 0.5 menjadi 1</span>
+<span class="n">df_tfidf_1berita</span> <span class="o">=</span> <span class="n">tfidf_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">col</span><span class="p">:</span> <span class="n">col</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mf">0.05</span> <span class="k">else</span> <span class="mi">0</span><span class="p">))</span>
 
 <span class="c1"># Menampilkan DataFrame dengan nilai biner</span>
 <span class="n">df_tfidf_1berita</span>
@@ -969,7 +1250,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-22e26204-9255-4337-a3a7-108bff3e3308" class="colab-df-container">
+  <div id="df-62035b23-a926-44ee-a3a3-f81c45829ffd" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -988,70 +1269,70 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>acak</th>
-      <th>akibat</th>
-      <th>aktif</th>
-      <th>anak</th>
-      <th>anemia</th>
-      <th>anjlok</th>
-      <th>apapun</th>
-      <th>avksuc</th>
-      <th>berdasarkan</th>
-      <th>bergejala</th>
+      <th>ada</th>
+      <th>ador</th>
+      <th>afiliasi</th>
+      <th>air</th>
+      <th>akan</th>
+      <th>all</th>
+      <th>audit</th>
+      <th>bagaimana</th>
+      <th>bahkan</th>
+      <th>bahwa</th>
       <th>...</th>
-      <th>tubuh</th>
-      <th>tulis</th>
-      <th>unggah</th>
-      <th>unggahan</th>
-      <th>usia</th>
+      <th>tentang</th>
+      <th>terhadap</th>
+      <th>terjadi</th>
+      <th>tersebut</th>
+      <th>tertentu</th>
+      <th>tidak</th>
+      <th>untuk</th>
       <th>viral</th>
-      <th>wanita</th>
-      <th>wardhani</th>
-      <th>ya</th>
-      <th>zat</th>
+      <th>yakin</th>
+      <th>yang</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>1 rows × 146 columns</p>
+<p>1 rows × 171 columns</p>
 </div>
     <div class="colab-df-buttons">
-
+      
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-22e26204-9255-4337-a3a7-108bff3e3308')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-62035b23-a926-44ee-a3a3-f81c45829ffd')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
-
+      
   <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
     <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
   </svg>
     </button>
-
+    
   <style>
     .colab-df-container {
       display:flex;
@@ -1095,12 +1376,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-22e26204-9255-4337-a3a7-108bff3e3308 button.colab-df-convert');
+        document.querySelector('#df-62035b23-a926-44ee-a3a3-f81c45829ffd button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-22e26204-9255-4337-a3a7-108bff3e3308');
+        const element = document.querySelector('#df-62035b23-a926-44ee-a3a3-f81c45829ffd');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1118,70 +1399,14 @@ document.write(`
       }
     </script>
   </div>
-
-
-  <div id="id_b901a5b0-922e-4289-8640-c6955a39e98b">
-    <style>
-      .colab-df-generate {
-        background-color: #E8F0FE;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        fill: #1967D2;
-        height: 32px;
-        padding: 0 0 0 0;
-        width: 32px;
-      }
-
-      .colab-df-generate:hover {
-        background-color: #E2EBFA;
-        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-        fill: #174EA6;
-      }
-
-      [theme=dark] .colab-df-generate {
-        background-color: #3B4455;
-        fill: #D2E3FC;
-      }
-
-      [theme=dark] .colab-df-generate:hover {
-        background-color: #434B5C;
-        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-        fill: #FFFFFF;
-      }
-    </style>
-    <button class="colab-df-generate" onclick="generateWithVariable('df_tfidf_1berita')"
-            title="Generate code using this dataframe."
-            style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
-  </svg>
-    </button>
-    <script>
-      (() => {
-      const buttonEl =
-        document.querySelector('#id_b901a5b0-922e-4289-8640-c6955a39e98b button.colab-df-generate');
-      buttonEl.style.display =
-        google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-      buttonEl.onclick = () => {
-        google.colab.notebook.generateWithVariable('df_tfidf_1berita');
-      }
-      })();
-    </script>
-  </div>
-
+  
     </div>
   </div>
-</div></div>
+  </div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat graf berdasarkan co-occurrence fitur</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat graf berdasarkan co-occurrence fitur</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 
 <span class="c1"># Menambahkan node ke graf</span>
@@ -1213,26 +1438,26 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Node  Degree Centrality
-0       acak                1.0
-109   profil                1.0
-93        om                1.0
-94     orang                1.0
-95      otak                1.0
+170     yang                0.2
+43       hal                0.2
+30       dia                0.2
+147  sebagai                0.2
+146     saya                0.2
 ..       ...                ...
-49      izin                1.0
-50     jajan                1.0
-51   jakarta                1.0
-52      jati                1.0
-145      zat                1.0
+65    kantor                0.0
+66    karena                0.0
+67     kasus                0.0
+68      kata                0.0
+85   majelis                0.0
 
-[146 rows x 2 columns]
+[171 rows x 2 columns]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ambil top 10 fitur dengan degree centrality tertinggi</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ambil top 10 fitur dengan degree centrality tertinggi</span>
 <span class="n">top_10_features</span> <span class="o">=</span> <span class="n">df_degree_centrality_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)[</span><span class="s1">&#39;Node&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
 <span class="c1"># DataFrame yang difilter berdasarkan top 10 fitur</span>
@@ -1250,26 +1475,26 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Top 10 fitur berdasarkan degree centrality:
-[&#39;acak&#39;, &#39;profil&#39;, &#39;om&#39;, &#39;orang&#39;, &#39;otak&#39;, &#39;otot&#39;, &#39;pakde&#39;, &#39;papanya&#39;, &#39;pasien&#39;, &#39;pasiennya&#39;]
+[&#39;yang&#39;, &#39;hal&#39;, &#39;dia&#39;, &#39;sebagai&#39;, &#39;saya&#39;, &#39;ketenagakerjaan&#39;, &#39;dipanggil&#39;, &#39;saat&#39;, &#39;mereka&#39;, &#39;newjeans&#39;]
 
 DataFrame asli dengan semua fitur (tanpa menghapus):
-   acak  akibat  aktif  anak  anemia  anjlok  apapun  avksuc  berdasarkan  \
-0     1       1      1     1       1       1       1       1            1   
+   ada  ador  afiliasi  air  akan  all  audit  bagaimana  bahkan  bahwa  ...  \
+0    0     0         0    0     0    0      1          0       0      1  ...   
 
-   bergejala  ...  tubuh  tulis  unggah  unggahan  usia  viral  wanita  \
-0          1  ...      1      1       1         1     1      1       1   
+   tentang  terhadap  terjadi  tersebut  tertentu  tidak  untuk  viral  yakin  \
+0        0         0        0         1         0      1      1      0      0   
 
-   wardhani  ya  zat  
-0         1   1    1  
+   yang  
+0     1  
 
-[1 rows x 146 columns]
+[1 rows x 171 columns]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 
 <span class="c1"># Membuat graf baru hanya untuk fitur teratas</span>
@@ -1310,12 +1535,12 @@ DataFrame asli dengan semua fitur (tanpa menghapus):
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/75cd00e966a6cbed62e6ce32ca3cd92f52088b64fbab997433ca31c76f71caf0.png" src="../_images/75cd00e966a6cbed62e6ce32ca3cd92f52088b64fbab997433ca31c76f71caf0.png" />
+<img alt="../_images/db720f7877f4426b9e512d3b216adb27efe4c170d13aff3b3ee382d8fa8f2dd4.png" src="../_images/db720f7877f4426b9e512d3b216adb27efe4c170d13aff3b3ee382d8fa8f2dd4.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung closeness centrality</span>
 <span class="n">closeness_centrality</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">closeness_centrality</span><span class="p">(</span><span class="n">G_top_10</span><span class="p">)</span>
 
 <span class="c1"># Menghitung betweenness centrality</span>
@@ -1335,24 +1560,36 @@ DataFrame asli dengan semua fitur (tanpa menghapus):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Node  Degree Centrality  Closeness Centrality  Betweenness Centrality
-0       acak                1.0                   1.0                     0.0
-1     profil                1.0                   1.0                     0.0
-2         om                1.0                   1.0                     0.0
-3      orang                1.0                   1.0                     0.0
-4       otak                1.0                   1.0                     0.0
-5       otot                1.0                   1.0                     0.0
-6      pakde                1.0                   1.0                     0.0
-7    papanya                1.0                   1.0                     0.0
-8     pasien                1.0                   1.0                     0.0
-9  pasiennya                1.0                   1.0                     0.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              Node  Degree Centrality  Closeness Centrality  \
+0             yang                0.2                   1.0   
+1              hal                0.2                   1.0   
+2              dia                0.2                   1.0   
+3          sebagai                0.2                   1.0   
+4             saya                0.2                   1.0   
+5  ketenagakerjaan                0.2                   1.0   
+6        dipanggil                0.2                   1.0   
+7             saat                0.2                   1.0   
+8           mereka                0.2                   1.0   
+9         newjeans                0.2                   1.0   
+
+   Betweenness Centrality  
+0                     0.0  
+1                     0.0  
+2                     0.0  
+3                     0.0  
+4                     0.0  
+5                     0.0  
+6                     0.0  
+7                     0.0  
+8                     0.0  
+9                     0.0  
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengambil kata kunci dengan nilai TF-IDF tertinggi untuk setiap dokumen</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mengambil kata kunci dengan nilai TF-IDF tertinggi untuk setiap dokumen</span>
 <span class="n">kata_kunci</span> <span class="o">=</span> <span class="n">df_tfidf_1berita</span><span class="o">.</span><span class="n">idxmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Kata kunci dari setiap dokumen:&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">kata</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kata_kunci</span><span class="p">):</span>
@@ -1362,7 +1599,7 @@ DataFrame asli dengan semua fitur (tanpa menghapus):
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kata kunci dari setiap dokumen:
-Dokumen 1: acak
+Dokumen 1: audit
 </pre></div>
 </div>
 </div>
@@ -1399,15 +1636,6 @@ Dokumen 1: acak
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="tugas-4v2.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tugas 4</p>
-      </div>
-    </a>
 </div>
                 </footer>
               
