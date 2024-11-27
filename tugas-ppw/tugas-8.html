@@ -1,0 +1,1627 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Test fuzzy c-means 1 &#8212; Rifqi&#39;s Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/tugas-8';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/foto.png" class="logo__image only-light" alt="Rifqi's Book - Home"/>
+    <img src="../_static/foto.png" class="logo__image only-dark pst-js-only" alt="Rifqi's Book - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Hello !! I’m Rifqi
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tugas-1.html">Tugas 1 : Crawling Berita</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas-2.html">Tugas 2 : Preprocessing  &amp; TfIdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-4v2.html">Tugas 4: Ringkasan Dokumen dengan Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-5v2.html">Tugas 5 : Keyword Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-6.html">Tugas 6 : Sistem pencarian dokumen dengan penerapan Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi (SVD)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/rifqi-qi/ppw/blob/gh-pages/_sources/tugas-ppw/tugas-8.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/rifqi-qi/ppw" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/rifqi-qi/ppw/issues/new?title=Issue%20on%20page%20%2Ftugas-ppw/tugas-8.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tugas-ppw/tugas-8.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Test fuzzy c-means 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Test fuzzy c-means 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-fuzzy-c-means-2">Test fuzzy c-means 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-fuzzy-c-means-3">Test fuzzy c-means 3</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="test-fuzzy-c-means-1">
+<h1>Test fuzzy c-means 1<a class="headerlink" href="#test-fuzzy-c-means-1" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(&quot;/content/drive&quot;, force_remount=True).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/My Drive/ppw/report/tugas-ppw/hasil_prepros.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-aaac8fca-9274-44c7-8203-e2cd8ed581c4" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>judul</th>
+      <th>tanggal</th>
+      <th>isi</th>
+      <th>kategori</th>
+      <th>cleansing</th>
+      <th>case_folding</th>
+      <th>tokenize</th>
+      <th>stopword_removal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
+      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
+      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
+      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
+      <td>['jakarta', 'stroke', 'merupakan', 'salah', 's...</td>
+      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
+      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
+      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
+      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
+      <td>['jakarta', 'petai', 'atau', 'parkia', 'specio...</td>
+      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
+      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
+      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
+      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
+      <td>['jakarta', 'pria', 'yang', 'dinobatkan', 'seb...</td>
+      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
+      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
+      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
+      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
+      <td>['jakarta', 'wasir', 'sama', 'dengan', 'ambeie...</td>
+      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
+      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
+      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
+      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
+      <td>['jakarta', 'kelompok', 'penyelenggara', 'pemu...</td>
+      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-aaac8fca-9274-44c7-8203-e2cd8ed581c4')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-aaac8fca-9274-44c7-8203-e2cd8ed581c4 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-aaac8fca-9274-44c7-8203-e2cd8ed581c4');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-fuzzy
+<span class="c1"># Import libraries yang diperlukan</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">skfuzzy</span> <span class="k">as</span> <span class="nn">fuzz</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-fuzzy in /usr/local/lib/python3.10/dist-packages (0.5.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stopword_removal&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocessing: TF-IDF</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+<span class="n">tfidf_array</span> <span class="o">=</span> <span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalisasi fitur</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">tfidf_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Jumlah cluster yang diinginkan</span>
+<span class="n">cntr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">fuzz</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cmeans</span><span class="p">(</span>
+    <span class="n">X_scaled</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+
+<span class="c1"># Menentukan cluster untuk setiap data berdasarkan keanggotaan tertinggi</span>
+<span class="n">cluster_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Visualisasi hasil klasterisasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">[</span><span class="n">cluster_labels</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_scaled</span><span class="p">[</span><span class="n">cluster_labels</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cluster </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan pusat cluster</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cntr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cntr</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centroids&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;SVD Component 1 (Standardized)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;SVD Component 2 (Standardized)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fuzzy C-Means Clustering of News Data (without SVD)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/afd05c64ade5a5ad4c1266078c6a275c4b2c6e8cf4d0df57303fd8fff928076d.png" src="../_images/afd05c64ade5a5ad4c1266078c6a275c4b2c6e8cf4d0df57303fd8fff928076d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tentukan jumlah cluster dan parameter fuzziness</span>
+<span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># Parameter fuzziness</span>
+
+<span class="c1"># Terapkan Fuzzy C-Means</span>
+<span class="n">cntr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">u0</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">jm</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">fpc</span> <span class="o">=</span> <span class="n">fuzz</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cmeans</span><span class="p">(</span>
+    <span class="n">X_scaled</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+
+<span class="c1"># Tentukan keanggotaan cluster</span>
+<span class="n">cluster_membership</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Visualisasi Hasil Clustering</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">[</span><span class="n">cluster_membership</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_scaled</span><span class="p">[</span><span class="n">cluster_membership</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cluster </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan centroid</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cntr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cntr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centroids&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fuzzy C-Means Clustering on News Data&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Evaluasi Hasil</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fuzzy Partition Coefficient (FPC):&quot;</span><span class="p">,</span> <span class="n">fpc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0df6a1d58bd5d29fff15962c935f27def00082ef49b210358e44a877b8c9bf07.png" src="../_images/0df6a1d58bd5d29fff15962c935f27def00082ef49b210358e44a877b8c9bf07.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fuzzy Partition Coefficient (FPC): 0.5000000000063518
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="test-fuzzy-c-means-2">
+<h1>Test fuzzy c-means 2<a class="headerlink" href="#test-fuzzy-c-means-2" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(&quot;/content/drive&quot;, force_remount=True).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/My Drive/ppw/report/tugas-ppw/hasil_prepros.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-89bbb2d9-503d-4d0f-ac0f-e0ead83db106" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>judul</th>
+      <th>tanggal</th>
+      <th>isi</th>
+      <th>kategori</th>
+      <th>cleansing</th>
+      <th>case_folding</th>
+      <th>tokenize</th>
+      <th>stopword_removal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
+      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
+      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
+      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
+      <td>['jakarta', 'stroke', 'merupakan', 'salah', 's...</td>
+      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
+      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
+      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
+      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
+      <td>['jakarta', 'petai', 'atau', 'parkia', 'specio...</td>
+      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
+      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
+      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
+      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
+      <td>['jakarta', 'pria', 'yang', 'dinobatkan', 'seb...</td>
+      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
+      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
+      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
+      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
+      <td>['jakarta', 'wasir', 'sama', 'dengan', 'ambeie...</td>
+      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
+      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
+      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
+      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
+      <td>['jakarta', 'kelompok', 'penyelenggara', 'pemu...</td>
+      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-89bbb2d9-503d-4d0f-ac0f-e0ead83db106')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-89bbb2d9-503d-4d0f-ac0f-e0ead83db106 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-89bbb2d9-503d-4d0f-ac0f-e0ead83db106');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-fuzzy
+<span class="c1"># Import libraries yang diperlukan</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">skfuzzy</span> <span class="k">as</span> <span class="nn">fuzz</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-fuzzy in /usr/local/lib/python3.10/dist-packages (0.5.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">texts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;stopword_removal&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Preprocessing: TF-IDF</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+<span class="n">tfidf_array</span> <span class="o">=</span> <span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reduksi dimensi menggunakan SVD</span>
+<span class="n">svd</span> <span class="o">=</span> <span class="n">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">data_2d</span> <span class="o">=</span> <span class="n">svd</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">tfidf_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalisasi dengan StandardScaler</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">data_2d_normalized</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_2d</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tetapkan random seed u</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># Fuzzy C-Means Clustering</span>
+<span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">cntr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">fuzz</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cmeans</span><span class="p">(</span>
+    <span class="n">data_2d_normalized</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">n_clusters</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+
+<span class="c1"># Menentukan cluster untuk setiap data berdasarkan keanggotaan tertinggi</span>
+<span class="n">cluster_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menambahkan hasil klasterisasi ke dalam DataFrame</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cluster_labels</span>
+
+<span class="c1"># Menampilkan jumlah data pada setiap cluster</span>
+<span class="n">cluster_counts</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Cluster&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Jumlah data pada setiap cluster:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster_counts</span><span class="p">)</span>
+
+<span class="n">df_filtered</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;judul&#39;</span><span class="p">,</span> <span class="s1">&#39;tanggal&#39;</span><span class="p">,</span> <span class="s1">&#39;isi&#39;</span><span class="p">,</span> <span class="s1">&#39;kategori&#39;</span><span class="p">,</span> <span class="s1">&#39;Cluster&#39;</span><span class="p">]]</span>
+<span class="n">df_filtered</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jumlah data pada setiap cluster:
+Cluster
+1    65
+0    35
+Name: count, dtype: int64
+</pre></div>
+</div>
+<div class="output text_html">
+  <div id="df-1c5c9b62-e0ef-431b-930f-26d5b7a1a1a2" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>judul</th>
+      <th>tanggal</th>
+      <th>isi</th>
+      <th>kategori</th>
+      <th>Cluster</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
+      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
+      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Kesehatan</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
+      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
+      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Kesehatan</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
+      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
+      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Kesehatan</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
+      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
+      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Kesehatan</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
+      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
+      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Kesehatan</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>Triple Kill Jonatan Chrisite di China Masters:...</td>
+      <td>Sabtu, 23 Nov 2024 15:04 WIB</td>
+      <td>Shenzhen - Jonatan Christie sukses menembus pa...</td>
+      <td>Olahraga</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>China Masters 2024: Singkirkan Shi Yu Qi, Jona...</td>
+      <td>Sabtu, 23 Nov 2024 14:04 WIB</td>
+      <td>Jakarta - China Masters 2024 jalani babak semi...</td>
+      <td>Olahraga</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>Tangkal Judol, Menpora Mau Perbanyak Gelar Kej...</td>
+      <td>Sabtu, 23 Nov 2024 11:50 WIB</td>
+      <td>Jakarta - Kejuaraan Antarkampung (Tarkam) biki...</td>
+      <td>Olahraga</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>Vinales Bidik Rekor Ini Bersama Tech3</td>
+      <td>Sabtu, 23 Nov 2024 10:50 WIB</td>
+      <td>Montmelo - Pebalap Tech3 KTM Maverick Vinales ...</td>
+      <td>Olahraga</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>Gymnastics Indonesia Gelar Pelatnas di Tokyo d...</td>
+      <td>Sabtu, 23 Nov 2024 09:45 WIB</td>
+      <td>Jakarta - Pengurus Besar Persatuan Senam Indon...</td>
+      <td>Olahraga</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 5 columns</p>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1c5c9b62-e0ef-431b-930f-26d5b7a1a1a2')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-1c5c9b62-e0ef-431b-930f-26d5b7a1a1a2 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-1c5c9b62-e0ef-431b-930f-26d5b7a1a1a2');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualisasi hasil klasterisasi</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data_2d_normalized</span><span class="p">[</span><span class="n">cluster_labels</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data_2d_normalized</span><span class="p">[</span><span class="n">cluster_labels</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cluster </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># Menampilkan pusat cluster</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cntr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cntr</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Centroids&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;SVD Component 1 (Standardized)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;SVD Component 2 (Standardized)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fuzzy C-Means Clustering of News Data (with SVD)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/dd2e865941f24eb8859ca22d0598b543384ab69b675e2abf30bf9bb6091d469d.png" src="../_images/dd2e865941f24eb8859ca22d0598b543384ab69b675e2abf30bf9bb6091d469d.png" />
+</div>
+</div>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="test-fuzzy-c-means-3">
+<h1>Test fuzzy c-means 3<a class="headerlink" href="#test-fuzzy-c-means-3" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Drive already mounted at /content/drive; to attempt to forcibly remount, call drive.mount(&quot;/content/drive&quot;, force_remount=True).
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/My Drive/ppw/report/tugas-ppw/hasil_prepros.csv&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-dccb462e-2116-49d0-8fd0-83c3193d0663" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>judul</th>
+      <th>tanggal</th>
+      <th>isi</th>
+      <th>kategori</th>
+      <th>cleansing</th>
+      <th>case_folding</th>
+      <th>tokenize</th>
+      <th>stopword_removal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
+      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
+      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
+      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
+      <td>['jakarta', 'stroke', 'merupakan', 'salah', 's...</td>
+      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
+      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
+      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
+      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
+      <td>['jakarta', 'petai', 'atau', 'parkia', 'specio...</td>
+      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
+      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
+      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
+      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
+      <td>['jakarta', 'pria', 'yang', 'dinobatkan', 'seb...</td>
+      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
+      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
+      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
+      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
+      <td>['jakarta', 'wasir', 'sama', 'dengan', 'ambeie...</td>
+      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
+      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
+      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
+      <td>Kesehatan</td>
+      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
+      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
+      <td>['jakarta', 'kelompok', 'penyelenggara', 'pemu...</td>
+      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-dccb462e-2116-49d0-8fd0-83c3193d0663')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-dccb462e-2116-49d0-8fd0-83c3193d0663 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-dccb462e-2116-49d0-8fd0-83c3193d0663');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scikit-fuzzy
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<span class="kn">import</span> <span class="nn">skfuzzy</span> <span class="k">as</span> <span class="nn">fuzz</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: scikit-fuzzy in /usr/local/lib/python3.10/dist-packages (0.5.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lakukan preprocessing data menggunakan TF-IDF</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;stopword_removal&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">X_topic</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Implementasikan Fuzzy C-Means menggunakan Fuzzy library</span>
+<span class="n">n_clusters</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">8</span>  <span class="c1"># Fuzzy coefficient</span>
+<span class="n">max_iter</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">tol</span> <span class="o">=</span> <span class="mf">0.05</span>
+
+<span class="n">cntr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">fuzz</span><span class="o">.</span><span class="n">cluster</span><span class="o">.</span><span class="n">cmeans</span><span class="p">(</span><span class="n">X_topic</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">n_clusters</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">tol</span><span class="p">)</span>
+
+<span class="c1"># Dapatkan label cluster untuk setiap data</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Buat plot scatter</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_clusters</span><span class="p">):</span>
+    <span class="n">cluster_data</span> <span class="o">=</span> <span class="n">X_topic</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="n">i</span><span class="p">]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cluster_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cluster_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cluster </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">cntr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cntr</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster Centers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Fuzzy C-Means Clustering Scatter Plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Feature 2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c368cc17d71e1806259a84962ef73127ee7252ef6b722841c62748887399ae42.png" src="../_images/c368cc17d71e1806259a84962ef73127ee7252ef6b722841c62748887399ae42.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tugas-ppw"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Test fuzzy c-means 1</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-fuzzy-c-means-2">Test fuzzy c-means 2</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#test-fuzzy-c-means-3">Test fuzzy c-means 3</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Rifqi
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -62,6 +65,7 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -77,19 +81,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -97,7 +90,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -105,8 +97,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../_static/foto.png" class="logo__image only-light" alt="Rifqi's Book - Home"/>
-    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="Rifqi's Book - Home"/>`);</script>
+    <img src="../_static/foto.png" class="logo__image only-dark pst-js-only" alt="Rifqi's Book - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -183,8 +172,10 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas-1.html">Tugas 1 : Crawling Berita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-2.html">Tugas 2 : Preprocessing  &amp; TfIdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tugas-4v2.html">Tugas 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-4v2.html">Tugas 4: Ringkasan Dokumen dengan Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas-5v2.html">Tugas 5 : Keyword Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-6.html">Tugas 6 : Sistem pencarian dokumen dengan penerapan Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi (SVD)</a></li>
 </ul>
 
     </div>
@@ -370,24 +361,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -453,7 +436,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5af6f725-fc43-4ab2-a93e-3fd0ca8ac5a0" class="colab-df-container">
+  <div id="df-4f47cbcd-723b-48e6-945e-4bd48fc46ab7" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -485,58 +468,58 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
-      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
-      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
+      <td>Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...</td>
+      <td>Rabu, 27 Nov 2024 19:02 WIB</td>
+      <td>Jakarta - Stroke merupakan salah satu kondisi ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sifilis atau penyakit raja singa term...</td>
-      <td>jakarta  sifilis atau penyakit raja singa term...</td>
-      <td>['jakarta', 'sifilis', 'atau', 'penyakit', 'ra...</td>
-      <td>jakarta sifilis penyakit raja singa infeksi me...</td>
+      <td>Jakarta  Stroke merupakan salah satu kondisi m...</td>
+      <td>jakarta  stroke merupakan salah satu kondisi m...</td>
+      <td>['jakarta', 'stroke', 'merupakan', 'salah', 's...</td>
+      <td>jakarta stroke salah kondisi medis menurunkan ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
-      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
-      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
+      <td>Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...</td>
+      <td>Rabu, 27 Nov 2024 18:02 WIB</td>
+      <td>Jakarta - Petai atau parkia speciosa merupakan...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebagian orang pasti sudah mengenal i...</td>
-      <td>jakarta  sebagian orang pasti sudah mengenal i...</td>
-      <td>['jakarta', 'sebagian', 'orang', 'pasti', 'sud...</td>
-      <td>jakarta orang mengenal istilah puncak seksual ...</td>
+      <td>Jakarta  Petai atau parkia speciosa merupakan ...</td>
+      <td>jakarta  petai atau parkia speciosa merupakan ...</td>
+      <td>['jakarta', 'petai', 'atau', 'parkia', 'specio...</td>
+      <td>jakarta petai parkia speciosa tanaman asia ten...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
-      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
-      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
+      <td>Pria Tertua di Dunia Meninggal di Usia 112, Su...</td>
+      <td>Rabu, 27 Nov 2024 16:52 WIB</td>
+      <td>Jakarta - Pria yang dinobatkan sebagai orang t...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Setiap orang mungkin pernah mengalami...</td>
-      <td>jakarta  setiap orang mungkin pernah mengalami...</td>
-      <td>['jakarta', 'setiap', 'orang', 'mungkin', 'per...</td>
-      <td>jakarta orang mengalami sariawan luka mulut me...</td>
+      <td>Jakarta  Pria yang dinobatkan sebagai orang te...</td>
+      <td>jakarta  pria yang dinobatkan sebagai orang te...</td>
+      <td>['jakarta', 'pria', 'yang', 'dinobatkan', 'seb...</td>
+      <td>jakarta pria dinobatkan orang tertua dunia ver...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
-      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
-      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
+      <td>Gejala Wasir (Ambeien), Penyebab, dan Cara Men...</td>
+      <td>Rabu, 27 Nov 2024 16:47 WIB</td>
+      <td>Jakarta - Wasir sama dengan ambeien. Keduanya ...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Air rebusan serai dikenal sebagai sal...</td>
-      <td>jakarta  air rebusan serai dikenal sebagai sal...</td>
-      <td>['jakarta', 'air', 'rebusan', 'serai', 'dikena...</td>
-      <td>jakarta air rebusan serai dikenal salah ramuan...</td>
+      <td>Jakarta  Wasir sama dengan ambeien Keduanya me...</td>
+      <td>jakarta  wasir sama dengan ambeien keduanya me...</td>
+      <td>['jakarta', 'wasir', 'sama', 'dengan', 'ambeie...</td>
+      <td>jakarta wasir ambeien nama penyakit hemoroid p...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
-      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
-      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
+      <td>Jangan Abaikan Kelelahan, Catat Tips Biar Petu...</td>
+      <td>Rabu, 27 Nov 2024 16:03 WIB</td>
+      <td>Jakarta - Kelompok Penyelenggara Pemungutan Su...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Viral momen member NewJeans Hanni ber...</td>
-      <td>jakarta  viral momen member newjeans hanni ber...</td>
-      <td>['jakarta', 'viral', 'momen', 'member', 'newje...</td>
-      <td>jakarta viral momen member newjeans hanni berb...</td>
+      <td>Jakarta  Kelompok Penyelenggara Pemungutan Sua...</td>
+      <td>jakarta  kelompok penyelenggara pemungutan sua...</td>
+      <td>['jakarta', 'kelompok', 'penyelenggara', 'pemu...</td>
+      <td>jakarta kelompok penyelenggara pemungutan suar...</td>
     </tr>
   </tbody>
 </table>
@@ -544,7 +527,7 @@ document.write(`
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5af6f725-fc43-4ab2-a93e-3fd0ca8ac5a0')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-4f47cbcd-723b-48e6-945e-4bd48fc46ab7')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -596,12 +579,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5af6f725-fc43-4ab2-a93e-3fd0ca8ac5a0 button.colab-df-convert');
+        document.querySelector('#df-4f47cbcd-723b-48e6-945e-4bd48fc46ab7 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5af6f725-fc43-4ab2-a93e-3fd0ca8ac5a0');
+        const element = document.querySelector('#df-4f47cbcd-723b-48e6-945e-4bd48fc46ab7');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -647,95 +630,95 @@ document.write(`
 
 DataFrame setelah Label Encoding:
                                                 judul  \
-0   Gejala Sifilis pada Wanita Berdasarkan Tahapan...   
-1   Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...   
-2   Gejala Kanker Mulut yang Kerap Tak Disadari, T...   
-3   Kapan Waktu yang Tepat untuk Minum Air Rebusan...   
-4   Viral Hanni NewJeans Bicara soal Bullying di T...   
+0   Awas! Kebiasaan Sepele Ini 26 Persen Lebih Tin...   
+1   Berlebihan Makan Petai Bisa Picu Ginjal Rusak,...   
+2   Pria Tertua di Dunia Meninggal di Usia 112, Su...   
+3   Gejala Wasir (Ambeien), Penyebab, dan Cara Men...   
+4   Jangan Abaikan Kelelahan, Catat Tips Biar Petu...   
 ..                                                ...   
-95  Jadwal-Klasemen MotoGP 2024: Martin Vs Bagnaia...   
-96  Jadwal Final Arctic Open 2024: Ada Jonatan Chr...   
-97  GTWCE 2024: Sean Gelael dan Calan Williams Jag...   
-98  Arctic Open 2024: Lawan Mundur, Jonatan Melaju...   
-99            11 Atlet Muda Raih Beasiswa Bulutangkis   
+95  Triple Kill Jonatan Chrisite di China Masters:...   
+96  China Masters 2024: Singkirkan Shi Yu Qi, Jona...   
+97  Tangkal Judol, Menpora Mau Perbanyak Gelar Kej...   
+98              Vinales Bidik Rekor Ini Bersama Tech3   
+99  Gymnastics Indonesia Gelar Pelatnas di Tokyo d...   
 
-                          tanggal  \
-0     Rabu, 16 Okt 2024 21:00 WIB   
-1     Rabu, 16 Okt 2024 20:02 WIB   
-2     Rabu, 16 Okt 2024 18:02 WIB   
-3     Rabu, 16 Okt 2024 17:31 WIB   
-4     Rabu, 16 Okt 2024 16:34 WIB   
-..                            ...   
-95  Minggu, 13 Okt 2024 12:45 WIB   
-96  Minggu, 13 Okt 2024 11:15 WIB   
-97  Minggu, 13 Okt 2024 10:05 WIB   
-98  Minggu, 13 Okt 2024 00:05 WIB   
-99   Sabtu, 12 Okt 2024 22:50 WIB   
+                         tanggal  \
+0    Rabu, 27 Nov 2024 19:02 WIB   
+1    Rabu, 27 Nov 2024 18:02 WIB   
+2    Rabu, 27 Nov 2024 16:52 WIB   
+3    Rabu, 27 Nov 2024 16:47 WIB   
+4    Rabu, 27 Nov 2024 16:03 WIB   
+..                           ...   
+95  Sabtu, 23 Nov 2024 15:04 WIB   
+96  Sabtu, 23 Nov 2024 14:04 WIB   
+97  Sabtu, 23 Nov 2024 11:50 WIB   
+98  Sabtu, 23 Nov 2024 10:50 WIB   
+99  Sabtu, 23 Nov 2024 09:45 WIB   
 
                                                   isi   kategori  \
-0   Jakarta - Sifilis atau penyakit raja singa ter...  Kesehatan   
-1   Jakarta - Sebagian orang pasti sudah mengenal ...  Kesehatan   
-2   Jakarta - Setiap orang mungkin pernah mengalam...  Kesehatan   
-3   Jakarta - Air rebusan serai dikenal sebagai sa...  Kesehatan   
-4   Jakarta - Viral momen member NewJeans, Hanni, ...  Kesehatan   
+0   Jakarta - Stroke merupakan salah satu kondisi ...  Kesehatan   
+1   Jakarta - Petai atau parkia speciosa merupakan...  Kesehatan   
+2   Jakarta - Pria yang dinobatkan sebagai orang t...  Kesehatan   
+3   Jakarta - Wasir sama dengan ambeien. Keduanya ...  Kesehatan   
+4   Jakarta - Kelompok Penyelenggara Pemungutan Su...  Kesehatan   
 ..                                                ...        ...   
-95  Jakarta - Simak di sini jadwal-klasemen MotoGP...   Olahraga   
-96  Jakarta - Tunggal putra Jonatan Christie menja...   Olahraga   
-97  Barcelona - Sean Gelael memang datang dadakan ...   Olahraga   
-98  Vantaa - Jonatan Christie melaju ke final Arct...   Olahraga   
-99  Kudus - 11 atlet muda berhasil meraih Beasiswa...   Olahraga   
+95  Shenzhen - Jonatan Christie sukses menembus pa...   Olahraga   
+96  Jakarta - China Masters 2024 jalani babak semi...   Olahraga   
+97  Jakarta - Kejuaraan Antarkampung (Tarkam) biki...   Olahraga   
+98  Montmelo - Pebalap Tech3 KTM Maverick Vinales ...   Olahraga   
+99  Jakarta - Pengurus Besar Persatuan Senam Indon...   Olahraga   
 
                                             cleansing  \
-0   Jakarta  Sifilis atau penyakit raja singa term...   
-1   Jakarta  Sebagian orang pasti sudah mengenal i...   
-2   Jakarta  Setiap orang mungkin pernah mengalami...   
-3   Jakarta  Air rebusan serai dikenal sebagai sal...   
-4   Jakarta  Viral momen member NewJeans Hanni ber...   
+0   Jakarta  Stroke merupakan salah satu kondisi m...   
+1   Jakarta  Petai atau parkia speciosa merupakan ...   
+2   Jakarta  Pria yang dinobatkan sebagai orang te...   
+3   Jakarta  Wasir sama dengan ambeien Keduanya me...   
+4   Jakarta  Kelompok Penyelenggara Pemungutan Sua...   
 ..                                                ...   
-95  Jakarta  Simak di sini jadwalklasemen MotoGP  ...   
-96  Jakarta  Tunggal putra Jonatan Christie menjad...   
-97  Barcelona  Sean Gelael memang datang dadakan d...   
-98  Vantaa  Jonatan Christie melaju ke final Arcti...   
-99  Kudus   atlet muda berhasil meraih Beasiswa Bu...   
+95  Shenzhen  Jonatan Christie sukses menembus par...   
+96  Jakarta  China Masters  jalani babak semifinal...   
+97  Jakarta  Kejuaraan Antarkampung Tarkam bikinan...   
+98  Montmelo  Pebalap Tech KTM Maverick Vinales op...   
+99  Jakarta  Pengurus Besar Persatuan Senam Indone...   
 
                                          case_folding  \
-0   jakarta  sifilis atau penyakit raja singa term...   
-1   jakarta  sebagian orang pasti sudah mengenal i...   
-2   jakarta  setiap orang mungkin pernah mengalami...   
-3   jakarta  air rebusan serai dikenal sebagai sal...   
-4   jakarta  viral momen member newjeans hanni ber...   
+0   jakarta  stroke merupakan salah satu kondisi m...   
+1   jakarta  petai atau parkia speciosa merupakan ...   
+2   jakarta  pria yang dinobatkan sebagai orang te...   
+3   jakarta  wasir sama dengan ambeien keduanya me...   
+4   jakarta  kelompok penyelenggara pemungutan sua...   
 ..                                                ...   
-95  jakarta  simak di sini jadwalklasemen motogp  ...   
-96  jakarta  tunggal putra jonatan christie menjad...   
-97  barcelona  sean gelael memang datang dadakan d...   
-98  vantaa  jonatan christie melaju ke final arcti...   
-99  kudus   atlet muda berhasil meraih beasiswa bu...   
+95  shenzhen  jonatan christie sukses menembus par...   
+96  jakarta  china masters  jalani babak semifinal...   
+97  jakarta  kejuaraan antarkampung tarkam bikinan...   
+98  montmelo  pebalap tech ktm maverick vinales op...   
+99  jakarta  pengurus besar persatuan senam indone...   
 
                                              tokenize  \
-0   [&#39;jakarta&#39;, &#39;sifilis&#39;, &#39;atau&#39;, &#39;penyakit&#39;, &#39;ra...   
-1   [&#39;jakarta&#39;, &#39;sebagian&#39;, &#39;orang&#39;, &#39;pasti&#39;, &#39;sud...   
-2   [&#39;jakarta&#39;, &#39;setiap&#39;, &#39;orang&#39;, &#39;mungkin&#39;, &#39;per...   
-3   [&#39;jakarta&#39;, &#39;air&#39;, &#39;rebusan&#39;, &#39;serai&#39;, &#39;dikena...   
-4   [&#39;jakarta&#39;, &#39;viral&#39;, &#39;momen&#39;, &#39;member&#39;, &#39;newje...   
+0   [&#39;jakarta&#39;, &#39;stroke&#39;, &#39;merupakan&#39;, &#39;salah&#39;, &#39;s...   
+1   [&#39;jakarta&#39;, &#39;petai&#39;, &#39;atau&#39;, &#39;parkia&#39;, &#39;specio...   
+2   [&#39;jakarta&#39;, &#39;pria&#39;, &#39;yang&#39;, &#39;dinobatkan&#39;, &#39;seb...   
+3   [&#39;jakarta&#39;, &#39;wasir&#39;, &#39;sama&#39;, &#39;dengan&#39;, &#39;ambeie...   
+4   [&#39;jakarta&#39;, &#39;kelompok&#39;, &#39;penyelenggara&#39;, &#39;pemu...   
 ..                                                ...   
-95  [&#39;jakarta&#39;, &#39;simak&#39;, &#39;di&#39;, &#39;sini&#39;, &#39;jadwalklas...   
-96  [&#39;jakarta&#39;, &#39;tunggal&#39;, &#39;putra&#39;, &#39;jonatan&#39;, &#39;ch...   
-97  [&#39;barcelona&#39;, &#39;sean&#39;, &#39;gelael&#39;, &#39;memang&#39;, &#39;dat...   
-98  [&#39;vantaa&#39;, &#39;jonatan&#39;, &#39;christie&#39;, &#39;melaju&#39;, &#39;k...   
-99  [&#39;kudus&#39;, &#39;atlet&#39;, &#39;muda&#39;, &#39;berhasil&#39;, &#39;meraih...   
+95  [&#39;shenzhen&#39;, &#39;jonatan&#39;, &#39;christie&#39;, &#39;sukses&#39;, ...   
+96  [&#39;jakarta&#39;, &#39;china&#39;, &#39;masters&#39;, &#39;jalani&#39;, &#39;bab...   
+97  [&#39;jakarta&#39;, &#39;kejuaraan&#39;, &#39;antarkampung&#39;, &#39;tark...   
+98  [&#39;montmelo&#39;, &#39;pebalap&#39;, &#39;tech&#39;, &#39;ktm&#39;, &#39;maveri...   
+99  [&#39;jakarta&#39;, &#39;pengurus&#39;, &#39;besar&#39;, &#39;persatuan&#39;, ...   
 
                                      stopword_removal  kategori_encoded  
-0   jakarta sifilis penyakit raja singa infeksi me...                 0  
-1   jakarta orang mengenal istilah puncak seksual ...                 0  
-2   jakarta orang mengalami sariawan luka mulut me...                 0  
-3   jakarta air rebusan serai dikenal salah ramuan...                 0  
-4   jakarta viral momen member newjeans hanni berb...                 0  
+0   jakarta stroke salah kondisi medis menurunkan ...                 0  
+1   jakarta petai parkia speciosa tanaman asia ten...                 0  
+2   jakarta pria dinobatkan orang tertua dunia ver...                 0  
+3   jakarta wasir ambeien nama penyakit hemoroid p...                 0  
+4   jakarta kelompok penyelenggara pemungutan suar...                 0  
 ..                                                ...               ...  
-95  jakarta simak jadwalklasemen motogp duel jorge...                 1  
-96  jakarta tunggal putra jonatan christie satusat...                 1  
-97  barcelona sean gelael dadakan ajang fanatec gt...                 1  
-98  vantaa jonatan christie melaju final arctic op...                 1  
-99  kudus atlet muda berhasil meraih beasiswa bulu...                 1  
+95  shenzhen jonatan christie sukses menembus part...                 1  
+96  jakarta china masters jalani babak semifinal j...                 1  
+97  jakarta kejuaraan antarkampung tarkam bikinan ...                 1  
+98  montmelo pebalap tech ktm maverick vinales opt...                 1  
+99  jakarta pengurus persatuan senam indonesia gym...                 1  
 
 [100 rows x 9 columns]
 </pre></div>
@@ -773,17 +756,17 @@ DataFrame setelah Label Encoding:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     jakarta sifilis penyakit raja singa infeksi me...
-1     jakarta orang mengenal istilah puncak seksual ...
-2     jakarta orang mengalami sariawan luka mulut me...
-3     jakarta air rebusan serai dikenal salah ramuan...
-4     jakarta viral momen member newjeans hanni berb...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     jakarta stroke salah kondisi medis menurunkan ...
+1     jakarta petai parkia speciosa tanaman asia ten...
+2     jakarta pria dinobatkan orang tertua dunia ver...
+3     jakarta wasir ambeien nama penyakit hemoroid p...
+4     jakarta kelompok penyelenggara pemungutan suar...
                             ...                        
-95    jakarta simak jadwalklasemen motogp duel jorge...
-96    jakarta tunggal putra jonatan christie satusat...
-97    barcelona sean gelael dadakan ajang fanatec gt...
-98    vantaa jonatan christie melaju final arctic op...
-99    kudus atlet muda berhasil meraih beasiswa bulu...
+95    shenzhen jonatan christie sukses menembus part...
+96    jakarta china masters jalani babak semifinal j...
+97    jakarta kejuaraan antarkampung tarkam bikinan ...
+98    montmelo pebalap tech ktm maverick vinales opt...
+99    jakarta pengurus persatuan senam indonesia gym...
 Name: stopword_removal, Length: 100, dtype: object
 0     0
 1     0
@@ -832,7 +815,7 @@ Jumlah data uji: 20
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b7e02bec-9894-4901-b60f-bb003658b8ef" class="colab-df-container">
+  <div id="df-a20b34ed-fc40-4362-8af6-a45db02ccb13" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -851,27 +834,27 @@ Jumlah data uji: 20
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>abadi</th>
-      <th>abc</th>
-      <th>abdalla</th>
-      <th>abdullah</th>
-      <th>aboy</th>
+      <th>aad</th>
+      <th>aaron</th>
+      <th>abad</th>
+      <th>abdul</th>
+      <th>abhiram</th>
+      <th>abiyu</th>
+      <th>abnormal</th>
+      <th>abraham</th>
       <th>absen</th>
-      <th>acar</th>
-      <th>acara</th>
-      <th>aceh</th>
-      <th>acehsumut</th>
+      <th>academy</th>
       <th>...</th>
-      <th>zaki</th>
-      <th>zarco</th>
+      <th>yunyu</th>
       <th>zat</th>
-      <th>zerlinda</th>
+      <th>zatzat</th>
+      <th>zero</th>
       <th>zhang</th>
-      <th>zhehuang</th>
       <th>zhen</th>
-      <th>zi</th>
-      <th>zona</th>
-      <th>zu</th>
+      <th>zheng</th>
+      <th>zhi</th>
+      <th>zhou</th>
+      <th>zii</th>
     </tr>
   </thead>
   <tbody>
@@ -879,19 +862,19 @@ Jumlah data uji: 20
       <th>0</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.034754</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -903,19 +886,19 @@ Jumlah data uji: 20
       <th>1</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -927,19 +910,19 @@ Jumlah data uji: 20
       <th>2</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -951,19 +934,19 @@ Jumlah data uji: 20
       <th>3</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.060649</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -975,19 +958,19 @@ Jumlah data uji: 20
       <th>4</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.056937</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.04584</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1023,19 +1006,19 @@ Jumlah data uji: 20
       <th>75</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1047,19 +1030,19 @@ Jumlah data uji: 20
       <th>76</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1071,19 +1054,19 @@ Jumlah data uji: 20
       <th>77</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1095,19 +1078,19 @@ Jumlah data uji: 20
       <th>78</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.032064</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1119,19 +1102,19 @@ Jumlah data uji: 20
       <th>79</th>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.00000</td>
       <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1141,12 +1124,12 @@ Jumlah data uji: 20
     </tr>
   </tbody>
 </table>
-<p>80 rows × 3973 columns</p>
+<p>80 rows × 4263 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b7e02bec-9894-4901-b60f-bb003658b8ef')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a20b34ed-fc40-4362-8af6-a45db02ccb13')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1198,12 +1181,12 @@ Jumlah data uji: 20
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b7e02bec-9894-4901-b60f-bb003658b8ef button.colab-df-convert');
+        document.querySelector('#df-a20b34ed-fc40-4362-8af6-a45db02ccb13 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b7e02bec-9894-4901-b60f-bb003658b8ef');
+        const element = document.querySelector('#df-a20b34ed-fc40-4362-8af6-a45db02ccb13');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1238,7 +1221,7 @@ Jumlah data uji: 20
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-6914089f-9580-4af3-a286-69f41a999e2a" class="colab-df-container">
+  <div id="df-b0652797-4488-402f-8ff3-2e3155987c77" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1257,27 +1240,27 @@ Jumlah data uji: 20
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>abadi</th>
-      <th>abc</th>
-      <th>abdalla</th>
-      <th>abdullah</th>
-      <th>aboy</th>
+      <th>aad</th>
+      <th>aaron</th>
+      <th>abad</th>
+      <th>abdul</th>
+      <th>abhiram</th>
+      <th>abiyu</th>
+      <th>abnormal</th>
+      <th>abraham</th>
       <th>absen</th>
-      <th>acar</th>
-      <th>acara</th>
-      <th>aceh</th>
-      <th>acehsumut</th>
+      <th>academy</th>
       <th>...</th>
-      <th>zaki</th>
-      <th>zarco</th>
+      <th>yunyu</th>
       <th>zat</th>
-      <th>zerlinda</th>
+      <th>zatzat</th>
+      <th>zero</th>
       <th>zhang</th>
-      <th>zhehuang</th>
       <th>zhen</th>
-      <th>zi</th>
-      <th>zona</th>
-      <th>zu</th>
+      <th>zheng</th>
+      <th>zhi</th>
+      <th>zhou</th>
+      <th>zii</th>
     </tr>
   </thead>
   <tbody>
@@ -1547,12 +1530,12 @@ Jumlah data uji: 20
     </tr>
   </tbody>
 </table>
-<p>80 rows × 3973 columns</p>
+<p>80 rows × 4263 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-6914089f-9580-4af3-a286-69f41a999e2a')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b0652797-4488-402f-8ff3-2e3155987c77')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1604,12 +1587,12 @@ Jumlah data uji: 20
 
     <script>
       const buttonEl =
-        document.querySelector('#df-6914089f-9580-4af3-a286-69f41a999e2a button.colab-df-convert');
+        document.querySelector('#df-b0652797-4488-402f-8ff3-2e3155987c77 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-6914089f-9580-4af3-a286-69f41a999e2a');
+        const element = document.querySelector('#df-b0652797-4488-402f-8ff3-2e3155987c77');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1665,20 +1648,20 @@ Jumlah data uji: 20
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Node  Degree Centrality
-600         content           0.000504
-2541            not           0.000504
-1057          found           0.000504
-1564          kelor           0.000252
-1323             iq           0.000252
-...             ...                ...
-1332  isothiosianat           0.000000
-1333           ispa           0.000000
-1334         israel           0.000000
-1335          issom           0.000000
-3972             zu           0.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              Node  Degree Centrality
+1142         found           0.000469
+2752           not           0.000469
+656        content           0.000469
+4178         wasir           0.000235
+87         ambeien           0.000235
+...            ...                ...
+1428      interval           0.000000
+1429  intrakranial           0.000000
+1430       invasif           0.000000
+1431     investasi           0.000000
+4262           zii           0.000000
 
-[3973 rows x 2 columns]
+[4263 rows x 2 columns]
 </pre></div>
 </div>
 </div>
@@ -1697,18 +1680,18 @@ Jumlah data uji: 20
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame setelah menghapus fitur di bawah top 10:
-    content  not  found  kelor  iq  daun  ginting  nishimoto  tes  parasetamol
-0         1    1      1      0   0     0        0          0    0            0
-1         0    0      0      0   0     0        0          0    0            0
-2         0    0      0      0   0     0        0          0    0            0
-3         0    0      0      0   0     0        0          0    0            0
-4         0    0      0      0   0     0        0          0    0            0
-..      ...  ...    ...    ...  ..   ...      ...        ...  ...          ...
-75        0    0      0      0   0     0        0          0    0            0
-76        0    0      0      0   0     0        0          0    0            0
-77        0    0      0      0   0     0        0          0    0            0
-78        0    0      0      0   0     0        0          0    0            0
-79        0    0      0      0   0     0        0          0    0            0
+    found  not  content  wasir  ambeien  paes  pagi  pahlevi  pakai  pandangan
+0       0    0        0      0        0     0     0        0      0          0
+1       0    0        0      0        0     0     0        0      0          0
+2       0    0        0      0        0     0     0        0      0          0
+3       0    0        0      0        0     0     0        0      0          0
+4       0    0        0      0        0     0     0        0      0          0
+..    ...  ...      ...    ...      ...   ...   ...      ...    ...        ...
+75      0    0        0      1        1     0     0        0      0          0
+76      0    0        0      0        0     0     0        0      0          0
+77      0    0        0      0        0     0     0        0      0          0
+78      0    0        0      0        0     0     0        0      0          0
+79      1    1        1      0        0     0     0        0      0          0
 
 [80 rows x 10 columns]
 </pre></div>
@@ -1753,7 +1736,7 @@ Jumlah data uji: 20
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1288cc720b88a943a5c0f5522398b1cf6fcef2a3797604ce5d5ebb85bb643192.png" src="../_images/1288cc720b88a943a5c0f5522398b1cf6fcef2a3797604ce5d5ebb85bb643192.png" />
+<img alt="../_images/515da15218242e325d811586c62ea4c04849ad266f413a739d4d9ff54582471b.png" src="../_images/515da15218242e325d811586c62ea4c04849ad266f413a739d4d9ff54582471b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1778,29 +1761,17 @@ Jumlah data uji: 20
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          Node  Degree Centrality  Closeness Centrality  \
-0      content           0.000504              0.222222   
-1          not           0.000504              0.222222   
-2        found           0.000504              0.222222   
-3        kelor           0.000252              0.111111   
-4           iq           0.000252              0.111111   
-5         daun           0.000252              0.111111   
-6      ginting           0.000252              0.111111   
-7    nishimoto           0.000252              0.111111   
-8          tes           0.000252              0.111111   
-9  parasetamol           0.000000              0.000000   
-
-   Betweenness Centrality  
-0                     0.0  
-1                     0.0  
-2                     0.0  
-3                     0.0  
-4                     0.0  
-5                     0.0  
-6                     0.0  
-7                     0.0  
-8                     0.0  
-9                     0.0  
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Node  Degree Centrality  Closeness Centrality  Betweenness Centrality
+0      found           0.000469              0.222222                     0.0
+1        not           0.000469              0.222222                     0.0
+2    content           0.000469              0.222222                     0.0
+3      wasir           0.000235              0.111111                     0.0
+4    ambeien           0.000235              0.111111                     0.0
+5       paes           0.000000              0.000000                     0.0
+6       pagi           0.000000              0.000000                     0.0
+7    pahlevi           0.000000              0.000000                     0.0
+8      pakai           0.000000              0.000000                     0.0
+9  pandangan           0.000000              0.000000                     0.0
 </pre></div>
 </div>
 </div>
@@ -2052,7 +2023,7 @@ Betweenness Centrality:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dcdb7b461b5a80b0c50b2971d2e51082ddce89299232fb24a426db653300233a.png" src="../_images/dcdb7b461b5a80b0c50b2971d2e51082ddce89299232fb24a426db653300233a.png" />
+<img alt="../_images/fb6053f899914b16d5b7e0fd761705e089bd30c95140b431f215cb3e8fb0a066.png" src="../_images/fb6053f899914b16d5b7e0fd761705e089bd30c95140b431f215cb3e8fb0a066.png" />
 </div>
 </div>
 </section>
@@ -2094,7 +2065,8 @@ Betweenness Centrality:
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2156,8 +2128,8 @@ By Rifqi
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>

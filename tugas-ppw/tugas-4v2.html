@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tugas 4 &#8212; Rifqi&#39;s Book</title>
+    <title>Tugas 4: Ringkasan Dokumen dengan Graph &#8212; Rifqi&#39;s Book</title>
   
   
   
@@ -16,17 +16,19 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="prev" title="Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression" href="Tugas-3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -124,7 +116,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -154,21 +147,17 @@
     
     
     <img src="../_static/foto.png" class="logo__image only-light" alt="Rifqi's Book - Home"/>
-    <script>document.write(`<img src="../_static/foto.png" class="logo__image only-dark" alt="Rifqi's Book - Home"/>`);</script>
+    <img src="../_static/foto.png" class="logo__image only-dark pst-js-only" alt="Rifqi's Book - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -183,8 +172,10 @@
 <li class="toctree-l1"><a class="reference internal" href="Tugas-1.html">Tugas 1 : Crawling Berita</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-2.html">Tugas 2 : Preprocessing  &amp; TfIdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">Tugas 3 : Klasifikasi Berita Dengan Metode Logistic Regression</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 4</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 4: Ringkasan Dokumen dengan Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas-5v2.html">Tugas 5 : Keyword Extraction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-6.html">Tugas 6 : Sistem pencarian dokumen dengan penerapan Singular Value Decomposition (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi (SVD)</a></li>
 </ul>
 
     </div>
@@ -370,24 +361,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -399,7 +382,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tugas 4</h1>
+    <h1>Tugas 4: Ringkasan Dokumen dengan Graph</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -413,8 +396,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="tugas-4">
-<h1>Tugas 4<a class="headerlink" href="#tugas-4" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="tugas-4-ringkasan-dokumen-dengan-graph">
+<h1>Tugas 4: Ringkasan Dokumen dengan Graph<a class="headerlink" href="#tugas-4-ringkasan-dokumen-dengan-graph" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
@@ -439,7 +422,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d2b25556-4f52-446a-a51a-7aad8fd36111" class="colab-df-container">
+  <div id="df-1e2c73a6-dbde-411a-b153-e595d02bd9a1" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -467,37 +450,37 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>Awal Mula J&amp;J Digugat Rp 233 Miliar Buntut Kas...</td>
-      <td>Rabu, 16 Okt 2024 15:03 WIB</td>
-      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
+      <td>Gejala Sifilis pada Wanita Berdasarkan Tahapan...</td>
+      <td>Rabu, 16 Okt 2024 21:00 WIB</td>
+      <td>Jakarta - Sifilis atau penyakit raja singa ter...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>XLIFE Hadirkan Jasa Terapis Pijat Profesional ...</td>
-      <td>Rabu, 16 Okt 2024 14:32 WIB</td>
-      <td>Jakarta - Manfaat dari terapi pijat selain rel...</td>
+      <td>Puncak Nafsu Pria Ada di Umur Berapa? Studi Bi...</td>
+      <td>Rabu, 16 Okt 2024 20:02 WIB</td>
+      <td>Jakarta - Sebagian orang pasti sudah mengenal ...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Eks PM Malaysia Mahathir Mohamad Masuk RS, Sak...</td>
-      <td>Rabu, 16 Okt 2024 14:31 WIB</td>
-      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
+      <td>Gejala Kanker Mulut yang Kerap Tak Disadari, T...</td>
+      <td>Rabu, 16 Okt 2024 18:02 WIB</td>
+      <td>Jakarta - Setiap orang mungkin pernah mengalam...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Aksi Nyeleneh Ritual Miliarder AS Ganti Plasma...</td>
-      <td>Rabu, 16 Okt 2024 14:01 WIB</td>
-      <td>Jakarta - Miliarder Amerika Serikat, Bryan Joh...</td>
+      <td>Kapan Waktu yang Tepat untuk Minum Air Rebusan...</td>
+      <td>Rabu, 16 Okt 2024 17:31 WIB</td>
+      <td>Jakarta - Air rebusan serai dikenal sebagai sa...</td>
       <td>Kesehatan</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Uji Klinis di RI Makin Turun Tiap Tahun, Kalah...</td>
-      <td>Rabu, 16 Okt 2024 13:30 WIB</td>
-      <td>Jakarta - Dirjen Kefarmasian dan Alat Kesehata...</td>
+      <td>Viral Hanni NewJeans Bicara soal Bullying di T...</td>
+      <td>Rabu, 16 Okt 2024 16:34 WIB</td>
+      <td>Jakarta - Viral momen member NewJeans, Hanni, ...</td>
       <td>Kesehatan</td>
     </tr>
   </tbody>
@@ -506,7 +489,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-d2b25556-4f52-446a-a51a-7aad8fd36111')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1e2c73a6-dbde-411a-b153-e595d02bd9a1')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -558,12 +541,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-d2b25556-4f52-446a-a51a-7aad8fd36111 button.colab-df-convert');
+        document.querySelector('#df-1e2c73a6-dbde-411a-b153-e595d02bd9a1 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-d2b25556-4f52-446a-a51a-7aad8fd36111');
+        const element = document.querySelector('#df-1e2c73a6-dbde-411a-b153-e595d02bd9a1');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -583,8 +566,8 @@ document.write(`
   </div>
 
 
-<div id="df-77f3cebe-64c4-4be5-8265-de769c591119">
-  <button class="colab-df-quickchart" onclick="quickchart('df-77f3cebe-64c4-4be5-8265-de769c591119')"
+<div id="df-b2f505bc-65de-48bc-b96c-4b167e2e9dca">
+  <button class="colab-df-quickchart" onclick="quickchart('df-b2f505bc-65de-48bc-b96c-4b167e2e9dca')"
             title="Suggest charts"
             style="display:none;">
 
@@ -703,7 +686,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-77f3cebe-64c4-4be5-8265-de769c591119 button');
+        document.querySelector('#df-b2f505bc-65de-48bc-b96c-4b167e2e9dca button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -717,13 +700,13 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># mengambil satu sample berita</span>
-<span class="n">sample_berita</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;isi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">sample_berita</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;isi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sample_berita</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Mantan Perdana Menteri Malaysia Tun Dr Mahathir Mohamad dirawat di rumah sakit karena infeksi saluran pernapasan. Dikutip dari Reuters , Mahathir yang seharusnya menghadiri pengadilan pada hari Rabu (16/10/2024), untuk kasus pencemaran nama baik yang diajukannya terhadap wakil perdana menteri, saat ini harus ditunda. Saat ini, mantan perdana menteri yang bertugas selama dua dekade itu sudah dirawat di Institut Jantung Nasional. Menurut seorang ajudan, Mahathir dirawat di rumah sakit sejak Selasa (15/10) malam. Ia mengalami gejala batuk akibat infeksi saluran pernapasan bawah. Akibat kondisi tersebut, Mahathir akan menjalani cuti sakit hingga 25 Oktober mendatang. Sebelumnya, pria berusia 99 tahun itu sempat dirawat di rumah sakit karena batuk pada 18 Juli. Saat itu, ia dilarikan ke rumah sakit sejak 15 Juli dan dirawat beberapa hari. Namun, saat itu juru bicara Mahathir tidak memberikan rincian lebih lanjut tentang kondisi eks perdana menteri tersebut. Mahathir juga memiliki riwayat masalah jantung dan terakhir dirawat di lembaga itu pada bulan Januari. Ia juga telah menjalani operasi bypass. (sao/naf)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jakarta - Seorang pria bernama Evan Plotkin di Connecticut, AS, menggugat perusahaan Johnson &amp; Johnson (J&amp;J) setelah produk bedak taburnya diklaim memicu kanker. Pria tersebut menggugat sejak 2021 setelah ia didiagnosis mengidap kanker langka mesothelioma, kanker yang umumnya dikaitkan dengan paparan asbes, memengaruhi lapisan paru-paru dan organ lainnya. Ia juga mengaku merasa sakit setiap menghirup bedak bayi yang diproduksi J&amp;J. Plotkin mengaku terpapar produk J&amp;J melalui penggunaan pribadi sejak tahun 1950-an dan penggunaan oleh anak-anaknya hingga tahun 2000-an. Pengadilan Tinggi Fairfield County, Connecticut, memutuskan agar perusahaan J&amp;J membayar sekitar 15 juta dollar USD atau sekitar Rp 233 Miliar kepada Plotkin untuk ganti rugi. &quot;Evan Plotkin dan tim persidangannya sangat gembira karena juri sekali lagi memutuskan untuk meminta pertanggungjawaban Johnson &amp; Johnson atas pemasaran dan penjualan produk bedak bayi yang mereka ketahui mengandung asbes,&quot; kata Ben Braly, pengacara Plotkin, dalam email, dikutip Reuters. Braly menekankan bahwa kasus tersebut menyoroti kekhawatiran serius tentang keselamatan konsumen dan tanggung jawab perusahaan. Selain ganti rugi kompensasi sebesar 15 juta dolar, juri juga merekomendasikan agar perusahaan dikenakan ganti rugi punitif. Ganti rugi punitif ini, yang ditujukan untuk menghukum Johnson &amp; Johnson atas tindakannya, akan ditentukan kemudian oleh pengadilan. Tanggapan Johnson &amp; Johnson Johnson &amp; Johnson telah menolak klaim tersebut dan mengisyaratkan niatnya untuk mengajukan banding atas keputusan tersebut. Erik Haas, wakil presiden litigasi perusahaan di seluruh dunia, mengkritik penanganan kasus tersebut oleh pengadilan, dengan mengklaim bahwa juri tidak diberikan bukti penting. &quot;Putusan tersebut tidak sesuai dengan penelitian ilmiah selama puluhan tahun yang menunjukkan bahwa produk bedak kami aman dan tidak mengandung asbes,&quot; kata Haas dalam sebuah pernyataan, dengan menegaskan bahwa produk perusahaan tersebut telah menjalani evaluasi keamanan yang ekstensif. Perusahaan tersebut telah lama membantah adanya hubungan antara bedak taleknya dengan kontaminasi asbes, dan mengutip studi independen yang menurut J&amp;J, menegaskan keamanan produk tersebut. Lebih lanjut, putusan ini muncul di tengah pertikaian hukum yang jauh lebih besar yang dihadapi Johnson &amp; Johnson. Kasus ini hanyalah satu dari sekian banyak pertikaian hukum yang dihadapi perusahaan farmasi raksasa tersebut. Dikutip dari Republic World, Johnson &amp; Johnson saat ini tengah berupaya menyelesaikan klaim dari lebih dari 62.000 orang yang menuduh bahwa produk berbasis bedaknya menyebabkan kanker ovarium dan kanker ginekologi lainnya. Perusahaan tersebut telah mengusulkan penyelesaian hampir $9 miliar atau Rp 139 triliun melalui kebangkrutan untuk menyelesaikan kasus-kasus ini. Akan tetapi, kesepakatan tersebut telah menghadapi tantangan hukum dari beberapa pengacara penggugat dan saat ini sedang digugat. Meskipun penyelesaian kebangkrutan akan menunda gugatan kanker ginekologi, penyelesaian tersebut tidak mencakup kasus mesothelioma seperti yang dialami Plotkin. Johnson &amp; Johnson sebelumnya telah menyelesaikan beberapa klaim mesothelioma tetapi belum mengusulkan penyelesaian nasional untuk kelompok kasus ini. (suc/kna)
 </pre></div>
 </div>
 </div>
@@ -753,7 +736,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-db24070b-9167-4efe-8fa3-e06ff4db3700" class="colab-df-container">
+  <div id="df-f5ff6e81-c97c-4016-9a56-ef6a52f13ead" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -780,62 +763,112 @@ document.write(`
     <tr>
       <th>0</th>
       <td>Kalimat ke 1</td>
-      <td>Jakarta - Mantan Perdana Menteri Malaysia Tun ...</td>
+      <td>Jakarta - Seorang pria bernama Evan Plotkin di...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Kalimat ke 2</td>
-      <td>Dikutip dari Reuters , Mahathir yang seharusny...</td>
+      <td>Pria tersebut menggugat sejak 2021 setelah ia ...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Kalimat ke 3</td>
-      <td>Saat ini, mantan perdana menteri yang bertugas...</td>
+      <td>Ia juga mengaku merasa sakit setiap menghirup ...</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Kalimat ke 4</td>
-      <td>Menurut seorang ajudan, Mahathir dirawat di ru...</td>
+      <td>Plotkin mengaku terpapar produk J&amp;J melalui pe...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Kalimat ke 5</td>
-      <td>Ia mengalami gejala batuk akibat infeksi salur...</td>
+      <td>Pengadilan Tinggi Fairfield County, Connecticu...</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Kalimat ke 6</td>
-      <td>Akibat kondisi tersebut, Mahathir akan menjala...</td>
+      <td>"Evan Plotkin dan tim persidangannya sangat ge...</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Kalimat ke 7</td>
-      <td>Sebelumnya, pria berusia 99 tahun itu sempat d...</td>
+      <td>Braly menekankan bahwa kasus tersebut menyorot...</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Kalimat ke 8</td>
-      <td>Saat itu, ia dilarikan ke rumah sakit sejak 15...</td>
+      <td>Selain ganti rugi kompensasi sebesar 15 juta d...</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Kalimat ke 9</td>
-      <td>Namun, saat itu juru bicara Mahathir tidak mem...</td>
+      <td>Ganti rugi punitif ini, yang ditujukan untuk m...</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Kalimat ke 10</td>
-      <td>Mahathir juga memiliki riwayat masalah jantung...</td>
+      <td>Tanggapan Johnson &amp; Johnson Johnson &amp; Johnson ...</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Kalimat ke 11</td>
-      <td>Ia juga telah menjalani operasi bypass</td>
+      <td>Erik Haas, wakil presiden litigasi perusahaan ...</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Kalimat ke 12</td>
-      <td>(sao/naf)</td>
+      <td>"Putusan tersebut tidak sesuai dengan peneliti...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Kalimat ke 13</td>
+      <td>Perusahaan tersebut telah lama membantah adany...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Kalimat ke 14</td>
+      <td>Lebih lanjut, putusan ini muncul di tengah per...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Kalimat ke 15</td>
+      <td>Kasus ini hanyalah satu dari sekian banyak per...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Kalimat ke 16</td>
+      <td>Dikutip dari Republic World, Johnson &amp; Johnson...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Kalimat ke 17</td>
+      <td>000 orang yang menuduh bahwa produk berbasis b...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Kalimat ke 18</td>
+      <td>Perusahaan tersebut telah mengusulkan penyeles...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Kalimat ke 19</td>
+      <td>Akan tetapi, kesepakatan tersebut telah mengha...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Kalimat ke 20</td>
+      <td>Meskipun penyelesaian kebangkrutan akan menund...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Kalimat ke 21</td>
+      <td>Johnson &amp; Johnson sebelumnya telah menyelesaik...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Kalimat ke 22</td>
+      <td>(suc/kna)</td>
     </tr>
   </tbody>
 </table>
@@ -843,7 +876,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-db24070b-9167-4efe-8fa3-e06ff4db3700')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-f5ff6e81-c97c-4016-9a56-ef6a52f13ead')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -895,12 +928,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-db24070b-9167-4efe-8fa3-e06ff4db3700 button.colab-df-convert');
+        document.querySelector('#df-f5ff6e81-c97c-4016-9a56-ef6a52f13ead button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-db24070b-9167-4efe-8fa3-e06ff4db3700');
+        const element = document.querySelector('#df-f5ff6e81-c97c-4016-9a56-ef6a52f13ead');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -920,8 +953,8 @@ document.write(`
   </div>
 
 
-<div id="df-5fe39919-a218-40a3-b3a3-98eec9d084ad">
-  <button class="colab-df-quickchart" onclick="quickchart('df-5fe39919-a218-40a3-b3a3-98eec9d084ad')"
+<div id="df-c6ce631f-3793-4390-b80a-46b1adda031e">
+  <button class="colab-df-quickchart" onclick="quickchart('df-c6ce631f-3793-4390-b80a-46b1adda031e')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1040,14 +1073,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-5fe39919-a218-40a3-b3a3-98eec9d084ad button');
+        document.querySelector('#df-c6ce631f-3793-4390-b80a-46b1adda031e button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_8963db36-1e34-495c-a995-376a99005171">
+  <div id="id_0f10a303-b65d-4219-a8e9-86b0552564f9">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -1091,7 +1124,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_8963db36-1e34-495c-a995-376a99005171 button.colab-df-generate');
+        document.querySelector('#id_0f10a303-b65d-4219-a8e9-86b0552564f9 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -1209,7 +1242,7 @@ document.write(`
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-50f44dbc-2f1c-474c-9b87-088e036a7411" class="colab-df-container">
+  <div id="df-5b9cb720-8139-4a40-b00a-10576aee5fa4" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1236,62 +1269,112 @@ document.write(`
     <tr>
       <th>0</th>
       <td>Kalimat ke 1</td>
-      <td>jakarta mantan perdana menteri malaysia tun dr...</td>
+      <td>jakarta pria nama evan plotkin connecticut as ...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Kalimat ke 2</td>
-      <td>kutip reuters mahathir hadir adil rabu cemar n...</td>
+      <td>pria gugat diagnosis idap kanker langka mesoth...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Kalimat ke 3</td>
-      <td>mantan perdana menteri tugas dekade rawat inst...</td>
+      <td>aku sakit hirup bedak bayi produksi jj</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Kalimat ke 4</td>
-      <td>ajudan mahathir rawat rumah sakit selasa malam</td>
+      <td>plotkin aku papar produk jj guna pribadi an gu...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Kalimat ke 5</td>
-      <td>alami gejala batuk akibat infeksi salur napas</td>
+      <td>adil fairfield county connecticut putus usaha ...</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Kalimat ke 6</td>
-      <td>akibat kondisi mahathir jalan cuti sakit oktober</td>
+      <td>evan plotkin tim sidang gembira juri putus per...</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Kalimat ke 7</td>
-      <td>pria usia rawat rumah sakit batuk juli</td>
+      <td>braly tekan sorot khawatir serius selamat kons...</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Kalimat ke 8</td>
-      <td>lari rumah sakit juli rawat</td>
+      <td>ganti rugi kompensasi juta dolar juri rekomend...</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Kalimat ke 9</td>
-      <td>juru bicara mahathir rincian kondisi eks perda...</td>
+      <td>ganti rugi punitif hukum johnson johnson tinda...</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Kalimat ke 10</td>
-      <td>mahathir milik riwayat jantung rawat lembaga j...</td>
+      <td>tanggap johnson johnson johnson johnson tolak ...</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Kalimat ke 11</td>
-      <td>jalan operasi bypass</td>
+      <td>erik haas wakil presiden litigasi usaha dunia ...</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Kalimat ke 12</td>
-      <td>saonaf</td>
+      <td>putus sesuai teliti ilmiah puluh produk bedak ...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Kalimat ke 13</td>
+      <td>usaha ban hubung bedak talek kontaminasi asbes...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Kalimat ke 14</td>
+      <td>putus muncul tikai hukum hadap johnson johnson</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Kalimat ke 15</td>
+      <td>sekian tikai hukum hadap usaha farmasi raksasa</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Kalimat ke 16</td>
+      <td>kutip republic world johnson johnson upaya sel...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Kalimat ke 17</td>
+      <td>orang tuduh produk bas bedak sebab kanker ovar...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Kalimat ke 18</td>
+      <td>usaha usul selesai miliar rp triliun bangkrut ...</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Kalimat ke 19</td>
+      <td>sepakat hadap tantang hukum acara gugat gugat</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Kalimat ke 20</td>
+      <td>selesai bangkrut tunda gugat kanker ginekologi...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Kalimat ke 21</td>
+      <td>johnson johnson selesai klaim mesothelioma usu...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Kalimat ke 22</td>
+      <td>suckna</td>
     </tr>
   </tbody>
 </table>
@@ -1299,7 +1382,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-50f44dbc-2f1c-474c-9b87-088e036a7411')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5b9cb720-8139-4a40-b00a-10576aee5fa4')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1351,12 +1434,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-50f44dbc-2f1c-474c-9b87-088e036a7411 button.colab-df-convert');
+        document.querySelector('#df-5b9cb720-8139-4a40-b00a-10576aee5fa4 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-50f44dbc-2f1c-474c-9b87-088e036a7411');
+        const element = document.querySelector('#df-5b9cb720-8139-4a40-b00a-10576aee5fa4');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1376,8 +1459,8 @@ document.write(`
   </div>
 
 
-<div id="df-4759fd0e-5e11-45a4-acc0-d6a20359025f">
-  <button class="colab-df-quickchart" onclick="quickchart('df-4759fd0e-5e11-45a4-acc0-d6a20359025f')"
+<div id="df-be75a026-6020-4086-b576-bf6c7b6ac123">
+  <button class="colab-df-quickchart" onclick="quickchart('df-be75a026-6020-4086-b576-bf6c7b6ac123')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1496,7 +1579,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-4759fd0e-5e11-45a4-acc0-d6a20359025f button');
+        document.querySelector('#df-be75a026-6020-4086-b576-bf6c7b6ac123 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1537,7 +1620,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-097775d2-b400-4b6f-bd80-041c3211afc0" class="colab-df-container">
+  <div id="df-d3f6adc9-4577-41e3-a250-fbc6da0b80a3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1557,26 +1640,26 @@ document.write(`
     <tr style="text-align: right;">
       <th></th>
       <th>kalimat ke n</th>
+      <th>acara</th>
       <th>adil</th>
       <th>aju</th>
-      <th>ajudan</th>
-      <th>akibat</th>
+      <th>aku</th>
       <th>alami</th>
-      <th>batuk</th>
-      <th>bicara</th>
-      <th>bypass</th>
-      <th>cemar</th>
+      <th>aman</th>
+      <th>an</th>
+      <th>anakanaknya</th>
+      <th>as</th>
       <th>...</th>
-      <th>rumah</th>
-      <th>sakit</th>
-      <th>salur</th>
-      <th>saonaf</th>
-      <th>selasa</th>
-      <th>tugas</th>
-      <th>tun</th>
+      <th>tolak</th>
+      <th>triliun</th>
+      <th>tuduh</th>
       <th>tunda</th>
-      <th>usia</th>
+      <th>upaya</th>
+      <th>usaha</th>
+      <th>usd</th>
+      <th>usul</th>
       <th>wakil</th>
+      <th>world</th>
     </tr>
   </thead>
   <tbody>
@@ -1587,19 +1670,19 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.284876</td>
       <td>...</td>
-      <td>0.211575</td>
-      <td>0.191849</td>
-      <td>0.266843</td>
-      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.00000</td>
-      <td>0.310712</td>
+      <td>0.000000</td>
+      <td>0.151685</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1607,26 +1690,26 @@ document.write(`
     <tr>
       <th>1</th>
       <td>Kalimat ke 2</td>
-      <td>0.298206</td>
-      <td>0.298206</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.298206</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
       <td>0.00000</td>
       <td>0.000000</td>
-      <td>0.298206</td>
       <td>0.000000</td>
-      <td>0.298206</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>2</th>
@@ -1634,8 +1717,8 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.378777</td>
+      <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1644,9 +1727,9 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.00000</td>
       <td>0.000000</td>
-      <td>0.38575</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1657,20 +1740,20 @@ document.write(`
       <td>Kalimat ke 4</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.472424</td>
       <td>0.000000</td>
+      <td>0.245740</td>
+      <td>0.00000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.557099</td>
+      <td>0.278549</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>0.321690</td>
-      <td>0.291698</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.472424</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1680,22 +1763,22 @@ document.write(`
       <th>4</th>
       <td>Kalimat ke 5</td>
       <td>0.000000</td>
+      <td>0.233476</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.360103</td>
-      <td>0.419303</td>
-      <td>0.360103</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.360103</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.00000</td>
       <td>0.000000</td>
+      <td>0.155660</td>
+      <td>0.292342</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1703,22 +1786,22 @@ document.write(`
     <tr>
       <th>5</th>
       <td>Kalimat ke 6</td>
+      <td>0.196001</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.387507</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
-      <td>0.278601</td>
       <td>0.000000</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1731,21 +1814,21 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.000000</td>
-      <td>0.398785</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>0.316189</td>
-      <td>0.286709</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.00000</td>
       <td>0.000000</td>
+      <td>0.187530</td>
       <td>0.000000</td>
-      <td>0.464345</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -1755,18 +1838,18 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
-      <td>0.399838</td>
-      <td>0.362559</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.156467</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1776,21 +1859,21 @@ document.write(`
       <th>8</th>
       <td>Kalimat ke 9</td>
       <td>0.000000</td>
+      <td>0.309531</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.408837</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.0</td>
-      <td>0.000000</td>
       <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1801,20 +1884,20 @@ document.write(`
       <td>Kalimat ke 10</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.281327</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>...</td>
+      <td>0.281327</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1824,24 +1907,24 @@ document.write(`
       <th>10</th>
       <td>Kalimat ke 11</td>
       <td>0.000000</td>
+      <td>0.243007</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.604392</td>
-      <td>0.000000</td>
-      <td>...</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.0</td>
       <td>0.000000</td>
       <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.162014</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.304276</td>
       <td>0.000000</td>
     </tr>
     <tr>
@@ -1851,7 +1934,55 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.441406</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.133205</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Kalimat ke 13</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.286064</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.172654</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Kalimat ke 14</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1860,9 +1991,201 @@ document.write(`
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>1.0</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Kalimat ke 15</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.232647</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Kalimat ke 16</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.405992</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.405992</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Kalimat ke 17</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.338227</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Kalimat ke 18</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.363921</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.193773</td>
+      <td>0.000000</td>
+      <td>0.321056</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Kalimat ke 19</td>
+      <td>0.356947</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Kalimat ke 20</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.33541</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.33541</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Kalimat ke 21</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.322987</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Kalimat ke 22</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.00000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -1870,12 +2193,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
-<p>12 rows × 57 columns</p>
+<p>22 rows × 138 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-097775d2-b400-4b6f-bd80-041c3211afc0')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d3f6adc9-4577-41e3-a250-fbc6da0b80a3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1927,12 +2250,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-097775d2-b400-4b6f-bd80-041c3211afc0 button.colab-df-convert');
+        document.querySelector('#df-d3f6adc9-4577-41e3-a250-fbc6da0b80a3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-097775d2-b400-4b6f-bd80-041c3211afc0');
+        const element = document.querySelector('#df-d3f6adc9-4577-41e3-a250-fbc6da0b80a3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1952,8 +2275,8 @@ document.write(`
   </div>
 
 
-<div id="df-ea0cb5e4-caaa-498b-9e6e-4ca40a9eede0">
-  <button class="colab-df-quickchart" onclick="quickchart('df-ea0cb5e4-caaa-498b-9e6e-4ca40a9eede0')"
+<div id="df-514277cd-bea5-4b1c-966d-c4776906c639">
+  <button class="colab-df-quickchart" onclick="quickchart('df-514277cd-bea5-4b1c-966d-c4776906c639')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2072,14 +2395,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-ea0cb5e4-caaa-498b-9e6e-4ca40a9eede0 button');
+        document.querySelector('#df-514277cd-bea5-4b1c-966d-c4776906c639 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_d95e176f-56b1-4faf-8b18-8f4e3f61f3c7">
+  <div id="id_49d36b75-2530-4f7b-8381-a2f7209753c9">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -2123,7 +2446,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_d95e176f-56b1-4faf-8b18-8f4e3f61f3c7 button.colab-df-generate');
+        document.querySelector('#id_49d36b75-2530-4f7b-8381-a2f7209753c9 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2156,7 +2479,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-72eecbdd-3208-40c2-8415-f259983466e7" class="colab-df-container">
+  <div id="df-c46be472-df3b-43aa-829d-a1eae4b4cd2d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2185,11 +2508,29 @@ document.write(`
       <th>Kalimat ke 8</th>
       <th>Kalimat ke 9</th>
       <th>Kalimat ke 10</th>
-      <th>Kalimat ke 11</th>
-      <th>Kalimat ke 12</th>
+      <th>...</th>
+      <th>Kalimat ke 13</th>
+      <th>Kalimat ke 14</th>
+      <th>Kalimat ke 15</th>
+      <th>Kalimat ke 16</th>
+      <th>Kalimat ke 17</th>
+      <th>Kalimat ke 18</th>
+      <th>Kalimat ke 19</th>
+      <th>Kalimat ke 20</th>
+      <th>Kalimat ke 21</th>
+      <th>Kalimat ke 22</th>
     </tr>
     <tr>
       <th>kalimat ke n</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -2208,172 +2549,520 @@ document.write(`
     <tr>
       <th>Kalimat ke 1</th>
       <td>1.000000</td>
-      <td>0.115374</td>
-      <td>0.237646</td>
-      <td>0.217333</td>
-      <td>0.288273</td>
-      <td>0.098009</td>
-      <td>0.167759</td>
-      <td>0.212141</td>
-      <td>0.158176</td>
-      <td>0.085207</td>
-      <td>0.000000</td>
+      <td>0.186112</td>
+      <td>0.106184</td>
+      <td>0.105674</td>
+      <td>0.165641</td>
+      <td>0.249466</td>
+      <td>0.028445</td>
+      <td>0.023734</td>
+      <td>0.157553</td>
+      <td>0.265877</td>
+      <td>...</td>
+      <td>0.143756</td>
+      <td>0.184680</td>
+      <td>0.035289</td>
+      <td>0.218656</td>
+      <td>0.181736</td>
+      <td>0.029392</td>
+      <td>0.124134</td>
+      <td>0.147199</td>
+      <td>0.197176</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 2</th>
-      <td>0.115374</td>
+      <td>0.186112</td>
       <td>1.000000</td>
-      <td>0.106675</td>
-      <td>0.044777</td>
       <td>0.000000</td>
-      <td>0.042767</td>
+      <td>0.059168</td>
+      <td>0.000000</td>
+      <td>0.032651</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.151810</td>
-      <td>0.040889</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.047654</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.198830</td>
+      <td>0.000000</td>
+      <td>0.118925</td>
+      <td>0.206267</td>
+      <td>0.063731</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 3</th>
-      <td>0.237646</td>
-      <td>0.106675</td>
+      <td>0.106184</td>
+      <td>0.000000</td>
       <td>1.000000</td>
-      <td>0.057922</td>
+      <td>0.148520</td>
+      <td>0.058185</td>
+      <td>0.112834</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.056931</td>
-      <td>0.071993</td>
-      <td>0.146250</td>
-      <td>0.175632</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.120864</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.058753</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 4</th>
-      <td>0.217333</td>
-      <td>0.044777</td>
-      <td>0.057922</td>
+      <td>0.105674</td>
+      <td>0.059168</td>
+      <td>0.148520</td>
       <td>1.000000</td>
+      <td>0.075497</td>
+      <td>0.082413</td>
       <td>0.000000</td>
-      <td>0.149019</td>
-      <td>0.255071</td>
-      <td>0.322550</td>
-      <td>0.061389</td>
-      <td>0.129554</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.078413</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.038118</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.043310</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 5</th>
-      <td>0.288273</td>
+      <td>0.165641</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
+      <td>0.058185</td>
+      <td>0.075497</td>
       <td>1.000000</td>
-      <td>0.139542</td>
-      <td>0.143603</td>
+      <td>0.090324</td>
+      <td>0.029191</td>
+      <td>0.310391</td>
+      <td>0.216804</td>
+      <td>0.038125</td>
+      <td>...</td>
+      <td>0.070818</td>
+      <td>0.061566</td>
+      <td>0.036214</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.195768</td>
       <td>0.000000</td>
+      <td>0.045454</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 6</th>
-      <td>0.098009</td>
-      <td>0.042767</td>
-      <td>0.000000</td>
-      <td>0.149019</td>
-      <td>0.139542</td>
+      <td>0.249466</td>
+      <td>0.032651</td>
+      <td>0.112834</td>
+      <td>0.082413</td>
+      <td>0.090324</td>
       <td>1.000000</td>
-      <td>0.079877</td>
-      <td>0.101009</td>
-      <td>0.194691</td>
-      <td>0.061869</td>
-      <td>0.201139</td>
+      <td>0.060900</td>
+      <td>0.041641</td>
+      <td>0.122873</td>
+      <td>0.207353</td>
+      <td>...</td>
+      <td>0.143035</td>
+      <td>0.190817</td>
+      <td>0.000000</td>
+      <td>0.186244</td>
+      <td>0.060805</td>
+      <td>0.000000</td>
+      <td>0.069962</td>
+      <td>0.069087</td>
+      <td>0.116069</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 7</th>
-      <td>0.167759</td>
+      <td>0.028445</td>
       <td>0.000000</td>
-      <td>0.056931</td>
-      <td>0.255071</td>
-      <td>0.143603</td>
-      <td>0.079877</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.029191</td>
+      <td>0.060900</td>
       <td>1.000000</td>
-      <td>0.518135</td>
+      <td>0.029342</td>
       <td>0.000000</td>
-      <td>0.063669</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.032378</td>
+      <td>0.000000</td>
+      <td>0.043628</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.036338</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 8</th>
-      <td>0.212141</td>
+      <td>0.023734</td>
       <td>0.000000</td>
-      <td>0.071993</td>
-      <td>0.322550</td>
       <td>0.000000</td>
-      <td>0.101009</td>
-      <td>0.518135</td>
+      <td>0.000000</td>
+      <td>0.310391</td>
+      <td>0.041641</td>
+      <td>0.029342</td>
       <td>1.000000</td>
+      <td>0.379211</td>
       <td>0.000000</td>
-      <td>0.080513</td>
+      <td>...</td>
+      <td>0.027015</td>
+      <td>0.000000</td>
+      <td>0.036402</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.030319</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 9</th>
-      <td>0.158176</td>
-      <td>0.151810</td>
-      <td>0.146250</td>
-      <td>0.061389</td>
-      <td>0.000000</td>
-      <td>0.194691</td>
+      <td>0.157553</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.216804</td>
+      <td>0.122873</td>
+      <td>0.000000</td>
+      <td>0.379211</td>
       <td>1.000000</td>
-      <td>0.056058</td>
+      <td>0.311181</td>
+      <td>...</td>
       <td>0.000000</td>
+      <td>0.346071</td>
+      <td>0.091189</td>
+      <td>0.224538</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.084442</td>
+      <td>0.000000</td>
+      <td>0.202481</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 10</th>
-      <td>0.085207</td>
-      <td>0.040889</td>
-      <td>0.175632</td>
-      <td>0.129554</td>
+      <td>0.265877</td>
       <td>0.000000</td>
-      <td>0.061869</td>
-      <td>0.063669</td>
-      <td>0.080513</td>
-      <td>0.056058</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.038125</td>
+      <td>0.207353</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.311181</td>
       <td>1.000000</td>
+      <td>...</td>
       <td>0.000000</td>
+      <td>0.424006</td>
+      <td>0.000000</td>
+      <td>0.378917</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.341695</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 11</th>
+      <td>0.064757</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.081956</td>
+      <td>0.043118</td>
+      <td>0.030383</td>
+      <td>0.082380</td>
+      <td>0.075218</td>
+      <td>0.039681</td>
+      <td>...</td>
+      <td>0.027972</td>
+      <td>0.000000</td>
+      <td>0.037692</td>
+      <td>0.057265</td>
+      <td>0.000000</td>
+      <td>0.031394</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.201139</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>1.000000</td>
+      <td>0.051640</td>
       <td>0.0</td>
     </tr>
     <tr>
       <th>Kalimat ke 12</th>
+      <td>0.106707</td>
+      <td>0.036766</td>
+      <td>0.043457</td>
+      <td>0.056387</td>
+      <td>0.054637</td>
+      <td>0.166413</td>
+      <td>0.024980</td>
+      <td>0.020842</td>
+      <td>0.000000</td>
+      <td>0.032625</td>
+      <td>...</td>
+      <td>0.291411</td>
+      <td>0.052685</td>
+      <td>0.030990</td>
+      <td>0.000000</td>
+      <td>0.102702</td>
+      <td>0.025812</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 13</th>
+      <td>0.143756</td>
+      <td>0.047654</td>
+      <td>0.120864</td>
+      <td>0.078413</td>
+      <td>0.070818</td>
+      <td>0.143035</td>
+      <td>0.032378</td>
+      <td>0.027015</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.040167</td>
+      <td>0.083967</td>
+      <td>0.088745</td>
+      <td>0.033456</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 14</th>
+      <td>0.184680</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.061566</td>
+      <td>0.190817</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.346071</td>
+      <td>0.424006</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.387989</td>
+      <td>0.263198</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.216222</td>
+      <td>0.000000</td>
+      <td>0.237343</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 15</th>
+      <td>0.035289</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.036214</td>
+      <td>0.000000</td>
+      <td>0.043628</td>
+      <td>0.036402</td>
+      <td>0.091189</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.040167</td>
+      <td>0.387989</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.045081</td>
+      <td>0.207954</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 16</th>
+      <td>0.218656</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.186244</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.224538</td>
+      <td>0.378917</td>
+      <td>...</td>
+      <td>0.083967</td>
+      <td>0.263198</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.159123</td>
+      <td>0.000000</td>
+      <td>0.146656</td>
+      <td>0.441087</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 17</th>
+      <td>0.181736</td>
+      <td>0.198830</td>
+      <td>0.058753</td>
+      <td>0.038118</td>
+      <td>0.000000</td>
+      <td>0.060805</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.088745</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.210471</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 18</th>
+      <td>0.029392</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.195768</td>
+      <td>0.000000</td>
+      <td>0.036338</td>
+      <td>0.030319</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.033456</td>
+      <td>0.000000</td>
+      <td>0.045081</td>
+      <td>0.159123</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.357919</td>
+      <td>0.390680</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 19</th>
+      <td>0.124134</td>
+      <td>0.118925</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.069962</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.084442</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.216222</td>
+      <td>0.207954</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.146155</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 20</th>
+      <td>0.147199</td>
+      <td>0.206267</td>
+      <td>0.000000</td>
+      <td>0.043310</td>
+      <td>0.045454</td>
+      <td>0.069087</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.146656</td>
+      <td>0.210471</td>
+      <td>0.357919</td>
+      <td>0.146155</td>
+      <td>1.000000</td>
+      <td>0.342823</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 21</th>
+      <td>0.197176</td>
+      <td>0.063731</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.116069</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.202481</td>
+      <td>0.341695</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.237343</td>
+      <td>0.000000</td>
+      <td>0.441087</td>
+      <td>0.000000</td>
+      <td>0.390680</td>
+      <td>0.000000</td>
+      <td>0.342823</td>
+      <td>1.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 22</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
@@ -2387,11 +3076,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
+<p>22 rows × 22 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-72eecbdd-3208-40c2-8415-f259983466e7')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-c46be472-df3b-43aa-829d-a1eae4b4cd2d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2443,12 +3133,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-72eecbdd-3208-40c2-8415-f259983466e7 button.colab-df-convert');
+        document.querySelector('#df-c46be472-df3b-43aa-829d-a1eae4b4cd2d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-72eecbdd-3208-40c2-8415-f259983466e7');
+        const element = document.querySelector('#df-c46be472-df3b-43aa-829d-a1eae4b4cd2d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2468,8 +3158,8 @@ document.write(`
   </div>
 
 
-<div id="df-f72c5cb4-5bc6-46c1-a982-fad29463b45d">
-  <button class="colab-df-quickchart" onclick="quickchart('df-f72c5cb4-5bc6-46c1-a982-fad29463b45d')"
+<div id="df-3e925c10-d782-4f3b-821d-f6f2be96d4c3">
+  <button class="colab-df-quickchart" onclick="quickchart('df-3e925c10-d782-4f3b-821d-f6f2be96d4c3')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2588,14 +3278,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-f72c5cb4-5bc6-46c1-a982-fad29463b45d button');
+        document.querySelector('#df-3e925c10-d782-4f3b-821d-f6f2be96d4c3 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_d9cded14-52f3-4e49-abf5-e6052668ac97">
+  <div id="id_4de131a3-be19-4975-bdd7-4791ce9ae507">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -2639,7 +3329,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_d9cded14-52f3-4e49-abf5-e6052668ac97 button.colab-df-generate');
+        document.querySelector('#id_4de131a3-be19-4975-bdd7-4791ce9ae507 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2675,7 +3365,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8e4cf114-7f6d-4f57-89dc-2f8bb960d576" class="colab-df-container">
+  <div id="df-7a250fd7-f708-42e8-bc13-13f514732c7d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2704,11 +3394,29 @@ document.write(`
       <th>Kalimat ke 8</th>
       <th>Kalimat ke 9</th>
       <th>Kalimat ke 10</th>
-      <th>Kalimat ke 11</th>
-      <th>Kalimat ke 12</th>
+      <th>...</th>
+      <th>Kalimat ke 13</th>
+      <th>Kalimat ke 14</th>
+      <th>Kalimat ke 15</th>
+      <th>Kalimat ke 16</th>
+      <th>Kalimat ke 17</th>
+      <th>Kalimat ke 18</th>
+      <th>Kalimat ke 19</th>
+      <th>Kalimat ke 20</th>
+      <th>Kalimat ke 21</th>
+      <th>Kalimat ke 22</th>
     </tr>
     <tr>
       <th>kalimat ke n</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -2732,40 +3440,67 @@ document.write(`
       <td>1</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>...</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>Kalimat ke 2</th>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
       <td>1</td>
-      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>Kalimat ke 3</th>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>...</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
     </tr>
@@ -2773,14 +3508,23 @@ document.write(`
       <th>Kalimat ke 4</th>
       <td>1</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
     </tr>
@@ -2789,11 +3533,20 @@ document.write(`
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2803,27 +3556,45 @@ document.write(`
       <th>Kalimat ke 6</th>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>...</td>
       <td>1</td>
       <td>1</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>Kalimat ke 7</th>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2831,47 +3602,74 @@ document.write(`
     </tr>
     <tr>
       <th>Kalimat ke 8</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
+      <td>...</td>
       <td>0</td>
-      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>Kalimat ke 9</th>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
       <td>0</td>
-      <td>0</td>
-      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
       <th>Kalimat ke 10</th>
       <td>1</td>
       <td>0</td>
-      <td>1</td>
-      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
       <td>1</td>
       <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
       <td>0</td>
     </tr>
     <tr>
@@ -2880,19 +3678,277 @@ document.write(`
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 12</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 13</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 14</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
     </tr>
     <tr>
-      <th>Kalimat ke 12</th>
+      <th>Kalimat ke 15</th>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 16</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 17</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 18</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 19</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 20</th>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 21</th>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>...</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Kalimat ke 22</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
@@ -2906,11 +3962,12 @@ document.write(`
     </tr>
   </tbody>
 </table>
+<p>22 rows × 22 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8e4cf114-7f6d-4f57-89dc-2f8bb960d576')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7a250fd7-f708-42e8-bc13-13f514732c7d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2962,12 +4019,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8e4cf114-7f6d-4f57-89dc-2f8bb960d576 button.colab-df-convert');
+        document.querySelector('#df-7a250fd7-f708-42e8-bc13-13f514732c7d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8e4cf114-7f6d-4f57-89dc-2f8bb960d576');
+        const element = document.querySelector('#df-7a250fd7-f708-42e8-bc13-13f514732c7d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2987,8 +4044,8 @@ document.write(`
   </div>
 
 
-<div id="df-627c80c7-1bdd-4b65-be73-9ed2ab41f1c0">
-  <button class="colab-df-quickchart" onclick="quickchart('df-627c80c7-1bdd-4b65-be73-9ed2ab41f1c0')"
+<div id="df-cac28bd3-c55f-4d3c-9b60-b6a911502dc8">
+  <button class="colab-df-quickchart" onclick="quickchart('df-cac28bd3-c55f-4d3c-9b60-b6a911502dc8')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3107,14 +4164,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-627c80c7-1bdd-4b65-be73-9ed2ab41f1c0 button');
+        document.querySelector('#df-cac28bd3-c55f-4d3c-9b60-b6a911502dc8 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_176e8b1f-024c-469c-84fb-dec1b8976dc6">
+  <div id="id_c196ecd2-f562-48cc-97e5-7fa262c19ada">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -3158,7 +4215,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_176e8b1f-024c-469c-84fb-dec1b8976dc6 button.colab-df-generate');
+        document.querySelector('#id_c196ecd2-f562-48cc-97e5-7fa262c19ada button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -3194,7 +4251,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3c2de7b0f5350e9b91b5ab7fcc319ed8927c8ff60828fce960f4edebf4ab4188.png" src="../_images/3c2de7b0f5350e9b91b5ab7fcc319ed8927c8ff60828fce960f4edebf4ab4188.png" />
+<img alt="../_images/258e4552e37f81ee0e958bfc5eb5bcd383b6615537965bd7b64f15fedc073121.png" src="../_images/258e4552e37f81ee0e958bfc5eb5bcd383b6615537965bd7b64f15fedc073121.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3223,7 +4280,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-9c6dc42b-47ff-4b85-9119-a4cad1618c31" class="colab-df-container">
+  <div id="df-8e57fd44-44a3-4155-89ce-a8fff1ead9cd" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3252,85 +4309,155 @@ document.write(`
     <tr>
       <th>0</th>
       <td>Kalimat ke 1</td>
-      <td>0.227273</td>
-      <td>1.000000</td>
-      <td>0.826446</td>
+      <td>0.194509</td>
+      <td>0.809524</td>
+      <td>0.747412</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Kalimat ke 2</td>
-      <td>0.000000</td>
-      <td>0.454545</td>
-      <td>0.505051</td>
+      <td>0.002540</td>
+      <td>0.285714</td>
+      <td>0.477513</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Kalimat ke 3</td>
-      <td>0.033333</td>
-      <td>0.636364</td>
-      <td>0.568182</td>
+      <td>0.000000</td>
+      <td>0.285714</td>
+      <td>0.452381</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Kalimat ke 4</td>
-      <td>0.018182</td>
-      <td>0.636364</td>
-      <td>0.606061</td>
+      <td>0.002989</td>
+      <td>0.333333</td>
+      <td>0.505602</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Kalimat ke 5</td>
-      <td>0.000000</td>
-      <td>0.454545</td>
-      <td>0.534759</td>
+      <td>0.067221</td>
+      <td>0.476190</td>
+      <td>0.573016</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Kalimat ke 6</td>
-      <td>0.209091</td>
-      <td>0.818182</td>
-      <td>0.699301</td>
+      <td>0.060743</td>
+      <td>0.619048</td>
+      <td>0.636684</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Kalimat ke 7</td>
-      <td>0.012121</td>
-      <td>0.636364</td>
-      <td>0.606061</td>
+      <td>0.000000</td>
+      <td>0.095238</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Kalimat ke 8</td>
-      <td>0.045455</td>
-      <td>0.727273</td>
-      <td>0.649351</td>
+      <td>0.000000</td>
+      <td>0.238095</td>
+      <td>0.440781</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Kalimat ke 9</td>
-      <td>0.030303</td>
-      <td>0.545455</td>
-      <td>0.568182</td>
+      <td>0.121058</td>
+      <td>0.619048</td>
+      <td>0.636684</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Kalimat ke 10</td>
-      <td>0.006061</td>
-      <td>0.545455</td>
-      <td>0.534759</td>
+      <td>0.000000</td>
+      <td>0.380952</td>
+      <td>0.537202</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Kalimat ke 11</td>
-      <td>0.000000</td>
-      <td>0.272727</td>
-      <td>0.413223</td>
+      <td>0.009957</td>
+      <td>0.285714</td>
+      <td>0.464607</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Kalimat ke 12</td>
+      <td>0.017778</td>
+      <td>0.333333</td>
+      <td>0.491156</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Kalimat ke 13</td>
+      <td>0.026448</td>
+      <td>0.476190</td>
+      <td>0.554531</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Kalimat ke 14</td>
+      <td>0.026071</td>
+      <td>0.476190</td>
+      <td>0.573016</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Kalimat ke 15</td>
       <td>0.000000</td>
-      <td>0.181818</td>
+      <td>0.238095</td>
+      <td>0.419280</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Kalimat ke 16</td>
+      <td>0.031497</td>
+      <td>0.523810</td>
+      <td>0.592775</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Kalimat ke 17</td>
+      <td>0.010711</td>
+      <td>0.333333</td>
+      <td>0.491156</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Kalimat ke 18</td>
+      <td>0.005913</td>
+      <td>0.285714</td>
+      <td>0.464607</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Kalimat ke 19</td>
+      <td>0.028968</td>
+      <td>0.380952</td>
+      <td>0.537202</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Kalimat ke 20</td>
+      <td>0.031263</td>
+      <td>0.428571</td>
+      <td>0.520924</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Kalimat ke 21</td>
+      <td>0.019477</td>
+      <td>0.476190</td>
+      <td>0.573016</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Kalimat ke 22</td>
+      <td>0.000000</td>
+      <td>0.095238</td>
       <td>0.000000</td>
     </tr>
   </tbody>
@@ -3339,7 +4466,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-9c6dc42b-47ff-4b85-9119-a4cad1618c31')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8e57fd44-44a3-4155-89ce-a8fff1ead9cd')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3391,12 +4518,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-9c6dc42b-47ff-4b85-9119-a4cad1618c31 button.colab-df-convert');
+        document.querySelector('#df-8e57fd44-44a3-4155-89ce-a8fff1ead9cd button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-9c6dc42b-47ff-4b85-9119-a4cad1618c31');
+        const element = document.querySelector('#df-8e57fd44-44a3-4155-89ce-a8fff1ead9cd');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3416,8 +4543,8 @@ document.write(`
   </div>
 
 
-<div id="df-d97c8178-626c-4692-89d4-5d69a3ac1462">
-  <button class="colab-df-quickchart" onclick="quickchart('df-d97c8178-626c-4692-89d4-5d69a3ac1462')"
+<div id="df-668711c4-a02a-4dc1-a011-355148cfdf9b">
+  <button class="colab-df-quickchart" onclick="quickchart('df-668711c4-a02a-4dc1-a011-355148cfdf9b')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3536,14 +4663,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-d97c8178-626c-4692-89d4-5d69a3ac1462 button');
+        document.querySelector('#df-668711c4-a02a-4dc1-a011-355148cfdf9b button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_b9daa1f2-6f27-43e1-a6e2-ea08f15d267c">
+  <div id="id_c0d89e1c-6bdc-45cb-91ff-b19a8f830788">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -3587,7 +4714,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_b9daa1f2-6f27-43e1-a6e2-ea08f15d267c button.colab-df-generate');
+        document.querySelector('#id_c0d89e1c-6bdc-45cb-91ff-b19a8f830788 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -3611,7 +4738,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b2ee118a-d90b-464a-8c9f-1685cdcfd4c9" class="colab-df-container">
+  <div id="df-1177b62d-513b-4a54-a225-95a8f8f6ff99" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3640,37 +4767,37 @@ document.write(`
     <tr>
       <th>0</th>
       <td>Kalimat ke 1</td>
-      <td>0.227273</td>
-      <td>1.000000</td>
-      <td>0.826446</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Kalimat ke 6</td>
-      <td>0.209091</td>
-      <td>0.818182</td>
-      <td>0.699301</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Kalimat ke 8</td>
-      <td>0.045455</td>
-      <td>0.727273</td>
-      <td>0.649351</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Kalimat ke 3</td>
-      <td>0.033333</td>
-      <td>0.636364</td>
-      <td>0.568182</td>
+      <td>0.194509</td>
+      <td>0.809524</td>
+      <td>0.747412</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Kalimat ke 9</td>
-      <td>0.030303</td>
-      <td>0.545455</td>
-      <td>0.568182</td>
+      <td>0.121058</td>
+      <td>0.619048</td>
+      <td>0.636684</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Kalimat ke 5</td>
+      <td>0.067221</td>
+      <td>0.476190</td>
+      <td>0.573016</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Kalimat ke 6</td>
+      <td>0.060743</td>
+      <td>0.619048</td>
+      <td>0.636684</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Kalimat ke 16</td>
+      <td>0.031497</td>
+      <td>0.523810</td>
+      <td>0.592775</td>
     </tr>
   </tbody>
 </table>
@@ -3678,7 +4805,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-b2ee118a-d90b-464a-8c9f-1685cdcfd4c9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1177b62d-513b-4a54-a225-95a8f8f6ff99')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3730,12 +4857,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-b2ee118a-d90b-464a-8c9f-1685cdcfd4c9 button.colab-df-convert');
+        document.querySelector('#df-1177b62d-513b-4a54-a225-95a8f8f6ff99 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-b2ee118a-d90b-464a-8c9f-1685cdcfd4c9');
+        const element = document.querySelector('#df-1177b62d-513b-4a54-a225-95a8f8f6ff99');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3755,8 +4882,8 @@ document.write(`
   </div>
 
 
-<div id="df-c2b7fe50-5324-420f-b502-9a6c9f055f86">
-  <button class="colab-df-quickchart" onclick="quickchart('df-c2b7fe50-5324-420f-b502-9a6c9f055f86')"
+<div id="df-a8736b8e-18fb-4ebc-a89e-ffb07bea59ad">
+  <button class="colab-df-quickchart" onclick="quickchart('df-a8736b8e-18fb-4ebc-a89e-ffb07bea59ad')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3875,14 +5002,14 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-c2b7fe50-5324-420f-b502-9a6c9f055f86 button');
+        document.querySelector('#df-a8736b8e-18fb-4ebc-a89e-ffb07bea59ad button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_9e5d392a-c090-4503-aa0b-79b4319bf544">
+  <div id="id_85f17562-c841-448b-9a55-c9241d51b01d">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -3926,7 +5053,7 @@ document.write(`
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_9e5d392a-c090-4503-aa0b-79b4319bf544 button.colab-df-generate');
+        document.querySelector('#id_85f17562-c841-448b-9a55-c9241d51b01d button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -3936,6 +5063,281 @@ document.write(`
       })();
     </script>
   </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hapus kolom yang tidak diperlukan</span>
+<span class="n">ranked_sentences</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">top</span><span class="p">,</span> <span class="n">result_df</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Kalimat&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;kalimat ke n&#39;</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan DataFrame hasil yang sudah diperbarui</span>
+<span class="n">ranked_sentences</span><span class="p">[[</span><span class="s1">&#39;kalimat ke n&#39;</span><span class="p">,</span> <span class="s1">&#39;final&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-41421e00-a5b3-498f-9848-0922b3269fd8" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kalimat ke n</th>
+      <th>final</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Kalimat ke 1</td>
+      <td>jakarta pria nama evan plotkin connecticut as ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kalimat ke 9</td>
+      <td>ganti rugi punitif hukum johnson johnson tinda...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Kalimat ke 5</td>
+      <td>adil fairfield county connecticut putus usaha ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Kalimat ke 6</td>
+      <td>evan plotkin tim sidang gembira juri putus per...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Kalimat ke 16</td>
+      <td>kutip republic world johnson johnson upaya sel...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-41421e00-a5b3-498f-9848-0922b3269fd8')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-41421e00-a5b3-498f-9848-0922b3269fd8 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-41421e00-a5b3-498f-9848-0922b3269fd8');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-1b604c81-4fd0-4b37-a26d-79ea9d6fa42e">
+  <button class="colab-df-quickchart" onclick="quickchart('df-1b604c81-4fd0-4b37-a26d-79ea9d6fa42e')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-1b604c81-4fd0-4b37-a26d-79ea9d6fa42e button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
 
     </div>
   </div>
@@ -4041,8 +5443,8 @@ By Rifqi
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
