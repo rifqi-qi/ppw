@@ -176,6 +176,9 @@
 <li class="toctree-l1"><a class="reference internal" href="tugas-5v2.html">Tugas 5 : Keyword Extraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas-6.html">Tugas 6 : Sistem pencarian dokumen dengan penerapan Singular Value Decomposition (SVD)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas-7.html">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi (SVD)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-8.html">Tugas - 8 Clustering menggunakan Fuzzy C Means</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="link.html">Link Aplikasi</a></li>
 </ul>
 
     </div>
@@ -422,7 +425,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a35cd283-a75b-4440-84ef-f51da99ef8d5" class="colab-df-container">
+  <div id="df-158d7c6a-7569-4462-8f1e-c2d8a6ca2f2d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -513,7 +516,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a35cd283-a75b-4440-84ef-f51da99ef8d5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-158d7c6a-7569-4462-8f1e-c2d8a6ca2f2d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -565,12 +568,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a35cd283-a75b-4440-84ef-f51da99ef8d5 button.colab-df-convert');
+        document.querySelector('#df-158d7c6a-7569-4462-8f1e-c2d8a6ca2f2d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a35cd283-a75b-4440-84ef-f51da99ef8d5');
+        const element = document.querySelector('#df-158d7c6a-7569-4462-8f1e-c2d8a6ca2f2d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -619,7 +622,7 @@ DataFrame setelah Label Encoding:
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-7ef564cd-cb28-4074-95dc-56c68a87d5d9" class="colab-df-container">
+  <div id="df-0d6ffeba-bd00-483a-8f16-7eee8c0b3552" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -789,7 +792,7 @@ DataFrame setelah Label Encoding:
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7ef564cd-cb28-4074-95dc-56c68a87d5d9')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0d6ffeba-bd00-483a-8f16-7eee8c0b3552')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -841,12 +844,12 @@ DataFrame setelah Label Encoding:
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7ef564cd-cb28-4074-95dc-56c68a87d5d9 button.colab-df-convert');
+        document.querySelector('#df-0d6ffeba-bd00-483a-8f16-7eee8c0b3552 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7ef564cd-cb28-4074-95dc-56c68a87d5d9');
+        const element = document.querySelector('#df-0d6ffeba-bd00-483a-8f16-7eee8c0b3552');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -868,6 +871,14 @@ DataFrame setelah Label Encoding:
     </div>
   </div>
   </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menyimpan DataFrame ke file CSV</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;data_label_encoded.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>Spliting Data</p>
 <hr class="docutils" />
