@@ -428,17 +428,44 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: fuzzy-c-means in /usr/local/lib/python3.10/dist-packages (1.7.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting fuzzy-c-means
+  Downloading fuzzy_c_means-1.7.2-py3-none-any.whl.metadata (4.7 kB)
 Requirement already satisfied: joblib&lt;2.0.0,&gt;=1.2.0 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (1.4.2)
 Requirement already satisfied: numpy&lt;2.0.0,&gt;=1.21.1 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (1.26.4)
 Requirement already satisfied: pydantic&lt;3.0.0,&gt;=2.6.4 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (2.9.2)
-Requirement already satisfied: tabulate&lt;0.9.0,&gt;=0.8.9 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (0.8.10)
+Collecting tabulate&lt;0.9.0,&gt;=0.8.9 (from fuzzy-c-means)
+  Downloading tabulate-0.8.10-py3-none-any.whl.metadata (25 kB)
 Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.64.1 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (4.66.6)
-Requirement already satisfied: typer&lt;0.10.0,&gt;=0.9.0 in /usr/local/lib/python3.10/dist-packages (from fuzzy-c-means) (0.9.4)
+Collecting typer&lt;0.10.0,&gt;=0.9.0 (from fuzzy-c-means)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading typer-0.9.4-py3-none-any.whl.metadata (14 kB)
 Requirement already satisfied: annotated-types&gt;=0.6.0 in /usr/local/lib/python3.10/dist-packages (from pydantic&lt;3.0.0,&gt;=2.6.4-&gt;fuzzy-c-means) (0.7.0)
 Requirement already satisfied: pydantic-core==2.23.4 in /usr/local/lib/python3.10/dist-packages (from pydantic&lt;3.0.0,&gt;=2.6.4-&gt;fuzzy-c-means) (2.23.4)
 Requirement already satisfied: typing-extensions&gt;=4.6.1 in /usr/local/lib/python3.10/dist-packages (from pydantic&lt;3.0.0,&gt;=2.6.4-&gt;fuzzy-c-means) (4.12.2)
 Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/python3.10/dist-packages (from typer&lt;0.10.0,&gt;=0.9.0-&gt;fuzzy-c-means) (8.1.7)
+Downloading fuzzy_c_means-1.7.2-py3-none-any.whl (9.1 kB)
+Downloading tabulate-0.8.10-py3-none-any.whl (29 kB)
+Downloading typer-0.9.4-py3-none-any.whl (45 kB)
+?25l   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/46.0 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">46.0/46.0 kB</span> <span class=" -Color -Color-Red">4.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: typer, tabulate, fuzzy-c-means
+  Attempting uninstall: typer
+    Found existing installation: typer 0.13.0
+    Uninstalling typer-0.13.0:
+      Successfully uninstalled typer-0.13.0
+  Attempting uninstall: tabulate
+    Found existing installation: tabulate 0.9.0
+    Uninstalling tabulate-0.9.0:
+      Successfully uninstalled tabulate-0.9.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.</span>
+<span class=" -Color -Color-Red">bigframes 1.27.0 requires tabulate&gt;=0.9, but you have tabulate 0.8.10 which is incompatible.</span>
+Successfully installed fuzzy-c-means-1.7.2 tabulate-0.8.10 typer-0.9.4
 </pre></div>
 </div>
 </div>
@@ -467,7 +494,7 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f7b9ea0d-0ba9-47e1-8adf-49f468bfd3a2" class="colab-df-container">
+  <div id="df-65b6e758-c0ba-4f4f-a1d6-2b144dd8b27c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -564,7 +591,7 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f7b9ea0d-0ba9-47e1-8adf-49f468bfd3a2')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-65b6e758-c0ba-4f4f-a1d6-2b144dd8b27c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -616,12 +643,12 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f7b9ea0d-0ba9-47e1-8adf-49f468bfd3a2 button.colab-df-convert');
+        document.querySelector('#df-65b6e758-c0ba-4f4f-a1d6-2b144dd8b27c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f7b9ea0d-0ba9-47e1-8adf-49f468bfd3a2');
+        const element = document.querySelector('#df-65b6e758-c0ba-4f4f-a1d6-2b144dd8b27c');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -740,27 +767,27 @@ Requirement already satisfied: click&lt;9.0.0,&gt;=7.1.1 in /usr/local/lib/pytho
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=2: Silhouette=0.8337772933307168, ARI=0.002427096100870114, NMI=0.0513556720154113
 Iterasi dengan n_components=3: Silhouette=0.3048042224095639, ARI=0.28502803547762257, NMI=0.2626148014340699
 Iterasi dengan n_components=4: Silhouette=0.17374400175853444, ARI=0.48515105906537936, NMI=0.46366215811612455
+Iterasi dengan n_components=5: Silhouette=0.2197056713099808, ARI=0.6363502791654423, NMI=0.5407862117028416
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=5: Silhouette=0.2197056713099808, ARI=0.6363502791654423, NMI=0.5407862117028416
-Iterasi dengan n_components=6: Silhouette=0.19800520414265102, ARI=0.6691233181935041, NMI=0.6022111600455702
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=7: Silhouette=0.16822404893884996, ARI=0.9208, NMI=0.8585594574581795
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=6: Silhouette=0.19800520414265102, ARI=0.6691233181935041, NMI=0.6022111600455702
+Iterasi dengan n_components=7: Silhouette=0.16822404893884996, ARI=0.9208, NMI=0.8585594574581795
 Iterasi dengan n_components=8: Silhouette=0.16118622632818394, ARI=0.6690692994951206, NMI=0.5697389043881019
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=9: Silhouette=0.13381355568091768, ARI=0.8080620079101718, NMI=0.7149460394223505
 Iterasi dengan n_components=10: Silhouette=0.12268153836396324, ARI=0.8080620079101718, NMI=0.7149460394223505
+Iterasi dengan n_components=11: Silhouette=0.11422312943790454, ARI=0.6690584936388014, NMI=0.564205452925309
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=11: Silhouette=0.11422312943790454, ARI=0.6690584936388014, NMI=0.564205452925309
-Iterasi dengan n_components=12: Silhouette=0.10225114173159909, ARI=0.6044056963032804, NMI=0.5006054392285263
-Iterasi dengan n_components=13: Silhouette=0.09422935681374459, ARI=0.42984314349737346, NMI=0.3425675669167147
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=12: Silhouette=0.10225114173159909, ARI=0.6044056963032804, NMI=0.5006054392285263
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=14: Silhouette=0.11758695061244309, ARI=0.40358524758779446, NMI=0.32091195187981514
-Iterasi dengan n_components=15: Silhouette=0.11430834120343482, ARI=0.7026007738649165, NMI=0.6009721799981695
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=13: Silhouette=0.09422935681374459, ARI=0.42984314349737346, NMI=0.3425675669167147
+Iterasi dengan n_components=14: Silhouette=0.11758695061244309, ARI=0.40358524758779446, NMI=0.32091195187981514
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=15: Silhouette=0.11430834120343482, ARI=0.7026007738649165, NMI=0.6009721799981695
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=16: Silhouette=0.09438248445117148, ARI=0.7369439308410987, NMI=0.6349910030198423
@@ -772,26 +799,36 @@ Iterasi dengan n_components=19: Silhouette=0.06407715515169664, ARI=0.5430750584
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=20: Silhouette=0.07129218817602614, ARI=0.5430303030303031, NMI=0.4532839480340868
-Iterasi dengan n_components=21: Silhouette=0.07665527361403152, ARI=0.7721314419105764, NMI=0.7287008798015754
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=21: Silhouette=0.07665527361403152, ARI=0.7721314419105764, NMI=0.7287008798015754
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=22: Silhouette=0.06710135148700619, ARI=0.6690909090909091, NMI=0.5816101791805874
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=23: Silhouette=0.05478798866515124, ARI=0.5734012339633728, NMI=0.5040175340948666
-Iterasi dengan n_components=24: Silhouette=0.07646445831655266, ARI=0.6363502791654423, NMI=0.5407862117028416
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=24: Silhouette=0.07646445831655266, ARI=0.6363502791654423, NMI=0.5407862117028416
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=25: Silhouette=0.060129472644869966, ARI=0.5430750584576962, NMI=0.4644224376637692
-Iterasi dengan n_components=26: Silhouette=0.05004805004610285, ARI=0.6364215062187837, NMI=0.5760367196319857
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=26: Silhouette=0.05004805004610285, ARI=0.6364215062187837, NMI=0.5760367196319857
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=27: Silhouette=0.06827828053876407, ARI=0.7369439308410987, NMI=0.6349910030198423
-Iterasi dengan n_components=28: Silhouette=0.06803329804628704, ARI=0.7026007738649165, NMI=0.6009721799981695
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=28: Silhouette=0.06803329804628704, ARI=0.7026007738649165, NMI=0.6009721799981695
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=29: Silhouette=0.06751353875263542, ARI=0.7026007738649165, NMI=0.6009721799981695
-Iterasi dengan n_components=30: Silhouette=0.06310564928572981, ARI=0.6691233181935041, NMI=0.6022111600455701
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=30: Silhouette=0.06310564928572981, ARI=0.6691233181935041, NMI=0.6022111600455701
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=31: Silhouette=0.057392599929617906, ARI=0.6363799604956006, NMI=0.5541718004161501
@@ -804,50 +841,42 @@ Iterasi dengan n_components=30: Silhouette=0.06310564928572981, ARI=0.6691233181
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=34: Silhouette=0.05275390916490557, ARI=0.6363502791654423, NMI=0.5407862117028416
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=35: Silhouette=0.041184104857086706, ARI=0.6364215062187837, NMI=0.5760367196319857
+Iterasi dengan n_components=35: Silhouette=0.041184104857086706, ARI=0.6364215062187837, NMI=0.5760367196319857
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=36: Silhouette=0.04318095975247137, ARI=0.6044831849956539, NMI=0.5283779304228372
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=37: Silhouette=0.03477038696035942, ARI=0.6691233181935041, NMI=0.6022111600455701
+Iterasi dengan n_components=37: Silhouette=0.03477038696035942, ARI=0.6691233181935041, NMI=0.6022111600455701
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=38: Silhouette=0.0415651034587084, ARI=0.5733524869815048, NMI=0.4883691052528023
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=39: Silhouette=0.028986235429074608, ARI=0.5734638922888617, NMI=0.5278128971535107
+Iterasi dengan n_components=39: Silhouette=0.028986235429074608, ARI=0.5734638922888617, NMI=0.5278128971535107
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=40: Silhouette=0.01730322007067457, ARI=0.5432987041591718, NMI=0.5508859315259125
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=41: Silhouette=0.025409828755171136, ARI=0.5137714975687759, NMI=0.4841045895125373
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=42: Silhouette=0.029749675102486477, ARI=0.5734638922888617, NMI=0.5278128971535107
+Iterasi dengan n_components=42: Silhouette=0.029749675102486477, ARI=0.5734638922888617, NMI=0.5278128971535107
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=43: Silhouette=0.026173573325331406, ARI=0.48505024049347056, NMI=0.43798897250861957
-Iterasi dengan n_components=44: Silhouette=0.03296814643480673, ARI=0.5432092721553845, NMI=0.5054552642988157
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=44: Silhouette=0.03296814643480673, ARI=0.5432092721553845, NMI=0.5054552642988157
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=45: Silhouette=0.01917313264177262, ARI=0.5735404496948732, NMI=0.5725330469636438
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=46: Silhouette=0.026653489490473622, ARI=0.5432092721553845, NMI=0.5054552642988157
+Iterasi dengan n_components=47: Silhouette=0.025957590420136015, ARI=0.5432092721553845, NMI=0.5054552642988157
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=47: Silhouette=0.025957590420136015, ARI=0.5432092721553845, NMI=0.5054552642988157
-Iterasi dengan n_components=48: Silhouette=0.04463559361250098, ARI=0.484966194849866, NMI=0.4201950629936393
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=48: Silhouette=0.04463559361250098, ARI=0.484966194849866, NMI=0.4201950629936393
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=49: Silhouette=0.012155375461606251, ARI=0.4852686308492201, NMI=0.5102432713148242
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=50: Silhouette=-0.00040570354801800325, ARI=0.4305125790394188, NMI=0.4726208033119676
+Iterasi dengan n_components=50: Silhouette=-0.00040570354801800325, ARI=0.4305125790394188, NMI=0.4726208033119676
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=51: Silhouette=0.01539288609392269, ARI=0.4573484069886948, NMI=0.4440430336297205
@@ -864,24 +893,18 @@ Iterasi dengan n_components=55: Silhouette=0.004783759191350618, ARI=0.378688959
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=56: Silhouette=0.014272651580376605, ARI=0.37854704306009324, NMI=0.34322416925178734
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=57: Silhouette=0.01102391666193494, ARI=0.33024365378733817, NMI=0.3091969802608189
+Iterasi dengan n_components=57: Silhouette=0.01102391666193494, ARI=0.33024365378733817, NMI=0.3091969802608189
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=58: Silhouette=0.008162187151870675, ARI=0.3539861987960652, NMI=0.32589089043700686
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=59: Silhouette=0.011897006085042083, ARI=0.33009067214859955, NMI=0.29443507822355974
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=60: Silhouette=0.016512626978122728, ARI=0.35384916620435336, NMI=0.3112922958787187
+Iterasi dengan n_components=60: Silhouette=0.016512626978122728, ARI=0.35384916620435336, NMI=0.3112922958787187
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=61: Silhouette=0.002459067652375472, ARI=0.37868895911917627, NMI=0.362461504261513
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=62: Silhouette=-0.0013238272906066547, ARI=0.43036395147313694, NMI=0.4251733066988798
+Iterasi dengan n_components=62: Silhouette=-0.0013238272906066547, ARI=0.43036395147313694, NMI=0.4251733066988798
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iterasi dengan n_components=63: Silhouette=-0.004914817709899838, ARI=0.35414424111948334, NMI=0.3453114986314867
@@ -1276,7 +1299,7 @@ Name: count, dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e69da5b2-a11c-4846-bce5-bf254d49462c" class="colab-df-container">
+  <div id="df-ef4eee4f-0059-438c-bf1a-d40715018b0f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1458,7 +1481,7 @@ Name: count, dtype: int64
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-e69da5b2-a11c-4846-bce5-bf254d49462c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ef4eee4f-0059-438c-bf1a-d40715018b0f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1510,12 +1533,12 @@ Name: count, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-e69da5b2-a11c-4846-bce5-bf254d49462c button.colab-df-convert');
+        document.querySelector('#df-ef4eee4f-0059-438c-bf1a-d40715018b0f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-e69da5b2-a11c-4846-bce5-bf254d49462c');
+        const element = document.querySelector('#df-ef4eee4f-0059-438c-bf1a-d40715018b0f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1754,7 +1777,7 @@ Anggota Cluster 1: [10, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Teks baru ini diprediksi ke dalam cluster: Olahraga
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Teks baru ini diprediksi ke dalam cluster: Kesehatan
 </pre></div>
 </div>
 </div>
