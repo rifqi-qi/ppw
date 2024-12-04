@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/tugas-7';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tugas - 8 Clustering menggunakan Fuzzy C Means" href="tugas-8.html" />
+    <link rel="next" title="Tugas - 8 Clustering menggunakan Fuzzy C Means" href="tugas-8v2.html" />
     <link rel="prev" title="Tugas 6 : Sistem pencarian dokumen dengan penerapan Singular Value Decomposition (SVD)" href="tugas-6.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,7 +176,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tugas-5v2.html">Tugas 5 : Keyword Extraction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tugas-6.html">Tugas 6 : Sistem pencarian dokumen dengan penerapan Singular Value Decomposition (SVD)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 7 : Klasifikasi Berita Metode Logistic Regression dengan reduksi dimensi (SVD)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tugas-8.html">Tugas - 8 Clustering menggunakan Fuzzy C Means</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tugas-8v2.html">Tugas - 8 Clustering menggunakan Fuzzy C Means</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="link.html">Link Aplikasi</a></li>
 </ul>
@@ -425,7 +425,7 @@
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c89575d2-79ef-4490-b085-e31191134fe2" class="colab-df-container">
+  <div id="df-343c66e3-cbb0-4625-ac61-46c67ade1f6b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -457,58 +457,58 @@
   <tbody>
     <tr>
       <th>0</th>
-      <td>Terbukti Lewat Studi, Makan di Waktu Ini Bikin...</td>
-      <td>Kamis, 28 Nov 2024 09:02 WIB</td>
-      <td>Jakarta - Tidak hanya jenis hidangan yang diko...</td>
+      <td>7 Rekomendasi Makanan Pencegah Kanker, Ada Wor...</td>
+      <td>Rabu, 04 Des 2024 19:19 WIB</td>
+      <td>Jakarta - Kanker merupakan salah satu penyakit...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tidak hanya jenis hidangan yang dikon...</td>
-      <td>jakarta  tidak hanya jenis hidangan yang dikon...</td>
-      <td>['jakarta', 'tidak', 'hanya', 'jenis', 'hidang...</td>
-      <td>jakarta jenis hidangan dikonsumsi mengonsumsi ...</td>
+      <td>Jakarta  Kanker merupakan salah satu penyakit ...</td>
+      <td>jakarta  kanker merupakan salah satu penyakit ...</td>
+      <td>['jakarta', 'kanker', 'merupakan', 'salah', 's...</td>
+      <td>jakarta kanker salah penyakit ditakuti orang p...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Angka Kelahiran Korsel Akhirnya Naik di Kala P...</td>
-      <td>Kamis, 28 Nov 2024 08:00 WIB</td>
-      <td>Jakarta - Korea Selatan merupakan salah satu n...</td>
+      <td>Viral Wanita Sering Halu gegara Skizofrenia, P...</td>
+      <td>Rabu, 04 Des 2024 18:05 WIB</td>
+      <td>Jakarta - Viral seorang wanita menceritakan pe...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Korea Selatan merupakan salah satu ne...</td>
-      <td>jakarta  korea selatan merupakan salah satu ne...</td>
-      <td>['jakarta', 'korea', 'selatan', 'merupakan', '...</td>
-      <td>jakarta korea selatan salah negara dihadapkan ...</td>
+      <td>Jakarta  Viral seorang wanita menceritakan pen...</td>
+      <td>jakarta  viral seorang wanita menceritakan pen...</td>
+      <td>['jakarta', 'viral', 'seorang', 'wanita', 'men...</td>
+      <td>jakarta viral wanita menceritakan pengalamanny...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Minum Kopi saat Perut Kosong, Berbahayakah? In...</td>
-      <td>Kamis, 28 Nov 2024 07:30 WIB</td>
-      <td>Jakarta - Dalam sehari-hari, secangkir kopi se...</td>
+      <td>Ilmuwan Teliti Efek Lockdown Pandemi COVID-19 ...</td>
+      <td>Rabu, 04 Des 2024 17:02 WIB</td>
+      <td>Jakarta - Sebuah penelitian terbaru mengungkap...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Dalam seharihari secangkir kopi serin...</td>
-      <td>jakarta  dalam seharihari secangkir kopi serin...</td>
-      <td>['jakarta', 'dalam', 'seharihari', 'secangkir'...</td>
-      <td>jakarta seharihari secangkir kopi kebiasaan or...</td>
+      <td>Jakarta  Sebuah penelitian terbaru mengungkapk...</td>
+      <td>jakarta  sebuah penelitian terbaru mengungkapk...</td>
+      <td>['jakarta', 'sebuah', 'penelitian', 'terbaru',...</td>
+      <td>jakarta penelitian terbaru perubahan signifika...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Imunisasi BCG Diberikan Umur Berapa? Ini Jadwa...</td>
-      <td>Kamis, 28 Nov 2024 07:00 WIB</td>
-      <td>Jakarta - Imunisasi BCG diberikan pada usia ku...</td>
+      <td>Curhat Warga Vietnam Sewa Pacar gegara Ortu Se...</td>
+      <td>Rabu, 04 Des 2024 16:01 WIB</td>
+      <td>Jakarta - Tidak hanya di Korea Selatan dan Jep...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Imunisasi BCG diberikan pada usia kur...</td>
-      <td>jakarta  imunisasi bcg diberikan pada usia kur...</td>
-      <td>['jakarta', 'imunisasi', 'bcg', 'diberikan', '...</td>
-      <td>jakarta imunisasi bcg usia lahir tujuannya mem...</td>
+      <td>Jakarta  Tidak hanya di Korea Selatan dan Jepa...</td>
+      <td>jakarta  tidak hanya di korea selatan dan jepa...</td>
+      <td>['jakarta', 'tidak', 'hanya', 'di', 'korea', '...</td>
+      <td>jakarta korea selatan jepang tren anak muda ma...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Terungkap Alasan Orang Asia Lebih Rentan Kena ...</td>
-      <td>Kamis, 28 Nov 2024 06:00 WIB</td>
-      <td>Jakarta - Sebuah riset menunjukkan warga Asia ...</td>
+      <td>Ramai soal 'Brain Rot', Istilah Kekinian gegar...</td>
+      <td>Rabu, 04 Des 2024 15:00 WIB</td>
+      <td>Jakarta - Belakangan ramai soal istilah 'brain...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebuah riset menunjukkan warga Asia l...</td>
-      <td>jakarta  sebuah riset menunjukkan warga asia l...</td>
-      <td>['jakarta', 'sebuah', 'riset', 'menunjukkan', ...</td>
-      <td>jakarta riset warga asia rentan terkena diabet...</td>
+      <td>Jakarta  Belakangan ramai soal istilah brain r...</td>
+      <td>jakarta  belakangan ramai soal istilah brain r...</td>
+      <td>['jakarta', 'belakangan', 'ramai', 'soal', 'is...</td>
+      <td>jakarta ramai istilah brain rot media sosial i...</td>
     </tr>
   </tbody>
 </table>
@@ -516,7 +516,7 @@
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-c89575d2-79ef-4490-b085-e31191134fe2')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-343c66e3-cbb0-4625-ac61-46c67ade1f6b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -568,12 +568,12 @@
 
     <script>
       const buttonEl =
-        document.querySelector('#df-c89575d2-79ef-4490-b085-e31191134fe2 button.colab-df-convert');
+        document.querySelector('#df-343c66e3-cbb0-4625-ac61-46c67ade1f6b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-c89575d2-79ef-4490-b085-e31191134fe2');
+        const element = document.querySelector('#df-343c66e3-cbb0-4625-ac61-46c67ade1f6b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -622,7 +622,7 @@ DataFrame setelah Label Encoding:
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-a77d80d7-f36f-4fbc-8c38-91b59f7d208f" class="colab-df-container">
+  <div id="df-41262934-f537-4d0a-800c-1d2605b737bb" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -655,62 +655,62 @@ DataFrame setelah Label Encoding:
   <tbody>
     <tr>
       <th>0</th>
-      <td>Terbukti Lewat Studi, Makan di Waktu Ini Bikin...</td>
-      <td>Kamis, 28 Nov 2024 09:02 WIB</td>
-      <td>Jakarta - Tidak hanya jenis hidangan yang diko...</td>
+      <td>7 Rekomendasi Makanan Pencegah Kanker, Ada Wor...</td>
+      <td>Rabu, 04 Des 2024 19:19 WIB</td>
+      <td>Jakarta - Kanker merupakan salah satu penyakit...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Tidak hanya jenis hidangan yang dikon...</td>
-      <td>jakarta  tidak hanya jenis hidangan yang dikon...</td>
-      <td>['jakarta', 'tidak', 'hanya', 'jenis', 'hidang...</td>
-      <td>jakarta jenis hidangan dikonsumsi mengonsumsi ...</td>
+      <td>Jakarta  Kanker merupakan salah satu penyakit ...</td>
+      <td>jakarta  kanker merupakan salah satu penyakit ...</td>
+      <td>['jakarta', 'kanker', 'merupakan', 'salah', 's...</td>
+      <td>jakarta kanker salah penyakit ditakuti orang p...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Angka Kelahiran Korsel Akhirnya Naik di Kala P...</td>
-      <td>Kamis, 28 Nov 2024 08:00 WIB</td>
-      <td>Jakarta - Korea Selatan merupakan salah satu n...</td>
+      <td>Viral Wanita Sering Halu gegara Skizofrenia, P...</td>
+      <td>Rabu, 04 Des 2024 18:05 WIB</td>
+      <td>Jakarta - Viral seorang wanita menceritakan pe...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Korea Selatan merupakan salah satu ne...</td>
-      <td>jakarta  korea selatan merupakan salah satu ne...</td>
-      <td>['jakarta', 'korea', 'selatan', 'merupakan', '...</td>
-      <td>jakarta korea selatan salah negara dihadapkan ...</td>
+      <td>Jakarta  Viral seorang wanita menceritakan pen...</td>
+      <td>jakarta  viral seorang wanita menceritakan pen...</td>
+      <td>['jakarta', 'viral', 'seorang', 'wanita', 'men...</td>
+      <td>jakarta viral wanita menceritakan pengalamanny...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Minum Kopi saat Perut Kosong, Berbahayakah? In...</td>
-      <td>Kamis, 28 Nov 2024 07:30 WIB</td>
-      <td>Jakarta - Dalam sehari-hari, secangkir kopi se...</td>
+      <td>Ilmuwan Teliti Efek Lockdown Pandemi COVID-19 ...</td>
+      <td>Rabu, 04 Des 2024 17:02 WIB</td>
+      <td>Jakarta - Sebuah penelitian terbaru mengungkap...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Dalam seharihari secangkir kopi serin...</td>
-      <td>jakarta  dalam seharihari secangkir kopi serin...</td>
-      <td>['jakarta', 'dalam', 'seharihari', 'secangkir'...</td>
-      <td>jakarta seharihari secangkir kopi kebiasaan or...</td>
+      <td>Jakarta  Sebuah penelitian terbaru mengungkapk...</td>
+      <td>jakarta  sebuah penelitian terbaru mengungkapk...</td>
+      <td>['jakarta', 'sebuah', 'penelitian', 'terbaru',...</td>
+      <td>jakarta penelitian terbaru perubahan signifika...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Imunisasi BCG Diberikan Umur Berapa? Ini Jadwa...</td>
-      <td>Kamis, 28 Nov 2024 07:00 WIB</td>
-      <td>Jakarta - Imunisasi BCG diberikan pada usia ku...</td>
+      <td>Curhat Warga Vietnam Sewa Pacar gegara Ortu Se...</td>
+      <td>Rabu, 04 Des 2024 16:01 WIB</td>
+      <td>Jakarta - Tidak hanya di Korea Selatan dan Jep...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Imunisasi BCG diberikan pada usia kur...</td>
-      <td>jakarta  imunisasi bcg diberikan pada usia kur...</td>
-      <td>['jakarta', 'imunisasi', 'bcg', 'diberikan', '...</td>
-      <td>jakarta imunisasi bcg usia lahir tujuannya mem...</td>
+      <td>Jakarta  Tidak hanya di Korea Selatan dan Jepa...</td>
+      <td>jakarta  tidak hanya di korea selatan dan jepa...</td>
+      <td>['jakarta', 'tidak', 'hanya', 'di', 'korea', '...</td>
+      <td>jakarta korea selatan jepang tren anak muda ma...</td>
       <td>0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Terungkap Alasan Orang Asia Lebih Rentan Kena ...</td>
-      <td>Kamis, 28 Nov 2024 06:00 WIB</td>
-      <td>Jakarta - Sebuah riset menunjukkan warga Asia ...</td>
+      <td>Ramai soal 'Brain Rot', Istilah Kekinian gegar...</td>
+      <td>Rabu, 04 Des 2024 15:00 WIB</td>
+      <td>Jakarta - Belakangan ramai soal istilah 'brain...</td>
       <td>Kesehatan</td>
-      <td>Jakarta  Sebuah riset menunjukkan warga Asia l...</td>
-      <td>jakarta  sebuah riset menunjukkan warga asia l...</td>
-      <td>['jakarta', 'sebuah', 'riset', 'menunjukkan', ...</td>
-      <td>jakarta riset warga asia rentan terkena diabet...</td>
+      <td>Jakarta  Belakangan ramai soal istilah brain r...</td>
+      <td>jakarta  belakangan ramai soal istilah brain r...</td>
+      <td>['jakarta', 'belakangan', 'ramai', 'soal', 'is...</td>
+      <td>jakarta ramai istilah brain rot media sosial i...</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -719,7 +719,7 @@ DataFrame setelah Label Encoding:
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a77d80d7-f36f-4fbc-8c38-91b59f7d208f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-41262934-f537-4d0a-800c-1d2605b737bb')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -771,12 +771,12 @@ DataFrame setelah Label Encoding:
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a77d80d7-f36f-4fbc-8c38-91b59f7d208f button.colab-df-convert');
+        document.querySelector('#df-41262934-f537-4d0a-800c-1d2605b737bb button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a77d80d7-f36f-4fbc-8c38-91b59f7d208f');
+        const element = document.querySelector('#df-41262934-f537-4d0a-800c-1d2605b737bb');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -848,7 +848,7 @@ DataFrame setelah Label Encoding:
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-82711b17-9c7c-4a27-b843-9493ab7e654f" class="colab-df-container">
+  <div id="df-88b824fe-4906-454b-8779-896fa3872676" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -868,26 +868,26 @@ DataFrame setelah Label Encoding:
     <tr style="text-align: right;">
       <th></th>
       <th>aaron</th>
-      <th>abdul</th>
-      <th>abiyu</th>
+      <th>abhiram</th>
+      <th>abirezki</th>
+      <th>abirezky</th>
+      <th>ablation</th>
       <th>abnormal</th>
-      <th>abrasif</th>
       <th>absen</th>
+      <th>abuabu</th>
+      <th>academy</th>
       <th>acara</th>
-      <th>achilles</th>
-      <th>acid</th>
-      <th>acl</th>
       <th>...</th>
-      <th>zero</th>
-      <th>zhang</th>
-      <th>zhehuang</th>
-      <th>zhen</th>
-      <th>zheng</th>
-      <th>zhi</th>
+      <th>yuwono</th>
+      <th>zaki</th>
+      <th>zaky</th>
+      <th>zalacca</th>
+      <th>zat</th>
       <th>zhou</th>
-      <th>zii</th>
-      <th>zita</th>
-      <th>zoom</th>
+      <th>zinc</th>
+      <th>zombie</th>
+      <th>zona</th>
+      <th>zoonosis</th>
     </tr>
   </thead>
   <tbody>
@@ -899,16 +899,16 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -923,16 +923,16 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -947,16 +947,16 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0414</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -970,17 +970,17 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
+      <td>0.021503</td>
       <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -995,16 +995,16 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1043,16 +1043,16 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1067,16 +1067,16 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1091,16 +1091,16 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1115,16 +1115,16 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.000000</td>
-      <td>0.0</td>
+      <td>0.000000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.040023</td>
+      <td>0.0438</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1138,17 +1138,17 @@ DataFrame setelah Label Encoding:
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.049941</td>
-      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.057388</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
+      <td>0.000000</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
+      <td>0.0000</td>
       <td>0.0</td>
       <td>0.0</td>
       <td>0.0</td>
@@ -1157,12 +1157,12 @@ DataFrame setelah Label Encoding:
     </tr>
   </tbody>
 </table>
-<p>80 rows × 4225 columns</p>
+<p>80 rows × 4472 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-82711b17-9c7c-4a27-b843-9493ab7e654f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-88b824fe-4906-454b-8779-896fa3872676')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1214,12 +1214,12 @@ DataFrame setelah Label Encoding:
 
     <script>
       const buttonEl =
-        document.querySelector('#df-82711b17-9c7c-4a27-b843-9493ab7e654f button.colab-df-convert');
+        document.querySelector('#df-88b824fe-4906-454b-8779-896fa3872676 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-82711b17-9c7c-4a27-b843-9493ab7e654f');
+        const element = document.querySelector('#df-88b824fe-4906-454b-8779-896fa3872676');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1262,7 +1262,7 @@ DataFrame setelah Label Encoding:
 </pre></div>
 </div>
 <div class="output text_html">
-  <div id="df-cf91300f-7f56-4b02-9589-55121cb8d4fa" class="colab-df-container">
+  <div id="df-ad850b72-430c-492d-9ca5-828a6e2aa037" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1307,123 +1307,123 @@ DataFrame setelah Label Encoding:
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.555105</td>
-      <td>-0.066044</td>
-      <td>-0.068688</td>
-      <td>-0.075588</td>
-      <td>-0.227684</td>
-      <td>-0.041860</td>
-      <td>0.072589</td>
-      <td>0.034452</td>
-      <td>-0.337101</td>
-      <td>-0.036945</td>
+      <td>0.113577</td>
+      <td>-0.156989</td>
+      <td>0.084574</td>
+      <td>0.064726</td>
+      <td>-0.327363</td>
+      <td>-0.359020</td>
+      <td>-0.054539</td>
+      <td>-0.105344</td>
+      <td>0.006833</td>
+      <td>0.144811</td>
       <td>...</td>
-      <td>0.071860</td>
-      <td>-0.255061</td>
-      <td>-0.090500</td>
-      <td>0.102189</td>
-      <td>-0.038276</td>
-      <td>0.002406</td>
-      <td>-0.124472</td>
-      <td>-0.007400</td>
-      <td>-0.004139</td>
-      <td>0.000402</td>
+      <td>0.050368</td>
+      <td>-0.024331</td>
+      <td>-0.003063</td>
+      <td>0.015311</td>
+      <td>0.004174</td>
+      <td>-0.002326</td>
+      <td>0.000001</td>
+      <td>-0.004864</td>
+      <td>0.002416</td>
+      <td>0.002676</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.574221</td>
-      <td>-0.130423</td>
-      <td>-0.058250</td>
-      <td>0.072070</td>
-      <td>0.194026</td>
-      <td>0.010364</td>
-      <td>-0.036435</td>
-      <td>-0.040036</td>
-      <td>0.306872</td>
-      <td>-0.036766</td>
+      <td>0.219617</td>
+      <td>-0.436616</td>
+      <td>-0.165545</td>
+      <td>-0.096141</td>
+      <td>-0.120312</td>
+      <td>0.134771</td>
+      <td>0.011934</td>
+      <td>-0.012133</td>
+      <td>-0.073945</td>
+      <td>-0.026981</td>
       <td>...</td>
-      <td>-0.007821</td>
-      <td>-0.033183</td>
-      <td>0.004907</td>
-      <td>0.025073</td>
-      <td>0.047364</td>
-      <td>-0.009384</td>
-      <td>0.336575</td>
-      <td>-0.007428</td>
-      <td>-0.001810</td>
-      <td>0.000004</td>
+      <td>-0.012207</td>
+      <td>-0.054591</td>
+      <td>-0.021652</td>
+      <td>0.043910</td>
+      <td>0.017240</td>
+      <td>-0.004244</td>
+      <td>0.003841</td>
+      <td>-0.001667</td>
+      <td>-0.002946</td>
+      <td>-0.005126</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.061888</td>
-      <td>0.342197</td>
-      <td>0.000241</td>
-      <td>-0.364905</td>
-      <td>0.225578</td>
-      <td>-0.310961</td>
-      <td>-0.199132</td>
-      <td>-0.400284</td>
-      <td>-0.112405</td>
-      <td>0.016591</td>
+      <td>0.108154</td>
+      <td>-0.008740</td>
+      <td>0.289485</td>
+      <td>-0.209500</td>
+      <td>-0.180998</td>
+      <td>-0.123462</td>
+      <td>0.580838</td>
+      <td>0.007027</td>
+      <td>0.525451</td>
+      <td>-0.154416</td>
       <td>...</td>
-      <td>0.419039</td>
-      <td>0.118272</td>
-      <td>-0.003632</td>
-      <td>0.036523</td>
-      <td>0.032940</td>
-      <td>0.050560</td>
-      <td>0.001846</td>
-      <td>0.015926</td>
-      <td>-0.007216</td>
-      <td>0.001589</td>
+      <td>-0.004803</td>
+      <td>0.000230</td>
+      <td>-0.003748</td>
+      <td>-0.005389</td>
+      <td>0.007842</td>
+      <td>0.015761</td>
+      <td>-0.002164</td>
+      <td>-0.013669</td>
+      <td>0.006656</td>
+      <td>-0.343988</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.040227</td>
-      <td>0.054320</td>
-      <td>0.018234</td>
-      <td>-0.051708</td>
-      <td>0.004048</td>
-      <td>-0.000340</td>
-      <td>-0.034393</td>
-      <td>0.073798</td>
-      <td>0.051169</td>
-      <td>0.050821</td>
+      <td>0.628080</td>
+      <td>0.341353</td>
+      <td>-0.172981</td>
+      <td>0.061289</td>
+      <td>0.004089</td>
+      <td>-0.024893</td>
+      <td>0.015958</td>
+      <td>-0.008287</td>
+      <td>-0.003387</td>
+      <td>-0.004130</td>
       <td>...</td>
-      <td>-0.003015</td>
-      <td>0.000584</td>
-      <td>-0.010386</td>
-      <td>0.012554</td>
-      <td>-0.004730</td>
-      <td>0.003877</td>
-      <td>-0.001468</td>
-      <td>0.003989</td>
-      <td>0.000133</td>
-      <td>0.001309</td>
+      <td>0.008717</td>
+      <td>-0.268834</td>
+      <td>0.226202</td>
+      <td>-0.255079</td>
+      <td>0.106225</td>
+      <td>-0.089826</td>
+      <td>0.008585</td>
+      <td>-0.011098</td>
+      <td>-0.003275</td>
+      <td>0.002777</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.089970</td>
-      <td>0.016021</td>
-      <td>0.005513</td>
-      <td>-0.071762</td>
-      <td>-0.119938</td>
-      <td>0.010088</td>
-      <td>-0.016582</td>
-      <td>0.026541</td>
-      <td>0.050043</td>
-      <td>0.060769</td>
+      <td>0.146196</td>
+      <td>-0.272458</td>
+      <td>-0.054363</td>
+      <td>-0.034743</td>
+      <td>0.089612</td>
+      <td>0.014243</td>
+      <td>0.077105</td>
+      <td>-0.245978</td>
+      <td>-0.034203</td>
+      <td>0.100085</td>
       <td>...</td>
-      <td>-0.011812</td>
-      <td>0.028311</td>
-      <td>0.002997</td>
-      <td>-0.017084</td>
-      <td>0.003946</td>
-      <td>-0.002763</td>
-      <td>0.033469</td>
-      <td>0.000091</td>
-      <td>0.000939</td>
-      <td>-0.008398</td>
+      <td>-0.000299</td>
+      <td>-0.115788</td>
+      <td>-0.002430</td>
+      <td>-0.002544</td>
+      <td>0.001516</td>
+      <td>0.002403</td>
+      <td>0.064186</td>
+      <td>0.007272</td>
+      <td>-0.005595</td>
+      <td>-0.000664</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1451,123 +1451,123 @@ DataFrame setelah Label Encoding:
     </tr>
     <tr>
       <th>75</th>
-      <td>0.155892</td>
-      <td>0.014392</td>
-      <td>0.045277</td>
-      <td>-0.060220</td>
-      <td>-0.169602</td>
-      <td>-0.026248</td>
-      <td>-0.019034</td>
-      <td>0.035694</td>
-      <td>0.049171</td>
-      <td>0.170380</td>
+      <td>0.197418</td>
+      <td>-0.374469</td>
+      <td>-0.019346</td>
+      <td>0.059652</td>
+      <td>0.022449</td>
+      <td>-0.085374</td>
+      <td>-0.109117</td>
+      <td>0.401908</td>
+      <td>0.142491</td>
+      <td>-0.215437</td>
       <td>...</td>
-      <td>0.003616</td>
-      <td>0.011583</td>
-      <td>-0.026998</td>
-      <td>-0.019650</td>
-      <td>-0.000548</td>
-      <td>0.007577</td>
-      <td>-0.009958</td>
-      <td>0.000780</td>
-      <td>0.002241</td>
-      <td>0.000635</td>
+      <td>0.021772</td>
+      <td>0.023542</td>
+      <td>0.000436</td>
+      <td>-0.025715</td>
+      <td>-0.010218</td>
+      <td>0.006309</td>
+      <td>0.006004</td>
+      <td>0.004704</td>
+      <td>0.000090</td>
+      <td>0.003344</td>
     </tr>
     <tr>
       <th>76</th>
-      <td>0.184032</td>
-      <td>-0.009145</td>
-      <td>0.056223</td>
-      <td>-0.044037</td>
-      <td>-0.137410</td>
-      <td>-0.022652</td>
-      <td>0.028395</td>
-      <td>0.007897</td>
-      <td>-0.003056</td>
-      <td>0.016638</td>
+      <td>0.071333</td>
+      <td>-0.078864</td>
+      <td>0.070576</td>
+      <td>0.206604</td>
+      <td>-0.038504</td>
+      <td>-0.001039</td>
+      <td>0.020421</td>
+      <td>0.053485</td>
+      <td>-0.158404</td>
+      <td>-0.159492</td>
       <td>...</td>
-      <td>0.002146</td>
-      <td>0.037717</td>
-      <td>-0.008263</td>
-      <td>-0.019644</td>
-      <td>-0.004418</td>
-      <td>0.006808</td>
-      <td>-0.022122</td>
-      <td>-0.001215</td>
-      <td>0.000342</td>
-      <td>0.000169</td>
+      <td>0.004023</td>
+      <td>-0.002533</td>
+      <td>-0.000688</td>
+      <td>0.005704</td>
+      <td>-0.005791</td>
+      <td>-0.008651</td>
+      <td>-0.003389</td>
+      <td>0.002249</td>
+      <td>0.000324</td>
+      <td>0.000010</td>
     </tr>
     <tr>
       <th>77</th>
-      <td>0.058454</td>
-      <td>0.244862</td>
-      <td>0.009208</td>
-      <td>-0.175392</td>
-      <td>0.092431</td>
-      <td>0.090594</td>
-      <td>-0.335760</td>
-      <td>0.409158</td>
-      <td>-0.054424</td>
-      <td>-0.175202</td>
+      <td>0.094152</td>
+      <td>-0.008981</td>
+      <td>0.279762</td>
+      <td>-0.213073</td>
+      <td>-0.177696</td>
+      <td>-0.112953</td>
+      <td>0.584871</td>
+      <td>0.001238</td>
+      <td>0.519303</td>
+      <td>-0.158111</td>
       <td>...</td>
-      <td>-0.047277</td>
-      <td>-0.009752</td>
-      <td>0.005371</td>
-      <td>-0.006535</td>
-      <td>0.006403</td>
-      <td>0.032300</td>
-      <td>0.001645</td>
-      <td>-0.006313</td>
-      <td>-0.002762</td>
-      <td>0.001042</td>
+      <td>-0.008134</td>
+      <td>-0.006063</td>
+      <td>-0.002742</td>
+      <td>0.002464</td>
+      <td>0.000085</td>
+      <td>-0.002344</td>
+      <td>0.000564</td>
+      <td>0.018324</td>
+      <td>-0.008240</td>
+      <td>0.341460</td>
     </tr>
     <tr>
       <th>78</th>
-      <td>0.397150</td>
-      <td>-0.103119</td>
-      <td>-0.098381</td>
-      <td>0.103128</td>
-      <td>0.244198</td>
-      <td>0.025548</td>
-      <td>0.021895</td>
-      <td>0.015170</td>
-      <td>-0.205027</td>
-      <td>0.027258</td>
+      <td>0.202149</td>
+      <td>-0.374184</td>
+      <td>-0.149668</td>
+      <td>-0.120322</td>
+      <td>-0.168812</td>
+      <td>0.142077</td>
+      <td>0.035749</td>
+      <td>-0.036113</td>
+      <td>-0.014057</td>
+      <td>0.026674</td>
       <td>...</td>
-      <td>-0.021245</td>
-      <td>0.090011</td>
-      <td>0.121765</td>
-      <td>-0.146807</td>
-      <td>0.078620</td>
-      <td>0.000796</td>
-      <td>0.040089</td>
-      <td>0.001003</td>
-      <td>0.000081</td>
-      <td>-0.000657</td>
+      <td>-0.018401</td>
+      <td>0.024699</td>
+      <td>-0.007421</td>
+      <td>-0.028419</td>
+      <td>-0.001677</td>
+      <td>-0.003954</td>
+      <td>-0.007062</td>
+      <td>-0.003749</td>
+      <td>-0.000542</td>
+      <td>0.005602</td>
     </tr>
     <tr>
       <th>79</th>
-      <td>0.303373</td>
-      <td>0.035789</td>
-      <td>0.027268</td>
-      <td>-0.072388</td>
-      <td>-0.281104</td>
-      <td>-0.052548</td>
-      <td>0.013552</td>
-      <td>0.012911</td>
-      <td>0.044420</td>
-      <td>-0.021695</td>
+      <td>0.129859</td>
+      <td>-0.207977</td>
+      <td>0.104747</td>
+      <td>0.139806</td>
+      <td>-0.379579</td>
+      <td>-0.469682</td>
+      <td>-0.114575</td>
+      <td>-0.064934</td>
+      <td>-0.023763</td>
+      <td>0.126121</td>
       <td>...</td>
-      <td>0.028735</td>
-      <td>0.016813</td>
-      <td>-0.000344</td>
-      <td>-0.016993</td>
-      <td>-0.009891</td>
-      <td>-0.008866</td>
-      <td>-0.040035</td>
-      <td>0.019024</td>
-      <td>0.000790</td>
-      <td>-0.002636</td>
+      <td>-0.126344</td>
+      <td>0.041392</td>
+      <td>0.001178</td>
+      <td>-0.015838</td>
+      <td>-0.009734</td>
+      <td>0.014193</td>
+      <td>-0.010527</td>
+      <td>0.001355</td>
+      <td>0.001633</td>
+      <td>-0.000385</td>
     </tr>
   </tbody>
 </table>
@@ -1576,7 +1576,7 @@ DataFrame setelah Label Encoding:
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-cf91300f-7f56-4b02-9589-55121cb8d4fa')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ad850b72-430c-492d-9ca5-828a6e2aa037')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1628,12 +1628,12 @@ DataFrame setelah Label Encoding:
 
     <script>
       const buttonEl =
-        document.querySelector('#df-cf91300f-7f56-4b02-9589-55121cb8d4fa button.colab-df-convert');
+        document.querySelector('#df-ad850b72-430c-492d-9ca5-828a6e2aa037 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-cf91300f-7f56-4b02-9589-55121cb8d4fa');
+        const element = document.querySelector('#df-ad850b72-430c-492d-9ca5-828a6e2aa037');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1675,15 +1675,15 @@ DataFrame setelah Label Encoding:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 1.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.9
               precision    recall  f1-score   support
 
-           0       1.00      1.00      1.00        12
-           1       1.00      1.00      1.00         8
+           0       1.00      0.83      0.91        12
+           1       0.80      1.00      0.89         8
 
-    accuracy                           1.00        20
-   macro avg       1.00      1.00      1.00        20
-weighted avg       1.00      1.00      1.00        20
+    accuracy                           0.90        20
+   macro avg       0.90      0.92      0.90        20
+weighted avg       0.92      0.90      0.90        20
 </pre></div>
 </div>
 </div>
@@ -1831,7 +1831,7 @@ Prediksi untuk teks 2: Kesehatan
       </div>
     </a>
     <a class="right-next"
-       href="tugas-8.html"
+       href="tugas-8v2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
